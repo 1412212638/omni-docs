@@ -54,31 +54,43 @@ AionUi 是一款免费、本地、开源的 Cowork 工具，支持 Gemini CLI、
 - 支持飞书集成
 - 所有数据默认保存在本地 SQLite 数据库中，适合本地或服务器部署
 
-## NewAPI 接入方法
+## OmniRouters 接入方法
 
 ### 参数填写
 
 | 参数 | 说明 |
 | --- | --- |
-| 提供商类型 | 选择 NewAPI 支持的类型 |
-| API 密钥 | 在 NewAPI 中获取 |
-| API 地址 | 填写 NewAPI 站点地址，例如 `https://<your-newapi-domain>/v1` |
+| 提供商类型 | 选择 OmniRouters 支持的类型 |
+| API 密钥 | 在 OmniRouters 中获取：[https://omnirouters.com/console/token](https://omnirouters.com/console/token) |
+| API 地址 | 填写 OmniRouters 站点地址，例如 `https://omnirouters.com/v1` |
 
 ### 配置步骤
 
-1. 在 NewAPI 中复制 API Key。
-2. 打开 AionUi 设置页面，进入模型配置页签。
-3. 点击“添加模型”，并选择 NewAPI 作为提供商。
-4. 填写 API 地址和 API 密钥。
-5. 在模型列表中选择需要添加的模型，并确保模型名称与 NewAPI 中的配置一致。
-6. 选择合适的请求协议后保存配置。
-7. 返回聊天页面，选择已配置的 NewAPI 模型开始使用。
+1. 在 [OmniRouters Token 页面](https://omnirouters.com/console/token) 中复制 API Key。
+
+   ![复制 API Key](https://docs.newapi.pro/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcopy_apikey.0372e2da.png&w=1080&q=75&dpl=dpl_3ggDbp26db2ct37PJBBuDCNTEJQZ)
+
+2. 打开 AionUi 设置页面，进入模型配置页签，点击“添加模型”。
+
+   ![打开设置并添加模型](https://docs.newapi.pro/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fadd-model-1.0baf829f.png&w=1080&q=75&dpl=dpl_3ggDbp26db2ct37PJBBuDCNTEJQZ)
+
+3. 选择 `NewAPI` 作为提供商，并填写 API 地址和 API 密钥。
+
+   ![选择提供商并填写配置](https://docs.newapi.pro/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnewapi_provider.da7e766f.png&w=1080&q=75&dpl=dpl_3ggDbp26db2ct37PJBBuDCNTEJQZ)
+
+4. 在模型列表中选择需要添加的模型，并确保模型名称与 OmniRouters 中的配置一致。
+5. 选择合适的请求协议后保存配置。
+6. 返回聊天页面，选择已配置的 OmniRouters 模型开始使用。
 
 ## 使用建议
 
-- 建议先确认 NewAPI 站点地址填写到了 `/v1`
+- 建议先确认 OmniRouters 站点地址填写到了 `/v1`
 - 模型名称应与服务端配置保持一致
 - 首次配置完成后，可先用一个简单对话测试连通性
+
+## 说明
+
+当前 AionUi 配置中仍然是选择 `NewAPI` 作为提供商，但接入信息需要填写 OmniRouters 的地址和 API Key。
 
 ## 相关链接
 
