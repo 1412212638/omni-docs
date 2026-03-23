@@ -133,7 +133,8 @@ export default defineConfig({
           {
             text: 'AI Apps',
             items: [
-              { text: 'Overview', link: '/en/ai-apps/' }
+              { text: 'Overview', link: '/en/ai-apps/' },
+              { text: 'AionUi', link: '/en/ai-apps/aionui' }
             ]
           },
           {

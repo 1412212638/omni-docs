@@ -1,8 +1,8 @@
 # AI Apps
 
-This section will gradually collect AI applications, desktop tools, and integration projects related to the OmniRouters ecosystem.
+This section collects AI applications, desktop tools, and integration projects related to the OmniRouters ecosystem.
 
 ## Current Entry
 
-- AionUi
-  Chinese content is available now. The English version can be expanded later.
+- [AionUi](/en/ai-apps/aionui)
+  A free and open-source desktop AI workspace that supports multiple agents and local-first workflows.
