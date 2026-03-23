@@ -10,17 +10,12 @@ const isLoaded = ref(false)
 
 <template>
   <div class="embed-shell">
-    <div class="embed-toolbar">
-      <div>
-        <p class="embed-eyebrow">API Reference</p>
-        <h1 class="embed-title">Apifox 文档内嵌视图</h1>
-      </div>
-      <a class="embed-link" :href="props.embedUrl" target="_blank" rel="noreferrer">
-        新窗口打开
-      </a>
-    </div>
-
     <div class="embed-frame-wrap">
+      <div class="embed-actions">
+        <a class="embed-link" :href="props.embedUrl" target="_blank" rel="noreferrer">
+          新窗口打开
+        </a>
+      </div>
       <div v-if="!isLoaded" class="embed-loading">正在加载 Apifox 文档...</div>
       <iframe
         class="embed-frame"

@@ -6,5 +6,5 @@ pageClass: api-reference-page
 ---
 
 <ClientOnly>
-  <ApiReference spec-url="/openapi.yaml" />
+  <ApiReference embed-url="https://omnirouters.apifox.cn/" />
 </ClientOnly>
