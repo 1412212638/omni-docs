@@ -10,7 +10,7 @@ hero:
     alt: OmniRouters Logo
   actions:
     - theme: brand
-      text: 查看 API
+      text: 查看 API参考
       link: /api/
     - theme: alt
       text: 技术支持
@@ -52,7 +52,7 @@ features:
   <h2>从这里开始最快</h2>
   <div class="home-grid home-grid-3">
     <a class="home-link-card" href="/api/">
-      <strong>API 文档</strong>
+      <strong>API参考</strong>
       <span>查看接口说明、请求格式与能力目录</span>
     </a>
     <a class="home-link-card" href="/guide/getting-started">

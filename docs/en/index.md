@@ -10,7 +10,7 @@ hero:
     alt: OmniRouters Logo
   actions:
     - theme: brand
-      text: View API
+      text: View API Reference
       link: /en/api/
     - theme: alt
       text: Support

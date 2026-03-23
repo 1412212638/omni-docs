@@ -1,9 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-const socialLinks = [
-  { icon: 'github', link: 'https://github.com/1412212638/omni-docs' }
-]
-
 const search = {
   provider: 'local' as const,
   options: {
@@ -55,7 +51,6 @@ export default defineConfig({
       src: '/logo.png',
       alt: 'OmniRouters Logo'
     },
-    socialLinks,
     search
   },
   locales: {
@@ -67,7 +62,9 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/' },
-          { text: 'API', link: '/api/' },
+          { text: 'API参考', link: '/api/' },
+          { text: 'AI应用', link: '/ai-apps/' },
+          { text: 'Skills', link: '/skills/' },
           { text: '技术支持', link: '/guide/getting-started' },
           { text: '商务合作', link: '/guide/structure' }
         ],
@@ -75,12 +72,14 @@ export default defineConfig({
           {
             text: '指南',
             items: [
+              { text: 'AI应用', link: '/ai-apps/' },
+              { text: 'Skills', link: '/skills/' },
               { text: '技术支持', link: '/guide/getting-started' },
               { text: '商务合作', link: '/guide/structure' }
             ]
           },
           {
-            text: 'API',
+            text: 'API参考',
             items: [
               { text: 'API 参考', link: '/api/' }
             ]
@@ -113,7 +112,9 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          { text: 'API', link: '/en/api/' },
+          { text: 'API Reference', link: '/en/api/' },
+          { text: 'AI Apps', link: '/en/ai-apps/' },
+          { text: 'Skills', link: '/en/skills/' },
           { text: 'Support', link: '/en/guide/getting-started' },
           { text: 'Business', link: '/en/guide/structure' }
         ],
@@ -121,12 +122,14 @@ export default defineConfig({
           {
             text: 'Guide',
             items: [
+              { text: 'AI Apps', link: '/en/ai-apps/' },
+              { text: 'Skills', link: '/en/skills/' },
               { text: 'Support', link: '/en/guide/getting-started' },
               { text: 'Business', link: '/en/guide/structure' }
             ]
           },
           {
-            text: 'API',
+            text: 'API Reference',
             items: [
               { text: 'API Reference', link: '/en/api/' }
             ]
