@@ -9,6 +9,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: 'API', link: '/api/' },
       { text: '开始', link: '/guide/getting-started' },
       { text: '结构', link: '/guide/structure' }
     ],
@@ -18,6 +19,12 @@ export default defineConfig({
         items: [
           { text: '快速开始', link: '/guide/getting-started' },
           { text: '项目结构', link: '/guide/structure' }
+        ]
+      },
+      {
+        text: 'API',
+        items: [
+          { text: 'API 参考', link: '/api/' }
         ]
       }
     ],

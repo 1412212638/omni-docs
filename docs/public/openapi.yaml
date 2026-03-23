@@ -1,0 +1,1766 @@
+openapi: 3.0.1
+info:
+  title: OmniRouters
+  description: ''
+  version: 1.0.0
+tags:
+  - name: Chat
+  - name: Chat/OpenAI
+  - name: Chat/Gemini
+  - name: Chat/Claude
+  - name: Videos
+  - name: Videos/Omni-Create video
+  - name: Videos/Omni-Create video/Kling
+  - name: Videos/Wan2.6
+  - name: Videos/Seedance
+  - name: Videos/Agent-VOD
+  - name: Images
+  - name: Images/Omni-Create image
+  - name: Images/Nano-Banana
+  - name: Images/Nano-Banana-Pro
+  - name: Images/Nano-Banana2
+  - name: Images/Seedream
+  - name: Music
+  - name: Music/Suno
+  - name: Embeddings
+  - name: Audio
+  - name: Audio/Seed-TTS
+  - name: Audio/Gemini-TTS
+paths:
+  /v1/chat/completions:
+    post:
+      summary: OpenAI Chat
+      deprecated: false
+      description: ''
+      tags:
+        - Images/Nano-Banana-Pro
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: 模型名称
+                  examples:
+                    - gemini-3-pro-image-preview
+                stream:
+                  type: boolean
+                  description: 是否启用流式输出
+                  default: false
+                messages:
+                  type: array
+                  description: 消息列表
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        description: 消息角色
+                        enum:
+                          - user
+                          - assistant
+                          - system
+                      content:
+                        type: string
+                        description: 消息内容
+                    required:
+                      - role
+                      - content
+                extra_body:
+                  type: object
+                  description: 额外的请求体参数
+                  properties:
+                    google:
+                      type: object
+                      description: Google 特定配置
+                      properties:
+                        image_config:
+                          type: object
+                          description: 图像生成配置
+                          properties:
+                            aspect_ratio:
+                              type: string
+                              description: 图像宽高比
+                              enum:
+                                - '1:1'
+                                - '3:4'
+                                - '4:3'
+                                - '9:16'
+                                - '16:9'
+                              default: '16:9'
+                            image_size:
+                              type: string
+                              description: 图像尺寸
+                              enum:
+                                - 1K
+                                - 2K
+                                - 4K
+                              default: 1K
+              required:
+                - model
+                - messages
+            example:
+              model: gemini-3-pro-image-preview
+              stream: false
+              messages:
+                - role: user
+                  content: draw a cat
+              extra_body:
+                google:
+                  image_config:
+                    aspect_ratio: '16:9'
+                    image_size: 1K
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/responses:
+    post:
+      summary: Responses
+      deprecated: false
+      description: >-
+        OpenAI Responses API, used for creating model responses.
+
+        Supports functions such as multi-round dialogues, tool invocation, and
+        reasoning.
+      tags:
+        - Chat/OpenAI
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - model
+                - messages
+              properties:
+                model:
+                  type: string
+                  description: ID of the model to use, e.g. gpt-4o or gpt-3.5-turbo.
+                  examples:
+                    - gpt-4o
+                    - gpt-4-turbo
+                    - gpt-3.5-turbo
+                messages:
+                  type: array
+                  description: A list of messages comprising the conversation.
+                  items:
+                    type: object
+                    required:
+                      - role
+                      - content
+                    properties:
+                      role:
+                        type: string
+                        enum:
+                          - system
+                          - user
+                          - assistant
+                          - tool
+                          - function
+                        description: The role of the message author.
+                      content:
+                        anyOf:
+                          - type: string
+                          - type: array
+                            items:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                text:
+                                  type: string
+                                image_url:
+                                  type: object
+                                  properties: {}
+                        description: >-
+                          The content of the message (supports text or
+                          multimodal array).
+                      name:
+                        type: string
+                        description: An optional name for the message author.
+                      tool_calls:
+                        type: array
+                        description: >-
+                          The tool calls generated by the model, such as
+                          function calls.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            type:
+                              type: string
+                            function:
+                              type: object
+                              properties: {}
+                      tool_call_id:
+                        type: string
+                        description: The tool call ID that this message is responding to.
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 2
+                  default: 1
+                  description: >-
+                    The sampling temperature to use, between 0 and 2. Higher
+                    values like 0.8 will make the output more random, while
+                    lower values like 0.2 will make it more focused and
+                    deterministic.
+                top_p:
+                  type: number
+                  default: 1
+                  description: >-
+                    An alternative to sampling with temperature, called nucleus
+                    sampling, where the model considers the results of the
+                    tokens with top_p probability mass. So 0.1 means only the
+                    tokens comprising the top 10% probability mass are
+                    considered.
+                'n':
+                  type: integer
+                  default: 1
+                  description: >-
+                    How many chat completion choices to generate for each input
+                    message.
+                stream:
+                  type: boolean
+                  default: false
+                  description: >-
+                    If set, partial message deltas will be sent (similar to
+                    ChatGPT).
+                stop:
+                  anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                  description: >-
+                    Up to 4 sequences where the API will stop generating further
+                    tokens.
+                max_tokens:
+                  type: integer
+                  description: >-
+                    The maximum number of tokens to generate in the chat
+                    completion.
+                presence_penalty:
+                  type: number
+                  minimum: -2
+                  maximum: 2
+                  default: 0
+                  description: >-
+                    Number between -2.0 and 2.0. Positive values penalize new
+                    tokens based on whether they appear in the text so far,
+                    increasing the model's likelihood to talk about new topics.
+                frequency_penalty:
+                  type: number
+                  minimum: -2
+                  maximum: 2
+                  default: 0
+                  description: >-
+                    Number between -2.0 and 2.0. Positive values penalize new
+                    tokens based on their existing frequency in the text so far,
+                    decreasing the model's likelihood to repeat the same line
+                    verbatim.
+                logit_bias:
+                  type: object
+                  description: >-
+                    Modify the likelihood of specified tokens appearing in the
+                    completion.
+                  properties: {}
+                user:
+                  type: string
+                  description: >-
+                    A unique identifier representing your end-user, which can
+                    help OpenAI to monitor and detect abuse.
+                response_format:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - text
+                        - json_object
+                  description: >-
+                    An object specifying the format that the model must output.
+                    Setting to { "type": "json_object" } enables JSON mode.
+                seed:
+                  type: integer
+                  description: >-
+                    If specified, the system will make a best effort to sample
+                    deterministically.
+                tools:
+                  type: array
+                  description: >-
+                    A list of tools the model may call. Currently, only
+                    functions are supported as a tool.
+                  items:
+                    type: object
+                    required:
+                      - type
+                      - function
+                    properties:
+                      type:
+                        type: string
+                        const: function
+                      function:
+                        type: object
+                        required:
+                          - name
+                        properties:
+                          name:
+                            type: string
+                            description: The name of the function to be called.
+                          description:
+                            type: string
+                            description: >-
+                              A description of what the function does, used by
+                              the model.
+                          parameters:
+                            type: object
+                            description: >-
+                              The parameters the function accepts, described as
+                              a JSON Schema object.
+                            properties: {}
+                tool_choice:
+                  anyOf:
+                    - type: string
+                      enum:
+                        - none
+                        - auto
+                        - required
+                    - type: object
+                      properties:
+                        type:
+                          type: string
+                          const: function
+                        function:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                  description: Controls which (if any) tool is called by the model.
+                logprobs:
+                  type: boolean
+                  description: Whether to return log probabilities of the output tokens.
+                top_logprobs:
+                  type: integer
+                  minimum: 0
+                  maximum: 20
+                  description: >-
+                    An integer specifying the number of most likely tokens to
+                    return at each token position (if logprobs is set to true).
+            example:
+              model: gpt-5.2
+              input:
+                - role: user
+                  content: 你好
+              instructions: 你是一个有用的助手。
+              max_output_tokens: 1000
+              temperature: 0.7
+              top_p: 1
+              stream: false
+              tools:
+                - type: function
+                  name: get_weather
+                  description: 获取天气信息
+                  parameters:
+                    type: object
+                    properties:
+                      location:
+                        type: string
+                    required:
+                      - location
+              tool_choice: auto
+              parallel_tool_calls: true
+              user: user-123
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1beta/models/{model}:generateContent:
+    post:
+      summary: Gemini Vision
+      deprecated: false
+      description: >-
+        Gemini image, PDF, audio, and video recognition requests
+
+        ⚠️Note: Only supports uploading images, PDFs, audios, and videos via
+        inlineData in base64 format, and does not support fileData.fileUri or
+        the File API.
+      tags:
+        - Chat/Gemini
+      parameters:
+        - name: model
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: >-
+                    Gemini model name, e.g. gemini-2.0-flash, gemini-2.5-pro,
+                    etc.
+                  default: gemini-2.0-flash
+                contents:
+                  type: array
+                  description: >-
+                    Request content array containing multimodal messages sent by
+                    the user
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        description: Message role, typically user or model
+                        enum:
+                          - user
+                          - model
+                        default: user
+                      parts:
+                        type: array
+                        description: >-
+                          Message content parts, supporting multiple types
+                          including text, image, audio, video, PDF, etc.
+                        items:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                              description: >-
+                                Text content, used to describe task instructions
+                                or ask questions
+                            inlineData:
+                              type: object
+                              description: >-
+                                Inline data, used to directly pass binary
+                                content such as images, audio, video, PDF, etc.
+                              properties:
+                                mimeType:
+                                  type: string
+                                  description: >-
+                                    MIME type, e.g. image/png, image/jpeg,
+                                    audio/mp3, audio/wav, video/mp4,
+                                    application/pdf, etc.
+                                data:
+                                  type: string
+                                  description: Base64 encoded file data
+                              required:
+                                - mimeType
+                                - data
+                            fileData:
+                              type: object
+                              description: >-
+                                File reference data, used to reference files
+                                uploaded via the File API (suitable for large
+                                files)
+                              properties:
+                                mimeType:
+                                  type: string
+                                  description: MIME type of the file
+                                fileUri:
+                                  type: string
+                                  description: >-
+                                    URI address of the file, in the format of
+                                    gs:// or URI returned by the File API
+                              required:
+                                - mimeType
+                                - fileUri
+                    required:
+                      - role
+                      - parts
+                generationConfig:
+                  type: object
+                  description: Generation configuration parameters
+                  properties:
+                    temperature:
+                      type: number
+                      description: >-
+                        Controls the randomness of the output, higher values are
+                        more random, range 0.0-2.0
+                      default: 1
+                      minimum: 0
+                      maximum: 2
+                    topP:
+                      type: number
+                      description: >-
+                        Top-P sampling parameter, controls the cumulative
+                        probability threshold of candidate tokens
+                      default: 0.95
+                      minimum: 0
+                      maximum: 1
+                    topK:
+                      type: integer
+                      description: >-
+                        Top-K sampling parameter, limits the number of candidate
+                        tokens
+                      default: 40
+                      minimum: 1
+                    maxOutputTokens:
+                      type: integer
+                      description: Maximum number of tokens for generated content
+                      default: 8192
+                      minimum: 1
+                    responseMimeType:
+                      type: string
+                      description: >-
+                        Specifies the MIME type of the response format, e.g.
+                        text/plain or application/json
+                      default: text/plain
+                    responseSchema:
+                      type: object
+                      description: >-
+                        When responseMimeType is application/json, specifies the
+                        output JSON Schema
+                      properties: {}
+                systemInstruction:
+                  type: object
+                  description: >-
+                    System instruction, used to set the behavior and role of the
+                    model
+                  properties:
+                    parts:
+                      type: array
+                      description: System instruction content
+                      items:
+                        type: object
+                        properties:
+                          text:
+                            type: string
+                            description: System instruction text
+                safetySettings:
+                  type: array
+                  description: Safety settings, controls the level of content filtering
+                  items:
+                    type: object
+                    properties:
+                      category:
+                        type: string
+                        description: Safety category
+                        enum:
+                          - HARM_CATEGORY_HARASSMENT
+                          - HARM_CATEGORY_HATE_SPEECH
+                          - HARM_CATEGORY_SEXUALLY_EXPLICIT
+                          - HARM_CATEGORY_DANGEROUS_CONTENT
+                      threshold:
+                        type: string
+                        description: Filtering threshold
+                        enum:
+                          - BLOCK_NONE
+                          - BLOCK_ONLY_HIGH
+                          - BLOCK_MEDIUM_AND_ABOVE
+                          - BLOCK_LOW_AND_ABOVE
+                    required:
+                      - category
+                      - threshold
+              required:
+                - model
+                - contents
+            examples: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/messages:
+    post:
+      summary: Claude Messages
+      deprecated: false
+      description: |-
+        Request in Anthropic Claude Messages API format.
+        The request header needs to include anthropic-version.
+      tags:
+        - Chat/Claude
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+        - name: anthropic-version
+          in: header
+          description: ''
+          required: false
+          example: '2023-06-01'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: >-
+                    The model name to use, e.g. 'claude-3-5-sonnet-20240620' or
+                    'claude-3-opus-20240229'.
+                messages:
+                  type: array
+                  description: A list of messages that make up the conversation.
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        enum:
+                          - user
+                          - assistant
+                        description: The role of the message sender.
+                      content:
+                        description: >-
+                          The message content, which can be a string or an array
+                          of content blocks (for multimodal input).
+                        oneOf:
+                          - type: string
+                          - type: array
+                            items:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                  enum:
+                                    - text
+                                    - image
+                                    - tool_use
+                                    - tool_result
+                                text:
+                                  type: string
+                                source:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                      const: base64
+                                    media_type:
+                                      type: string
+                                    data:
+                                      type: string
+                                id:
+                                  type: string
+                                name:
+                                  type: string
+                                input:
+                                  type: object
+                                  properties: {}
+                                tool_use_id:
+                                  type: string
+                                content:
+                                  description: Tool result content
+                                  oneOf:
+                                    - type: string
+                                    - type: array
+                    required:
+                      - role
+                      - content
+                max_tokens:
+                  type: integer
+                  description: >-
+                    The maximum number of tokens to generate before stopping.
+                    Note that different Claude models may have different limits.
+                metadata:
+                  type: object
+                  description: An object of metadata about the request.
+                  properties:
+                    user_id:
+                      type: string
+                      description: >-
+                        An external identifier for associating requests (e.g.
+                        user ID).
+                stop_sequences:
+                  type: array
+                  description: >-
+                    Custom text sequences that will cause the model to stop
+                    generating when encountered.
+                  items:
+                    type: string
+                stream:
+                  type: boolean
+                  description: Whether to incrementally stream the response.
+                  default: false
+                system:
+                  type: string
+                  description: System Prompt, used to set context, instructions, or roles.
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                  description: >-
+                    Amount of randomness injected into the response. It is
+                    recommended to only modify one of temperature and top_p.
+                top_k:
+                  type: integer
+                  description: >-
+                    Only sample from the top K options for each subsequent
+                    token.
+                top_p:
+                  type: number
+                  description: Nucleus sampling probability.
+                tools:
+                  type: array
+                  description: A list of tool definitions the model may use.
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: >-
+                          The tool name, must match the regex
+                          ^[a-zA-Z0-9_-]{1,64}$.
+                      description:
+                        type: string
+                        description: A detailed description of the tool's purpose.
+                      input_schema:
+                        type: object
+                        description: JSON Schema for the tool's parameters.
+                        properties: {}
+                    required:
+                      - name
+                      - input_schema
+                tool_choice:
+                  type: object
+                  description: Controls how the model uses the provided tools.
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - auto
+                        - any
+                        - tool
+                    name:
+                      type: string
+                      description: >-
+                        When type is tool, specifies the name of the tool to
+                        use.
+                  required:
+                    - type
+              required:
+                - model
+                - messages
+                - max_tokens
+            example:
+              model: claude-opus-4-6-thinking
+              messages:
+                - role: user
+                  content: string
+              max_tokens: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/video/generations:
+    post:
+      summary: Create Task-replicate
+      deprecated: false
+      description: ''
+      tags:
+        - Videos/Agent-VOD
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              model: agent-vod-replicate
+              video_url: https://example.com/source.mp4
+              images:
+                - https://example.com/product.png
+              prompt: 保持原视频节奏，替换成当前商品主体
+              aspect_ratio: '16:9'
+              remove_audio: false
+              seconds: '180'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/video/generations/{task_id}:
+    get:
+      summary: Get Task
+      deprecated: false
+      description: ''
+      tags:
+        - Videos/Agent-VOD
+      parameters:
+        - name: task_id
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/videos/generations:
+    post:
+      summary: 1.5-Pro-Create Task
+      deprecated: false
+      description: ''
+      tags:
+        - Videos/Seedance
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  title: 模型名称
+                  description: 指定要使用的模型 ID
+                  examples:
+                    - doubao-seedance-1-5-pro-251215
+                prompt:
+                  type: string
+                  title: 提示词
+                  description: 生成视频的文本描述
+                  examples:
+                    - 一只可爱的猫在弹钢琴
+                image:
+                  type: string
+                  title: 参考图片
+                  description: 可选，用于生成视频的参考图片
+                metadata:
+                  type: object
+                  title: 参数配置
+                  description: 视频生成的详细参数配置
+                  properties:
+                    resolution:
+                      type: string
+                      title: 分辨率
+                      description: 视频分辨率，如 1280x720
+                      examples:
+                        - 1280x720
+                    ratio:
+                      type: string
+                      title: 宽高比
+                      description: 视频画面比例，如 16:9
+                      examples:
+                        - '16:9'
+                    duration:
+                      type: integer
+                      title: 时长
+                      description: 视频时长（秒）
+                      examples:
+                        - 5
+                    seed:
+                      type: integer
+                      title: 随机种子
+                      description: 生成种子，用于固定结果
+                      examples:
+                        - 12345
+                    generate_audio:
+                      type: boolean
+                      title: 生成音频
+                      description: 是否生成音频
+                      examples:
+                        - true
+                    watermark:
+                      type: boolean
+                      title: 水印
+                      description: 是否添加水印
+                      examples:
+                        - false
+                  required:
+                    - resolution
+                    - ratio
+                    - duration
+                    - seed
+                    - generate_audio
+                    - watermark
+              required:
+                - model
+                - prompt
+                - metadata
+            example:
+              model: doubao-seedance-1-5-pro-251215
+              prompt: 一只可爱的猫在弹钢琴
+              image: https://example.com/reference.jpg
+              metadata:
+                resolution: 1280x720
+                ratio: '16:9'
+                duration: 5
+                seed: 12345
+                generate_audio: true
+                watermark: false
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/images/generations:
+    post:
+      summary: Create image
+      deprecated: false
+      description: ''
+      tags:
+        - Images/Seedream
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: 模型名称
+                  examples:
+                    - doubao-seedream-4-5-251128
+                prompt:
+                  type: string
+                  description: 生成图片的提示词
+                  examples:
+                    - 生成女孩和奶牛玩偶在游乐园开心地坐过山车的图片
+                image:
+                  type: array
+                  items:
+                    type: string
+                  description: 参考图片URL列表
+                  examples:
+                    - - >-
+                        https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_imagesToimages_1.png
+                      - >-
+                        https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_imagesToimages_2.png
+                response_format:
+                  type: string
+                  description: 响应格式，如 url 或 b64_json
+                  examples:
+                    - url
+                size:
+                  type: string
+                  description: 生成图片的尺寸
+                  examples:
+                    - 4K
+                stream:
+                  type: boolean
+                  description: 是否启用流式返回
+                  examples:
+                    - true
+                watermark:
+                  type: boolean
+                  description: 是否添加水印
+                  examples:
+                    - true
+              required:
+                - model
+                - prompt
+            example:
+              model: doubao-seedream-4-5-251128
+              prompt: 生成女孩和奶牛玩偶在游乐园开心地坐过山车的图片
+              image:
+                - >-
+                  https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_imagesToimages_1.png
+                - >-
+                  https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_imagesToimages_2.png
+              response_format: url
+              size: 4K
+              stream: true
+              watermark: true
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1beta/models/gemini-2.5-flash-image:generateContent:
+    post:
+      summary: Gemini
+      deprecated: false
+      description: >-
+        官方文档：
+
+        https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn#aspect_ratios
+      tags:
+        - Images/Nano-Banana
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              contents:
+                - role: user
+                  parts:
+                    - text: Generate an image of a beautiful sunset over mountains
+              generationConfig:
+                responseModalities:
+                  - TEXT
+                  - IMAGE
+                maxOutputTokens: 8192
+                imageConfig:
+                  aspectRatio: '16:9'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1beta/models/gemini-3-pro-image-preview:generateContent:
+    post:
+      summary: Gemini
+      deprecated: false
+      description: >-
+        官方文档：
+
+        https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn#aspect_ratios
+      tags:
+        - Images/Nano-Banana-Pro
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        description: Role, e.g. user
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                              description: Text content
+                          required:
+                            - text
+                        description: Message parts list
+                    required:
+                      - role
+                      - parts
+                  description: Conversation content list
+                generationConfig:
+                  type: object
+                  properties:
+                    responseModalities:
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                          - TEXT
+                          - IMAGE
+                      description: >-
+                        Response modalities list, available values are TEXT and
+                        IMAGE
+                    maxOutputTokens:
+                      type: integer
+                      description: Maximum output token count
+                      default: 8192
+                    imageConfig:
+                      type: object
+                      properties:
+                        aspectRatio:
+                          type: string
+                          description: Image aspect ratio, e.g. 16:9, 1:1, 9:16
+                          default: '16:9'
+                        image_size:
+                          type: string
+                          description: Image quality, e.g. 1K, 2K, 4K
+                          default: 1K
+                      description: Image generation configuration
+                  description: Generation configuration
+              required:
+                - contents
+                - generationConfig
+            example:
+              contents:
+                - role: user
+                  parts:
+                    - text: 皮克斯3D，北极熊与南极企鹅
+              generationConfig:
+                responseModalities:
+                  - TEXT
+                  - IMAGE
+                maxOutputTokens: 8192
+                imageConfig:
+                  aspectRatio: '16:9'
+                  image_size: 1K
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1beta/models/gemini-3.1-flash-image-preview:generateContent:
+    post:
+      summary: Gemini
+      deprecated: false
+      description: >-
+        官方文档：
+
+        https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn#aspect_ratios
+      tags:
+        - Images/Nano-Banana2
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        description: Role, e.g. user
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                              description: Text content
+                          required:
+                            - text
+                        description: Message parts list
+                    required:
+                      - role
+                      - parts
+                  description: Conversation content list
+                generationConfig:
+                  type: object
+                  properties:
+                    responseModalities:
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                          - TEXT
+                          - IMAGE
+                      description: >-
+                        Response modalities list, available values are TEXT and
+                        IMAGE
+                    maxOutputTokens:
+                      type: integer
+                      description: Maximum output token count
+                      default: 8192
+                    imageConfig:
+                      type: object
+                      properties:
+                        aspectRatio:
+                          type: string
+                          description: Image aspect ratio, e.g. 16:9, 1:1, 9:16
+                          default: '16:9'
+                        image_size:
+                          type: string
+                          description: Image quality, e.g. 1K, 2K, 4K
+                          default: 1K
+                      description: Image generation configuration
+                  description: Generation configuration
+              required:
+                - contents
+                - generationConfig
+            example:
+              contents:
+                - role: user
+                  parts:
+                    - text: 皮克斯3D，北极熊与南极企鹅
+              generationConfig:
+                responseModalities:
+                  - TEXT
+                  - IMAGE
+                maxOutputTokens: 8192
+                imageConfig:
+                  aspectRatio: '16:9'
+                  image_size: 1K
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /suno/submit/music:
+    post:
+      summary: Create music
+      deprecated: false
+      description: ''
+      tags:
+        - Music/Suno
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  description: >-
+                    Lyrics content, supports section tags such as [Verse],
+                    [Chorus], [Bridge], etc.
+                mv:
+                  type: string
+                  description: Model version, e.g. chirp-v5
+            example:
+              prompt: |-
+                [Verse]
+                Move your paws
+                Left and right
+                Jump around
+                Feel the light
+                Whiskers twitch
+                Tails in the air
+                Dancing cats
+                Everywhere
+
+                [Chorus]
+                Cat dance
+                Oh
+                Let's go!
+                Swing your tails
+                Don’t say no (don’t say no!)
+                Purr and twirl
+                Like a show
+                Cat dance
+                Let's steal the glow
+
+                [Verse 2]
+                Tiptoe steps
+                Soft and sweet
+                Tiny paws
+                Unbeatable beat
+                Meow to the rhythm
+                Claws precise
+                Every move
+                Feline paradise
+
+                [Chorus]
+                Cat dance
+                Oh
+                Let's go!
+                Swing your tails
+                Don’t say no (don’t say no!)
+                Purr and twirl
+                Like a show
+                Cat dance
+                Let's steal the glow
+
+                [Bridge]
+                Ooh-ooh
+                Bounce and sway (ooh-ooh!)
+                Moonlit grooves
+                Night turns to day
+                Lean and stretch
+                Strike your pose
+                Every kitty steals the show
+
+                [Chorus]
+                Cat dance
+                Oh
+                Let's go!
+                Swing your tails
+                Don’t say no (don’t say no!)
+                Purr and twirl
+                Like a show
+                Cat dance
+                Let's steal the glow
+              mv: chirp-v5
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /suno/submit/lyrics:
+    post:
+      summary: Create lyrics
+      deprecated: false
+      description: ''
+      tags:
+        - Music/Suno
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              prompt: dance
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /suno/fetch/{task_id}:
+    get:
+      summary: Get Task
+      deprecated: false
+      description: ''
+      tags:
+        - Music/Suno
+      parameters:
+        - name: task_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/embeddings:
+    post:
+      summary: Create embeddings
+      deprecated: false
+      description: ''
+      tags:
+        - Embeddings
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  examples:
+                    - text-embedding-ada-002
+                input:
+                  type: string
+                encoding_format:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                      - float
+                      - base64
+                    default: float
+                dimensions:
+                  type: integer
+              required:
+                - model
+                - input
+            example:
+              model: text-embedding-ada-002
+              input: string
+              encoding_format: float
+              dimensions: 0
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1/audio/speech:
+    post:
+      summary: Seed-TTS
+      deprecated: false
+      description: >-
+        The voice timbre used in seed-tts-1.0 and seed-tts-2.0 must correspond
+        to the respective version's timbre
+      tags:
+        - Audio/Seed-TTS
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  title: Model Name
+                  description: The name of the TTS model to use
+                voice:
+                  type: string
+                  title: Voice ID
+                  description: Specify the voice ID for generation
+                input:
+                  type: string
+                  title: Input Text
+                  description: The text content to be converted to speech
+                response_format:
+                  type: string
+                  enum:
+                    - text
+                    - audio
+                  title: Response Format
+                  description: The format of the audio output, supports text or audio
+                speed:
+                  type: string
+                  title: Speed
+                  description: The speed of speech generation, default is 1.0
+                metadata:
+                  type: object
+                  properties:
+                    doubao_tts:
+                      type: object
+                      properties:
+                        enable_timestamp:
+                          type: boolean
+                          title: Enable Timestamp
+                          description: Whether to return word-level timestamp information
+                        emotion:
+                          type: string
+                          title: Emotion
+                          description: >-
+                            Specify the emotional style of the speech, such as
+                            happy, sad, etc.
+                        volume_ratio:
+                          type: number
+                          title: Volume Ratio
+                          description: The volume multiplier ratio, default is 1.0
+                        pitch_ratio:
+                          type: number
+                          title: Pitch Ratio
+                          description: The pitch multiplier ratio, default is 1.0
+                      required:
+                        - enable_timestamp
+                        - emotion
+                        - volume_ratio
+                        - pitch_ratio
+                      title: Doubao TTS Configuration
+                      description: >-
+                        Configuration parameters specific to Doubao large model
+                        TTS
+                  required:
+                    - doubao_tts
+                  title: Metadata
+                  description: Additional configuration information
+              required:
+                - model
+                - voice
+                - input
+                - response_format
+                - speed
+            example:
+              model: seed-tts-1.0
+              voice: zh_male_lengkugege_emo_v2_mars_bigtts
+              input: 我真的很生气！你怎么可以这样做？这太过分了！
+              response_format: mp3
+              speed: 1
+              metadata:
+                doubao_tts:
+                  enable_timestamp: true
+                  emotion: angry
+                  volume_ratio: 1.2
+                  pitch_ratio: 1.05
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+  /v1beta/models/gemini-2.5-flash-preview-tts:generateContent:
+    post:
+      summary: Gemini-TTS
+      deprecated: false
+      description: Gemini 音频生成接口。 可使用gemini-2.5-flash-preview-tts等模型
+      tags:
+        - Audio/Gemini-TTS
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: array
+                  title: Content List
+                  description: Collection of content objects
+                  items:
+                    type: object
+                    title: Content Object
+                    description: >-
+                      Contains specific information about the model and content
+                      parts
+                    properties:
+                      parts:
+                        type: array
+                        title: Content Parts List
+                        description: Collection of specific parts that make up the content
+                        items:
+                          type: object
+                          title: Content Part
+                          description: Detailed information of a single content part
+                          properties:
+                            text:
+                              type: string
+                              title: Text Content
+                              description: The actual text data
+                            type:
+                              type: string
+                              title: Content Type
+                              description: Identifies the format type of the content
+                            role:
+                              type: string
+                              title: Role Identifier
+                              description: Identifies the role of the content source
+                          required:
+                            - text
+                            - type
+                            - role
+                      model:
+                        type: string
+                        title: Model Name
+                        description: The model identifier used to generate this content
+                    required:
+                      - parts
+                      - model
+            example:
+              contents:
+                - parts:
+                    - text: 说出,我是谁,谁是我
+              generationConfig:
+                responseModalities:
+                  - AUDIO
+                speechConfig:
+                  voiceConfig:
+                    prebuiltVoiceConfig:
+                      voiceName: Kore
+              model: gemini-2.5-flash-preview-tts
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
+      security: []
+components:
+  schemas: {}
+  securitySchemes: {}
+servers:
+  - url: https://omnirouters.com
+    description: 开发环境
