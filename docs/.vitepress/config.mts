@@ -70,10 +70,21 @@ export default defineConfig({
         ],
         sidebar: [
           {
+            text: 'AI应用',
+            items: [
+              { text: 'AI应用概览', link: '/ai-apps/' },
+              { text: 'AionUi', link: '/ai-apps/aionui' }
+            ]
+          },
+          {
+            text: 'Skills',
+            items: [
+              { text: 'Skills', link: '/skills/' }
+            ]
+          },
+          {
             text: '指南',
             items: [
-              { text: 'AI应用', link: '/ai-apps/' },
-              { text: 'Skills', link: '/skills/' },
               { text: '技术支持', link: '/guide/getting-started' },
               { text: '商务合作', link: '/guide/structure' }
             ]
@@ -120,10 +131,20 @@ export default defineConfig({
         ],
         sidebar: [
           {
+            text: 'AI Apps',
+            items: [
+              { text: 'Overview', link: '/en/ai-apps/' }
+            ]
+          },
+          {
+            text: 'Skills',
+            items: [
+              { text: 'Skills', link: '/en/skills/' }
+            ]
+          },
+          {
             text: 'Guide',
             items: [
-              { text: 'AI Apps', link: '/en/ai-apps/' },
-              { text: 'Skills', link: '/en/skills/' },
               { text: 'Support', link: '/en/guide/getting-started' },
               { text: 'Business', link: '/en/guide/structure' }
             ]
