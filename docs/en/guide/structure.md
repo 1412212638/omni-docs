@@ -20,7 +20,3 @@ Use this page as the entry point for OmniRouters business partnerships.
 
 - Business email: `business@omnirouters.com`
 - Response time: usually within 2-3 business days
-
-## Next Step
-
-You can keep expanding this page with case studies, partnership workflow details, and FAQs.

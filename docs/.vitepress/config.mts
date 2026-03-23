@@ -42,7 +42,7 @@ const search = {
 }
 
 export default defineConfig({
-  title: 'Omni Docs',
+  title: 'OmniRouters Docs',
   description: 'OmniRouters documentation',
   lang: 'zh-CN',
   base: '/',
@@ -62,20 +62,20 @@ export default defineConfig({
     root: {
       label: '中文',
       lang: 'zh-CN',
-      title: 'Omni Docs',
+      title: 'OmniRouters Docs',
       description: '使用 VitePress 构建的文档站',
       themeConfig: {
         nav: [
           { text: '首页', link: '/' },
           { text: 'API', link: '/api/' },
-          { text: '开始', link: '/guide/getting-started' },
+          { text: '技术支持', link: '/guide/getting-started' },
           { text: '商务合作', link: '/guide/structure' }
         ],
         sidebar: [
           {
             text: '指南',
             items: [
-              { text: '快速开始', link: '/guide/getting-started' },
+              { text: '技术支持', link: '/guide/getting-started' },
               { text: '商务合作', link: '/guide/structure' }
             ]
           },
@@ -100,7 +100,7 @@ export default defineConfig({
         },
         footer: {
           message: 'Built with VitePress',
-          copyright: 'Copyright © 2026 Omni Docs'
+          copyright: 'Copyright © 2026 OmniRouters Docs'
         }
       }
     },
@@ -108,20 +108,20 @@ export default defineConfig({
       label: 'EN',
       lang: 'en-US',
       link: '/en/',
-      title: 'Omni Docs',
+      title: 'OmniRouters Docs',
       description: 'Documentation built with VitePress',
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
           { text: 'API', link: '/en/api/' },
-          { text: 'Start', link: '/en/guide/getting-started' },
+          { text: 'Support', link: '/en/guide/getting-started' },
           { text: 'Business', link: '/en/guide/structure' }
         ],
         sidebar: [
           {
             text: 'Guide',
             items: [
-              { text: 'Getting Started', link: '/en/guide/getting-started' },
+              { text: 'Support', link: '/en/guide/getting-started' },
               { text: 'Business', link: '/en/guide/structure' }
             ]
           },
@@ -146,7 +146,7 @@ export default defineConfig({
         },
         footer: {
           message: 'Built with VitePress',
-          copyright: 'Copyright © 2026 Omni Docs'
+          copyright: 'Copyright © 2026 OmniRouters Docs'
         }
       }
     }

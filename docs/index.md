@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: Omni Docs
+  name: OmniRouters Docs
   text: 用 VitePress 搭建的文档站
   tagline: 轻量、快速、适合长期维护的知识库与项目文档
   actions:
     - theme: brand
-      text: 开始阅读
+      text: 技术支持
       link: /guide/getting-started
     - theme: alt
       text: 商务合作

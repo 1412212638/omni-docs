@@ -1,32 +1,18 @@
-# 快速开始
+# 技术支持
 
-这个站点已经帮你准备好了基础配置，你可以直接从这里往下写。
+如果你在接入 OmniRouters 的过程中遇到问题，可以通过下面的邮箱联系我们。
 
-## 常用命令
+## 联系方式
 
-```bash
-npm.cmd install
-npm.cmd run docs:dev
-npm.cmd run docs:build
-```
+- 技术支持邮箱：`support@omnirouters.com`
 
-## 目录说明
+## 建议来信内容
 
-```text
-docs/
-  .vitepress/
-    config.mts
-    theme/
-      index.ts
-      custom.css
-  index.md
-  guide/
-    getting-started.md
-    structure.md
-```
+- 你的公司、团队或项目名称
+- 遇到的问题描述
+- 相关接口或功能模块
+- 报错信息、请求示例或截图
 
-## 你的下一步
+## 说明
 
-1. 把现有文档整理成 Markdown 放进 `docs/`
-2. 在 `docs/.vitepress/config.mts` 里补充导航和侧边栏
-3. 运行开发服务，边写边看效果
+为了帮助我们更快定位问题，建议你在邮件里尽量附上完整的上下文信息。

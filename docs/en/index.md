@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: Omni Docs
+  name: OmniRouters Docs
   text: Documentation built with VitePress
   tagline: Lightweight, fast, and easy to maintain for product docs and knowledge bases
   actions:
     - theme: brand
-      text: Start Reading
+      text: Support
       link: /en/guide/getting-started
     - theme: alt
       text: Business

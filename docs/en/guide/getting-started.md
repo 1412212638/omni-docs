@@ -1,32 +1,18 @@
-# Getting Started
+# Support
 
-This site already includes the basic setup, so you can continue writing from here.
+If you run into issues while integrating OmniRouters, you can contact us through the email below.
 
-## Common Commands
+## Contact
 
-```bash
-npm.cmd install
-npm.cmd run docs:dev
-npm.cmd run docs:build
-```
+- Support email: `support@omnirouters.com`
 
-## Directory Overview
+## Suggested Details
 
-```text
-docs/
-  .vitepress/
-    config.mts
-    theme/
-      index.ts
-      custom.css
-  index.md
-  guide/
-    getting-started.md
-    structure.md
-```
+- Your company, team, or project name
+- A clear description of the issue
+- The related API or feature area
+- Error messages, request samples, or screenshots
 
-## Your Next Step
+## Note
 
-1. Move your existing docs into `docs/` as Markdown files.
-2. Update navigation and sidebar in `docs/.vitepress/config.mts`.
-3. Run the dev server and iterate while previewing changes.
+Including complete context in your email will help us investigate and respond faster.
