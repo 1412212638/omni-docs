@@ -4,7 +4,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Omni Docs',
   description: '使用 VitePress 构建的文档站',
-  base: '/omni-docs/',
+  base: '/',
   lastUpdated: true,
   themeConfig: {
     nav: [
