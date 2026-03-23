@@ -16,6 +16,11 @@ Use this page as the entry point for OmniRouters business partnerships.
 - Expected integration scenario
 - Contact details
 
+## Contact
+
+- Business email: `business@omnirouters.com`
+- Response time: usually within 2-3 business days
+
 ## Next Step
 
-You can keep expanding this page with a business contact email, a form entry, case studies, and FAQs.
+You can keep expanding this page with case studies, partnership workflow details, and FAQs.
