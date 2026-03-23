@@ -1,0 +1,6 @@
+node_modules
+.npm-cache
+docs-preview.log
+docs-preview.err
+docs/.vitepress/cache
+docs/.vitepress/dist
