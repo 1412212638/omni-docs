@@ -4,6 +4,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Omni Docs',
   description: '使用 VitePress 构建的文档站',
+  base: '/omni-docs/',
   lastUpdated: true,
   themeConfig: {
     nav: [
@@ -21,7 +22,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/1412212638/omni-docs' }
     ],
     footer: {
       message: 'Built with VitePress',
