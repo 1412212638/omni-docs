@@ -47,18 +47,104 @@
   max-width: none !important;
 }
 
-.scalar-shell {
+.embed-shell {
   min-height: calc(100vh - var(--vp-nav-height, 64px));
+  padding: 20px;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 18%),
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 20%),
+    #edf3f8;
+}
+
+.embed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(15, 118, 110, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.embed-eyebrow {
+  margin: 0 0 6px;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.embed-title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.embed-link {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.embed-link:hover {
+  color: #fff;
+  background: #1e293b;
+}
+
+.embed-frame-wrap {
+  position: relative;
+  min-height: calc(100vh - var(--vp-nav-height, 64px) - 120px);
   overflow: hidden;
-  background: #0b0d12;
+  border: 1px solid rgba(15, 118, 110, 0.1);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
 }
 
-.scalar-container {
-  min-height: calc(100vh - var(--vp-nav-height, 64px));
-}
-
-.openapi-placeholder {
-  padding: 32px 24px;
+.embed-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 247, 250, 0.92));
   color: var(--vp-c-text-2);
-  background: #0b0d12;
+  font-size: 15px;
+}
+
+.embed-frame {
+  width: 100%;
+  min-height: calc(100vh - var(--vp-nav-height, 64px) - 120px);
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.embed-frame.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .embed-shell {
+    padding: 12px;
+  }
+
+  .embed-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .embed-title {
+    font-size: 22px;
+  }
 }
