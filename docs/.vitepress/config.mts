@@ -109,7 +109,6 @@ export default defineConfig({
           text: '最后更新于'
         },
         footer: {
-          message: 'Built with VitePress',
           copyright: 'Copyright © 2026 OmniRouters Docs'
         }
       }
@@ -170,7 +169,6 @@ export default defineConfig({
           text: 'Last updated'
         },
         footer: {
-          message: 'Built with VitePress',
           copyright: 'Copyright © 2026 OmniRouters Docs'
         }
       }
