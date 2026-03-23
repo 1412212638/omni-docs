@@ -69,14 +69,14 @@ export default defineConfig({
           { text: '首页', link: '/' },
           { text: 'API', link: '/api/' },
           { text: '开始', link: '/guide/getting-started' },
-          { text: '结构', link: '/guide/structure' }
+          { text: '商务合作', link: '/guide/structure' }
         ],
         sidebar: [
           {
             text: '指南',
             items: [
               { text: '快速开始', link: '/guide/getting-started' },
-              { text: '项目结构', link: '/guide/structure' }
+              { text: '商务合作', link: '/guide/structure' }
             ]
           },
           {
@@ -115,14 +115,14 @@ export default defineConfig({
           { text: 'Home', link: '/en/' },
           { text: 'API', link: '/en/api/' },
           { text: 'Start', link: '/en/guide/getting-started' },
-          { text: 'Structure', link: '/en/guide/structure' }
+          { text: 'Business', link: '/en/guide/structure' }
         ],
         sidebar: [
           {
             text: 'Guide',
             items: [
               { text: 'Getting Started', link: '/en/guide/getting-started' },
-              { text: 'Project Structure', link: '/en/guide/structure' }
+              { text: 'Business', link: '/en/guide/structure' }
             ]
           },
           {

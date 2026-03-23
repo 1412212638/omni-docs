@@ -10,7 +10,7 @@ hero:
       text: 开始阅读
       link: /guide/getting-started
     - theme: alt
-      text: 项目结构
+      text: 商务合作
       link: /guide/structure
 
 features:

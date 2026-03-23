@@ -1,29 +1,21 @@
-# Project Structure
+# Business
 
-The core idea of VitePress is simple: Markdown files under `docs/` are compiled into a static site.
+Use this page as the entry point for OmniRouters business partnerships.
 
-## Recommended Layout
+## Collaboration Areas
 
-```text
-docs/
-  index.md
-  guide/
-  api/
-  tutorial/
-```
+- Channel partnerships
+- Product integrations
+- Brand collaborations
+- Custom solutions
 
-## Config Entry
+## Suggested Information
 
-The main site config lives in `docs/.vitepress/config.mts`.
+- Company or team name
+- Business goals and partnership intent
+- Expected integration scenario
+- Contact details
 
-You will usually manage these there:
+## Next Step
 
-- Site title and description
-- Top navigation
-- Sidebar
-- Social links
-- Footer
-
-## Theme Customization
-
-If you want to change colors, fonts, or local components, start from `docs/.vitepress/theme/custom.css`.
+You can keep expanding this page with a business contact email, a form entry, case studies, and FAQs.

@@ -10,7 +10,7 @@ hero:
       text: Start Reading
       link: /en/guide/getting-started
     - theme: alt
-      text: Project Structure
+      text: Business
       link: /en/guide/structure
 
 features:
