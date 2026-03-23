@@ -17,6 +17,10 @@
   font-weight: 700;
 }
 
+.VPNavBarTitle .logo {
+  border-radius: 8px;
+}
+
 .api-reference-page .VPDoc,
 .api-reference-page .VPContent,
 .api-reference-page .VPDoc .container,
