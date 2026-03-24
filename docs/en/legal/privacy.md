@@ -4,6 +4,8 @@ Effective Date: March 25, 2026
 
 OmniRouters values your privacy and data security. This Privacy Policy explains how we collect, use, store, share, protect, and otherwise process personal information and related data when you use our services.
 
+OmniRouters is operated by HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED, with its registered address at RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG.
+
 ## 1. Scope
 
 This policy applies to the OmniRouters website, console, APIs, documentation, support channels, and related services. If a specific product or feature includes a separate privacy notice or supplemental terms, those terms will control to the extent of any conflict.
@@ -124,5 +126,7 @@ We may update this Privacy Policy from time to time to reflect changes in law, p
 
 If you have questions, complaints, or requests related to this Privacy Policy or our processing of personal information, please contact us at:
 
+- Operating Entity: `HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED`
+- Registered Address: `RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG`
 - Support: `support@omnirouters.com`
 - Business: `business@omnirouters.com`

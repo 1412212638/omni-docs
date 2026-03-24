@@ -4,6 +4,8 @@ Effective Date: March 25, 2026
 
 Welcome to OmniRouters. These Terms of Service govern your access to and use of the OmniRouters website, console, APIs, documentation, software, tools, and related services. By accessing or using OmniRouters, you agree to be bound by these terms. If you do not agree, please stop using the services immediately.
 
+OmniRouters is operated by HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED, with its registered address at RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG.
+
 ## 1. Scope of Services
 
 OmniRouters provides services related to AI model access, model routing, API usage, documentation, developer tooling, support channels, and related capabilities. We may update, expand, limit, suspend, or modify the services from time to time as our business evolves.
@@ -86,11 +88,13 @@ We may update these terms from time to time due to legal, regulatory, product, o
 
 ## 13. Governing Law and Dispute Resolution
 
-These terms are governed by the applicable laws of the jurisdiction where the service provider is registered or principally operates, unless otherwise required by law. Before initiating formal proceedings, the parties agree to first attempt to resolve disputes in good faith. If no resolution is reached, disputes may be submitted to a court or arbitral body with proper jurisdiction.
+These terms are governed by the laws of the Hong Kong Special Administrative Region. Before initiating formal proceedings, the parties agree to first attempt to resolve disputes in good faith. If no resolution is reached, disputes may be submitted to the courts of competent jurisdiction in Hong Kong.
 
 ## 14. Contact Us
 
 If you have questions about these terms, please contact us at:
 
+- Operating Entity: `HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED`
+- Registered Address: `RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG`
 - Support: `support@omnirouters.com`
 - Business: `business@omnirouters.com`
