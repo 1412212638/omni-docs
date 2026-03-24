@@ -51,7 +51,14 @@ All intellectual property rights in the OmniRouters service itself, including so
 
 ## 6. Fees and Payment
 
-Some OmniRouters services may be paid services. If you use paid services, you agree to pay fees in accordance with the pricing, order terms, quotation, billing terms, or service-specific notices in effect at the time of purchase. Unless otherwise required by law or agreed in writing, fees already incurred are generally non-refundable.
+Some OmniRouters services may be paid services. At present, the services primarily operate on a prepaid balance model. You may add funds to your account, and applicable fees will be deducted based on actual API calls, model usage, and related resource consumption. If you use paid services, you agree to pay fees in accordance with the pricing, order terms, quotation, billing terms, or service-specific notices in effect at the time of purchase.
+
+Unless otherwise required by law or agreed in writing, the following refund rules apply:
+
+- fees already consumed, charges attributable to completed API calls, and any promotional, test, bonus, or gifted credits are generally non-refundable
+- you may request a refund of unused prepaid balance, subject to deduction of applicable payment processor fees, bank charges, foreign exchange charges, and other necessary handling costs, if any
+- if there is duplicate billing, incorrect billing, unauthorized payment, service activation failure, or inability to use the relevant service due to OmniRouters' fault, we may provide a full refund or a reasonable partial refund after verification
+- we may require identity verification, payment proof, and relevant account information to process refund requests
 
 ## 7. Changes, Suspension, and Termination
 
@@ -61,6 +68,8 @@ We may change, restrict, suspend, or discontinue any part of the services for op
 - your activity presents a security, fraud, or abuse risk
 - you fail to pay applicable fees
 - suspension or termination is required for legal, regulatory, or enforcement reasons
+
+If your account or access is restricted, suspended, terminated, or banned due to your violation of these terms, service abuse, fraud, unlawful activity, or other causes attributable to you, any remaining unused prepaid balance will generally not be refundable unless required by applicable law.
 
 ## 8. Disclaimer
 
