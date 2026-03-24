@@ -66,7 +66,14 @@ export default defineConfig({
           { text: 'AI应用', link: '/ai-apps/' },
           { text: 'Skills', link: '/skills/' },
           { text: '技术支持', link: '/guide/getting-started' },
-          { text: '商务合作', link: '/guide/structure' }
+          { text: '商务合作', link: '/guide/structure' },
+          {
+            text: '法律',
+            items: [
+              { text: '用户协议', link: '/legal/terms' },
+              { text: '隐私政策', link: '/legal/privacy' }
+            ]
+          }
         ],
         sidebar: [
           {
@@ -93,6 +100,13 @@ export default defineConfig({
             text: 'API参考',
             items: [
               { text: 'API 参考', link: '/api/' }
+            ]
+          },
+          {
+            text: '法律',
+            items: [
+              { text: '用户协议', link: '/legal/terms' },
+              { text: '隐私政策', link: '/legal/privacy' }
             ]
           }
         ],
@@ -126,7 +140,14 @@ export default defineConfig({
           { text: 'AI Apps', link: '/en/ai-apps/' },
           { text: 'Skills', link: '/en/skills/' },
           { text: 'Support', link: '/en/guide/getting-started' },
-          { text: 'Business', link: '/en/guide/structure' }
+          { text: 'Business', link: '/en/guide/structure' },
+          {
+            text: 'Legal',
+            items: [
+              { text: 'Terms of Service', link: '/en/legal/terms' },
+              { text: 'Privacy Policy', link: '/en/legal/privacy' }
+            ]
+          }
         ],
         sidebar: [
           {
@@ -153,6 +174,13 @@ export default defineConfig({
             text: 'API Reference',
             items: [
               { text: 'API Reference', link: '/en/api/' }
+            ]
+          },
+          {
+            text: 'Legal',
+            items: [
+              { text: 'Terms of Service', link: '/en/legal/terms' },
+              { text: 'Privacy Policy', link: '/en/legal/privacy' }
             ]
           }
         ],
