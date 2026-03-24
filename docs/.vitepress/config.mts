@@ -67,13 +67,7 @@ export default defineConfig({
           { text: 'Skills', link: '/skills/' },
           { text: '技术支持', link: '/guide/getting-started' },
           { text: '商务合作', link: '/guide/structure' },
-          {
-            text: '法律',
-            items: [
-              { text: '用户协议', link: '/legal/terms' },
-              { text: '隐私政策', link: '/legal/privacy' }
-            ]
-          }
+          { text: '法律', link: '/legal/' }
         ],
         sidebar: [
           {
@@ -105,6 +99,7 @@ export default defineConfig({
           {
             text: '法律',
             items: [
+              { text: '法律概览', link: '/legal/' },
               { text: '用户协议', link: '/legal/terms' },
               { text: '隐私政策', link: '/legal/privacy' }
             ]
@@ -141,13 +136,7 @@ export default defineConfig({
           { text: 'Skills', link: '/en/skills/' },
           { text: 'Support', link: '/en/guide/getting-started' },
           { text: 'Business', link: '/en/guide/structure' },
-          {
-            text: 'Legal',
-            items: [
-              { text: 'Terms of Service', link: '/en/legal/terms' },
-              { text: 'Privacy Policy', link: '/en/legal/privacy' }
-            ]
-          }
+          { text: 'Legal', link: '/en/legal/' }
         ],
         sidebar: [
           {
@@ -179,6 +168,7 @@ export default defineConfig({
           {
             text: 'Legal',
             items: [
+              { text: 'Overview', link: '/en/legal/' },
               { text: 'Terms of Service', link: '/en/legal/terms' },
               { text: 'Privacy Policy', link: '/en/legal/privacy' }
             ]

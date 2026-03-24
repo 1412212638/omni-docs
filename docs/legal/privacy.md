@@ -4,7 +4,7 @@
 
 OmniRouters 重视您的个人信息与数据安全。本《隐私政策》说明我们如何收集、使用、存储、共享、保护和处理与您相关的信息，以及您可享有的权利。
 
-OmniRouters 由香港智界智能科技有限公司运营，英文名称为 HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED，注册地址为 RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG。
+OmniRouters 由香港智介智能科技有限公司运营，英文名称为 HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED，注册地址为 RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG。
 
 ## 1. 适用范围
 
@@ -126,7 +126,7 @@ OmniRouters 由香港智界智能科技有限公司运营，英文名称为 HONG
 
 如您对本政策或个人信息处理事宜有任何疑问、投诉或请求，可通过以下方式联系我们：
 
-- 运营主体：香港智界智能科技有限公司（HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED）
+- 运营主体：香港智介智能科技有限公司（HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED）
 - 注册地址：RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG
 - 技术支持：`support@omnirouters.com`
 - 商务合作：`business@omnirouters.com`
