@@ -101,7 +101,15 @@ export default defineConfig({
             items: [
               { text: '法律概览', link: '/legal/' },
               { text: '用户协议', link: '/legal/terms' },
-              { text: '隐私政策', link: '/legal/privacy' }
+              { text: '隐私政策', link: '/legal/privacy' },
+              { text: '个人信息收集声明', link: '/legal/pics' },
+              { text: '数据权利请求', link: '/legal/data-rights' },
+              { text: '安全与数据泄露说明', link: '/legal/security' },
+              { text: '计费与退款说明', link: '/legal/billing-refund' },
+              { text: '可接受使用政策', link: '/legal/acceptable-use' },
+              { text: '子处理者与第三方服务类别', link: '/legal/subprocessors' },
+              { text: '数据处理附录（DPA）说明', link: '/legal/dpa' },
+              { text: 'AI 使用说明', link: '/legal/ai-usage' }
             ]
           }
         ],
@@ -170,7 +178,15 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/en/legal/' },
               { text: 'Terms of Service', link: '/en/legal/terms' },
-              { text: 'Privacy Policy', link: '/en/legal/privacy' }
+              { text: 'Privacy Policy', link: '/en/legal/privacy' },
+              { text: 'Personal Information Collection Statement', link: '/en/legal/pics' },
+              { text: 'Data Rights Requests', link: '/en/legal/data-rights' },
+              { text: 'Security and Data Breach Notice', link: '/en/legal/security' },
+              { text: 'Billing and Refund Policy', link: '/en/legal/billing-refund' },
+              { text: 'Acceptable Use Policy', link: '/en/legal/acceptable-use' },
+              { text: 'Subprocessors and Third-Party Categories', link: '/en/legal/subprocessors' },
+              { text: 'DPA Overview', link: '/en/legal/dpa' },
+              { text: 'AI Usage Notice', link: '/en/legal/ai-usage' }
             ]
           }
         ],
