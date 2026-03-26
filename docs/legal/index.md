@@ -1,30 +1,31 @@
 # 法律与合规
 
-本部分汇总 OmniRouters 面向用户、开发者、企业客户和访客公开提供的法律、隐私、计费与平台使用说明文件。
+本部分汇总 OmniRouters 面向用户、开发者、企业客户和访客公开提供的法律、隐私、计费、开票与平台治理文件。
 
-OmniRouters 由香港智介智能科技有限公司运营，英文名称为 `HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED`，注册地址为 `RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG`。
+OmniRouters 由 `香港智介智能科技有限公司` 运营，英文名称为 `HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED`，注册地址为 `RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG`。
 
 ## 基础法律文件
 
-- [用户协议](/legal/terms)
-- [隐私政策](/legal/privacy)
+- [用户协议](/zh/legal/terms)
+- [隐私政策](/zh/legal/privacy)
 
 ## 数据与隐私
 
-- [个人信息收集声明（PICS）](/legal/pics)
-- [数据权利与访问更正请求](/legal/data-rights)
-- [安全与数据泄露说明](/legal/security)
+- [个人信息收集声明（PICS）](/zh/legal/pics)
+- [数据权利与访问更正请求](/zh/legal/data-rights)
+- [安全与数据泄露说明](/zh/legal/security)
 
 ## 商业与服务使用
 
-- [计费与退款说明](/legal/billing-refund)
-- [可接受使用政策](/legal/acceptable-use)
+- [计费与退款说明](/zh/legal/billing-refund)
+- [开票须知](/zh/legal/invoicing)
+- [可接受使用政策](/zh/legal/acceptable-use)
 
 ## 企业客户与 AI 治理
 
-- [子处理者与第三方服务类别](/legal/subprocessors)
-- [数据处理附录（DPA）说明](/legal/dpa)
-- [AI 使用说明](/legal/ai-usage)
+- [子处理者与第三方服务类别](/zh/legal/subprocessors)
+- [数据处理附录（DPA）说明](/zh/legal/dpa)
+- [AI 使用说明](/zh/legal/ai-usage)
 
 ## 联系方式
 

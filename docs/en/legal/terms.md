@@ -51,7 +51,7 @@ All intellectual property rights in the OmniRouters service itself, including so
 
 ## 6. Fees and Payment
 
-Some OmniRouters services may be paid services. At present, the services primarily operate on a prepaid balance model. You may add funds to your account, and applicable fees will be deducted based on actual API calls, model usage, and related resource consumption. If you use paid services, you agree to pay fees in accordance with the pricing, order terms, quotation, billing terms, or service-specific notices in effect at the time of purchase. See the [Billing and Refund Policy](/en/legal/billing-refund) for operational details.
+Some OmniRouters services may be paid services. At present, the services primarily operate on a prepaid balance model. You may add funds to your account, and applicable fees will be deducted based on actual API calls, model usage, and related resource consumption. If you use paid services, you agree to pay fees in accordance with the pricing, order terms, quotation, billing terms, or service-specific notices in effect at the time of purchase. See the [Billing and Refund Policy](/legal/billing-refund) for operational details.
 
 Unless otherwise required by law or agreed in writing, the following refund rules apply:
 
@@ -93,7 +93,7 @@ Our processing of personal information is governed by the Privacy Policy, which 
 
 ## 12. Updates to These Terms
 
-We may update these terms from time to time due to legal, regulatory, product, or business changes. Updated versions will become effective on the date indicated in the updated notice or upon posting where permitted by law. Your continued use of the services after the effective date constitutes acceptance of the updated terms. These terms may also be interpreted together with the [Acceptable Use Policy](/en/legal/acceptable-use), [AI Usage Notice](/en/legal/ai-usage), and other supplemental documents.
+We may update these terms from time to time due to legal, regulatory, product, or business changes. Updated versions will become effective on the date indicated in the updated notice or upon posting where permitted by law. Your continued use of the services after the effective date constitutes acceptance of the updated terms. These terms may also be interpreted together with the [Acceptable Use Policy](/legal/acceptable-use), [AI Usage Notice](/legal/ai-usage), and other supplemental documents.
 
 ## 13. Governing Law and Dispute Resolution
 

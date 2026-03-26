@@ -33,7 +33,7 @@ We generally manage subprocessors and third parties through:
 
 ## 4. Cross-Border and Model Routing
 
-Because OmniRouters supports multiple models, infrastructure options, and payment channels, relevant data may be transferred outside Hong Kong depending on your selected services and routing. Please also review the [Privacy Policy](/en/legal/privacy) and the [AI Usage Notice](/en/legal/ai-usage).
+Because OmniRouters supports multiple models, infrastructure options, and payment channels, relevant data may be transferred outside Hong Kong depending on your selected services and routing. Please also review the [Privacy Policy](/legal/privacy) and the [AI Usage Notice](/legal/ai-usage).
 
 ## 5. Business Customer Arrangements
 

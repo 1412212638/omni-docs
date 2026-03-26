@@ -2,7 +2,7 @@
 
 Effective Date: March 25, 2026
 
-This Personal Information Collection Statement applies when OmniRouters collects personal information through its website, console, support forms, ticketing channels, payment flow, business communications, and related services. This statement should be read together with the [Privacy Policy](/en/legal/privacy).
+This Personal Information Collection Statement applies when OmniRouters collects personal information through its website, console, support forms, ticketing channels, payment flow, business communications, and related services. This statement should be read together with the [Privacy Policy](/legal/privacy).
 
 ## 1. Collecting Entity
 
@@ -57,7 +57,7 @@ Unless permitted by law or based on your consent, we do not use your personal in
 
 ## 8. Your Rights
 
-Subject to applicable law, you may request access, correction, copies, explanations, or other lawful rights relating to personal information. Please see [Data Rights Requests](/en/legal/data-rights) and the [Privacy Policy](/en/legal/privacy) for more details.
+Subject to applicable law, you may request access, correction, copies, explanations, or other lawful rights relating to personal information. Please see [Data Rights Requests](/legal/data-rights) and the [Privacy Policy](/legal/privacy) for more details.
 
 ## 9. Contact
 

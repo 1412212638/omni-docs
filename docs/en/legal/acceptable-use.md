@@ -2,7 +2,7 @@
 
 Effective Date: March 25, 2026
 
-This Acceptable Use Policy supplements the [Terms of Service](/en/legal/terms) and applies to all activity conducted through the OmniRouters website, console, APIs, documentation, and related tools.
+This Acceptable Use Policy supplements the [Terms of Service](/legal/terms) and applies to all activity conducted through the OmniRouters website, console, APIs, documentation, and related tools.
 
 ## 1. Basic Principle
 

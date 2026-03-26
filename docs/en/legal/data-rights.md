@@ -2,7 +2,7 @@
 
 Effective Date: March 25, 2026
 
-This page explains how you may request access to, correction of, or other action regarding personal information held by OmniRouters. It should be read together with the [Privacy Policy](/en/legal/privacy) and the [Personal Information Collection Statement](/en/legal/pics).
+This page explains how you may request access to, correction of, or other action regarding personal information held by OmniRouters. It should be read together with the [Privacy Policy](/legal/privacy) and the [Personal Information Collection Statement](/legal/pics).
 
 ## 1. Rights You May Have
 

@@ -49,10 +49,10 @@ Where appropriate, we continue to improve governance practices such as:
 
 This page should be read together with:
 
-- [Terms of Service](/en/legal/terms)
-- [Privacy Policy](/en/legal/privacy)
-- [Acceptable Use Policy](/en/legal/acceptable-use)
-- [Subprocessors and Third-Party Categories](/en/legal/subprocessors)
+- [Terms of Service](/legal/terms)
+- [Privacy Policy](/legal/privacy)
+- [Acceptable Use Policy](/legal/acceptable-use)
+- [Subprocessors and Third-Party Categories](/legal/subprocessors)
 
 ## 7. Contact
 

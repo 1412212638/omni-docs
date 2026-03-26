@@ -2,7 +2,7 @@
 
 生效日期：2026 年 3 月 25 日
 
-OmniRouters 重视您的个人信息与数据安全。本《隐私政策》说明我们如何收集、使用、存储、共享、保护和处理与您相关的信息，以及您可享有的权利。对于收集时的简要告知，请结合《[个人信息收集声明（PICS）](/legal/pics)》阅读；如需提交访问或更正请求，请参阅《[数据权利与访问更正请求](/legal/data-rights)》。
+OmniRouters 重视您的个人信息与数据安全。本《隐私政策》说明我们如何收集、使用、存储、共享、保护和处理与您相关的信息，以及您可享有的权利。对于收集时的简要告知，请结合《[个人信息收集声明（PICS）](/zh/legal/pics)》阅读；如需提交访问或更正请求，请参阅《[数据权利与访问更正请求](/zh/legal/data-rights)》。
 
 OmniRouters 由香港智介智能科技有限公司运营，英文名称为 HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED，注册地址为 RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG。
 

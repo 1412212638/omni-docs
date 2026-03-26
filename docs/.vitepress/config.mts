@@ -7,6 +7,27 @@ const search = {
       root: {
         translations: {
           button: {
+            buttonText: 'Search',
+            buttonAriaLabel: 'Search'
+          },
+          modal: {
+            noResultsText: 'No results for this query',
+            resetButtonTitle: 'Clear query',
+            footer: {
+              selectText: 'Select',
+              selectKeyAriaLabel: 'enter',
+              navigateText: 'Navigate',
+              navigateUpKeyAriaLabel: 'up arrow',
+              navigateDownKeyAriaLabel: 'down arrow',
+              closeText: 'Close',
+              closeKeyAriaLabel: 'escape'
+            }
+          }
+        }
+      },
+      zh: {
+        translations: {
+          button: {
             buttonText: '搜索',
             buttonAriaLabel: '搜索'
           },
@@ -24,14 +45,6 @@ const search = {
             }
           }
         }
-      },
-      en: {
-        translations: {
-          button: {
-            buttonText: 'Search',
-            buttonAriaLabel: 'Search'
-          }
-        }
       }
     }
   }
@@ -40,12 +53,17 @@ const search = {
 export default defineConfig({
   title: 'OmniRouters Docs',
   description: 'OmniRouters documentation',
-  lang: 'zh-CN',
+  lang: 'en-US',
   base: '/',
   lastUpdated: true,
-  head: [
-    ['link', { rel: 'icon', href: '/logo.png' }]
-  ],
+  rewrites(id) {
+    if (id.startsWith('en/')) {
+      return id.slice(3)
+    }
+
+    return `zh/${id}`
+  },
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
   themeConfig: {
     logo: {
       src: '/logo.png',
@@ -55,61 +73,178 @@ export default defineConfig({
   },
   locales: {
     root: {
-      label: '中文',
-      lang: 'zh-CN',
+      label: 'English',
+      lang: 'en-US',
       title: 'OmniRouters Docs',
-      description: '使用 VitePress 构建的文档站',
+      description: 'Documentation for OmniRouters',
       themeConfig: {
         nav: [
-          { text: '首页', link: '/' },
-          { text: 'API参考', link: '/api/' },
-          { text: 'AI应用', link: '/ai-apps/' },
+          { text: 'Home', link: '/' },
+          { text: 'API Reference', link: '/api/' },
+          { text: 'AI Apps', link: '/ai-apps/' },
           { text: 'Skills', link: '/skills/' },
-          { text: '技术支持', link: '/guide/getting-started' },
-          { text: '商务合作', link: '/guide/structure' },
-          { text: '法律', link: '/legal/' }
+          { text: 'Support', link: '/guide/getting-started' },
+          { text: 'Business', link: '/guide/structure' },
+          { text: 'Updates', link: '/changelog/' },
+          { text: 'Legal', link: '/legal/' }
         ],
         sidebar: [
           {
-            text: 'AI应用',
+            text: 'AI Apps',
             items: [
-              { text: 'AI应用概览', link: '/ai-apps/' },
+              { text: 'Overview', link: '/ai-apps/' },
               { text: 'AionUi', link: '/ai-apps/aionui' }
             ]
           },
           {
             text: 'Skills',
+            items: [{ text: 'Skills', link: '/skills/' }]
+          },
+          {
+            text: 'Guide',
             items: [
-              { text: 'Skills', link: '/skills/' }
+              { text: 'Support', link: '/guide/getting-started' },
+              { text: 'Business', link: '/guide/structure' }
             ]
+          },
+          {
+            text: 'API Reference',
+            items: [{ text: 'API Reference', link: '/api/' }]
+          },
+          {
+            text: 'Updates',
+            items: [{ text: 'Changelog', link: '/changelog/' }]
+          },
+          {
+            text: 'Legal',
+            items: [
+              { text: 'Overview', link: '/legal/' },
+              { text: 'Terms of Service', link: '/legal/terms' },
+              { text: 'Privacy Policy', link: '/legal/privacy' },
+              {
+                text: 'Personal Information Collection Statement',
+                link: '/legal/pics'
+              },
+              { text: 'Data Rights Requests', link: '/legal/data-rights' },
+              {
+                text: 'Security and Data Breach Notice',
+                link: '/legal/security'
+              },
+              {
+                text: 'Billing and Refund Policy',
+                link: '/legal/billing-refund'
+              },
+              { text: 'Invoice Notice', link: '/legal/invoicing' },
+              {
+                text: 'Acceptable Use Policy',
+                link: '/legal/acceptable-use'
+              },
+              {
+                text: 'Subprocessors and Third-Party Categories',
+                link: '/legal/subprocessors'
+              },
+              { text: 'DPA Overview', link: '/legal/dpa' },
+              { text: 'AI Usage Notice', link: '/legal/ai-usage' }
+            ]
+          }
+        ],
+        langMenuLabel: 'Language',
+        darkModeSwitchLabel: 'Appearance',
+        docFooter: {
+          prev: 'Previous page',
+          next: 'Next page'
+        },
+        outline: {
+          label: 'On this page'
+        },
+        lastUpdated: {
+          text: 'Last updated'
+        },
+        footer: {
+          copyright: 'Copyright 2026 OmniRouters Docs'
+        }
+      }
+    },
+    zh: {
+      label: '中文',
+      lang: 'zh-CN',
+      link: '/zh/',
+      title: 'OmniRouters Docs',
+      description: 'OmniRouters 产品文档',
+      themeConfig: {
+        nav: [
+          { text: '首页', link: '/zh/' },
+          { text: 'API参考', link: '/zh/api/' },
+          { text: 'AI应用', link: '/zh/ai-apps/' },
+          { text: 'Skills', link: '/zh/skills/' },
+          { text: '技术支持', link: '/zh/guide/getting-started' },
+          { text: '商务合作', link: '/zh/guide/structure' },
+          { text: '更新记录', link: '/zh/changelog/' },
+          { text: '法律', link: '/zh/legal/' }
+        ],
+        sidebar: [
+          {
+            text: 'AI应用',
+            items: [
+              { text: 'AI应用概览', link: '/zh/ai-apps/' },
+              { text: 'AionUi', link: '/zh/ai-apps/aionui' }
+            ]
+          },
+          {
+            text: 'Skills',
+            items: [{ text: 'Skills', link: '/zh/skills/' }]
           },
           {
             text: '指南',
             items: [
-              { text: '技术支持', link: '/guide/getting-started' },
-              { text: '商务合作', link: '/guide/structure' }
+              { text: '技术支持', link: '/zh/guide/getting-started' },
+              { text: '商务合作', link: '/zh/guide/structure' }
             ]
           },
           {
             text: 'API参考',
-            items: [
-              { text: 'API 参考', link: '/api/' }
-            ]
+            items: [{ text: 'API参考', link: '/zh/api/' }]
+          },
+          {
+            text: '更新记录',
+            items: [{ text: '更新记录', link: '/zh/changelog/' }]
           },
           {
             text: '法律',
             items: [
-              { text: '法律概览', link: '/legal/' },
-              { text: '用户协议', link: '/legal/terms' },
-              { text: '隐私政策', link: '/legal/privacy' },
-              { text: '个人信息收集声明', link: '/legal/pics' },
-              { text: '数据权利请求', link: '/legal/data-rights' },
-              { text: '安全与数据泄露说明', link: '/legal/security' },
-              { text: '计费与退款说明', link: '/legal/billing-refund' },
-              { text: '可接受使用政策', link: '/legal/acceptable-use' },
-              { text: '子处理者与第三方服务类别', link: '/legal/subprocessors' },
-              { text: '数据处理附录（DPA）说明', link: '/legal/dpa' },
-              { text: 'AI 使用说明', link: '/legal/ai-usage' }
+              { text: '法律概览', link: '/zh/legal/' },
+              { text: '用户协议', link: '/zh/legal/terms' },
+              { text: '隐私政策', link: '/zh/legal/privacy' },
+              {
+                text: '个人信息收集声明（PICS）',
+                link: '/zh/legal/pics'
+              },
+              {
+                text: '数据权利与访问更正请求',
+                link: '/zh/legal/data-rights'
+              },
+              {
+                text: '安全与数据泄露说明',
+                link: '/zh/legal/security'
+              },
+              {
+                text: '计费与退款说明',
+                link: '/zh/legal/billing-refund'
+              },
+              { text: '开票须知', link: '/zh/legal/invoicing' },
+              {
+                text: '可接受使用政策',
+                link: '/zh/legal/acceptable-use'
+              },
+              {
+                text: '子处理者与第三方服务类别',
+                link: '/zh/legal/subprocessors'
+              },
+              {
+                text: '数据处理附录（DPA）说明',
+                link: '/zh/legal/dpa'
+              },
+              { text: 'AI 使用说明', link: '/zh/legal/ai-usage' }
             ]
           }
         ],
@@ -126,84 +261,7 @@ export default defineConfig({
           text: '最后更新于'
         },
         footer: {
-          copyright: 'Copyright © 2026 OmniRouters Docs'
-        }
-      }
-    },
-    en: {
-      label: 'EN',
-      lang: 'en-US',
-      link: '/en/',
-      title: 'OmniRouters Docs',
-      description: 'Documentation built with VitePress',
-      themeConfig: {
-        nav: [
-          { text: 'Home', link: '/en/' },
-          { text: 'API Reference', link: '/en/api/' },
-          { text: 'AI Apps', link: '/en/ai-apps/' },
-          { text: 'Skills', link: '/en/skills/' },
-          { text: 'Support', link: '/en/guide/getting-started' },
-          { text: 'Business', link: '/en/guide/structure' },
-          { text: 'Legal', link: '/en/legal/' }
-        ],
-        sidebar: [
-          {
-            text: 'AI Apps',
-            items: [
-              { text: 'Overview', link: '/en/ai-apps/' },
-              { text: 'AionUi', link: '/en/ai-apps/aionui' }
-            ]
-          },
-          {
-            text: 'Skills',
-            items: [
-              { text: 'Skills', link: '/en/skills/' }
-            ]
-          },
-          {
-            text: 'Guide',
-            items: [
-              { text: 'Support', link: '/en/guide/getting-started' },
-              { text: 'Business', link: '/en/guide/structure' }
-            ]
-          },
-          {
-            text: 'API Reference',
-            items: [
-              { text: 'API Reference', link: '/en/api/' }
-            ]
-          },
-          {
-            text: 'Legal',
-            items: [
-              { text: 'Overview', link: '/en/legal/' },
-              { text: 'Terms of Service', link: '/en/legal/terms' },
-              { text: 'Privacy Policy', link: '/en/legal/privacy' },
-              { text: 'Personal Information Collection Statement', link: '/en/legal/pics' },
-              { text: 'Data Rights Requests', link: '/en/legal/data-rights' },
-              { text: 'Security and Data Breach Notice', link: '/en/legal/security' },
-              { text: 'Billing and Refund Policy', link: '/en/legal/billing-refund' },
-              { text: 'Acceptable Use Policy', link: '/en/legal/acceptable-use' },
-              { text: 'Subprocessors and Third-Party Categories', link: '/en/legal/subprocessors' },
-              { text: 'DPA Overview', link: '/en/legal/dpa' },
-              { text: 'AI Usage Notice', link: '/en/legal/ai-usage' }
-            ]
-          }
-        ],
-        langMenuLabel: 'Change language',
-        darkModeSwitchLabel: 'Appearance',
-        docFooter: {
-          prev: 'Previous page',
-          next: 'Next page'
-        },
-        outline: {
-          label: 'On this page'
-        },
-        lastUpdated: {
-          text: 'Last updated'
-        },
-        footer: {
-          copyright: 'Copyright © 2026 OmniRouters Docs'
+          copyright: 'Copyright 2026 OmniRouters Docs'
         }
       }
     }

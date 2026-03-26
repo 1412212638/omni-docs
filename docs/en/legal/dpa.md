@@ -44,4 +44,4 @@ To help us review the request efficiently, please include:
 
 ## 5. Order of Precedence
 
-Unless otherwise agreed in writing, the public [Terms of Service](/en/legal/terms), [Privacy Policy](/en/legal/privacy), applicable order forms, quotations, and service documents continue to apply. If a DPA is separately executed, it will be interpreted together with those materials and will govern to the extent expressly stated in that agreement.
+Unless otherwise agreed in writing, the public [Terms of Service](/legal/terms), [Privacy Policy](/legal/privacy), applicable order forms, quotations, and service documents continue to apply. If a DPA is separately executed, it will be interpreted together with those materials and will govern to the extent expressly stated in that agreement.

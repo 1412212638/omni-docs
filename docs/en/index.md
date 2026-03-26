@@ -4,28 +4,28 @@ layout: home
 hero:
   name: OmniRouters Docs
   text: A unified entry point for multimodal API documentation
-  tagline: Explore APIs, reach technical support, and start business conversations from one place.
+  tagline: Explore APIs, reach technical support, start business conversations, and review compliance materials from one place.
   image:
     src: /logo.png
     alt: OmniRouters Logo
   actions:
     - theme: brand
       text: View API Reference
-      link: /en/api/
+      link: /api/
     - theme: alt
       text: Support
-      link: /en/guide/getting-started
+      link: /guide/getting-started
     - theme: alt
       text: Business
-      link: /en/guide/structure
+      link: /guide/structure
 
 features:
   - title: Multi-entry capabilities
-    details: The docs currently cover Chat, Video, Image, Audio, Embeddings, and Rerank related entry points.
+    details: The docs cover Chat, Video, Image, Audio, Embeddings, Rerank, and other OmniRouters entry points.
   - title: Clearer routing
-    details: API docs, support contact, and business contact are separated so users can reach the right place faster.
+    details: API docs, support, business, updates, and legal materials are separated so users can reach the right page faster.
   - title: Bilingual docs
-    details: Chinese and English versions are both available for internal teams and external users.
+    details: English and Chinese versions are both available for internal teams and external users.
 ---
 
 <div class="home-section">
@@ -51,15 +51,15 @@ features:
   <p class="home-kicker">Entry Points</p>
   <h2>Start from the path that fits your goal</h2>
   <div class="home-grid home-grid-3">
-    <a class="home-link-card" href="/en/api/">
+    <a class="home-link-card" href="/api/">
       <strong>API Reference</strong>
       <span>Browse endpoints, request formats, and capability categories</span>
     </a>
-    <a class="home-link-card" href="/en/guide/getting-started">
+    <a class="home-link-card" href="/guide/getting-started">
       <strong>Support</strong>
       <span>support@omnirouters.com</span>
     </a>
-    <a class="home-link-card" href="/en/guide/structure">
+    <a class="home-link-card" href="/guide/structure">
       <strong>Business</strong>
       <span>business@omnirouters.com</span>
     </a>
@@ -82,8 +82,8 @@ features:
     </div>
     <div class="home-flow-item">
       <span>03</span>
-      <strong>Contact business separately</strong>
-      <p>Business requests go to business@omnirouters.com, with a typical reply time of 2-3 business days.</p>
+      <strong>Review updates and policies</strong>
+      <p>Product updates, billing rules, and legal materials remain available in one documentation site.</p>
     </div>
   </div>
 </div>

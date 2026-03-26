@@ -4,5 +4,5 @@
 
 ## 当前收录
 
-- [AionUi](/ai-apps/aionui)
+- [AionUi](/zh/ai-apps/aionui)
   免费开源的桌面办公 Agent，支持多种 AI 代理与本地化工作流。

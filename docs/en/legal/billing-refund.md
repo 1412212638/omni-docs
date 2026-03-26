@@ -2,7 +2,7 @@
 
 Effective Date: March 25, 2026
 
-This page explains OmniRouters' current prepaid balance billing model and the rules applicable to refunds. It supplements the [Terms of Service](/en/legal/terms).
+This page explains OmniRouters' current prepaid balance billing model and the rules applicable to refunds. It supplements the [Terms of Service](/legal/terms).
 
 ## 1. Billing Model
 
@@ -29,7 +29,7 @@ If you notice abnormal billing, duplicate charges, or discrepancies, please cont
 
 - fees already consumed for API calls, model usage, or related services
 - test credits, bonus credits, promotional credits, or gifted balances that have been issued, used, or expired
-- remaining balance after an account has been restricted, suspended, terminated, or banned due to your violation of the [Terms of Service](/en/legal/terms), service abuse, fraud, unlawful activity, or other causes attributable to you
+- remaining balance after an account has been restricted, suspended, terminated, or banned due to your violation of the [Terms of Service](/legal/terms), service abuse, fraud, unlawful activity, or other causes attributable to you
 
 ### 3.2 Refundable in Appropriate Cases
 
