@@ -6,3 +6,4 @@
 
 - [OmniRouters Generation](/zh/skills/omnirouters-generation)
   基于 OmniRouters 视频、图片与语音接口整理的一体化生成 Skill 说明。
+  [源码](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-generation) / [下载](/downloads/omnirouters-generation-skill.zip)

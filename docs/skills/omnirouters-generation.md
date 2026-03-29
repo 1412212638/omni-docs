@@ -6,6 +6,12 @@
 OmniRouters Generation 面向需要统一媒体生成入口的 Agent、Workflow、脚本工具和第三方 Skill 系统。你可以通过一套 OmniRouters 凭证，接入视频生成、图片生成和 TTS 语音合成能力，并根据用户输入自动选择更合适的接口与模型。
 :::
 
+## 源码 / 下载
+
+- [查看源码](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-generation)
+- [下载 Skill 压缩包](/downloads/omnirouters-generation-skill.zip)
+- [查看 `SKILL.md`](https://github.com/1412212638/omni-docs/blob/main/skills/omnirouters-generation/SKILL.md)
+
 ## 环境说明
 
 推荐使用以下环境变量：

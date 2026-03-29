@@ -6,6 +6,12 @@ Use one OmniRouters API key to route video, image, and speech generation through
 OmniRouters Generation is designed for agents, workflows, scripts, and third-party skill systems that need a unified media-generation entry point. With one OmniRouters credential set, you can connect video generation, image generation, and TTS synthesis, then route each request to the most suitable interface and model.
 :::
 
+## Source / Download
+
+- [View source](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-generation)
+- [Download skill package](/downloads/omnirouters-generation-skill.zip)
+- [Open `SKILL.md`](https://github.com/1412212638/omni-docs/blob/main/skills/omnirouters-generation/SKILL.md)
+
 ## Environment
 
 Recommended environment variables:
