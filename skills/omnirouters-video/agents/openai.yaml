@@ -1,0 +1,7 @@
+interface:
+  display_name: "OmniRouters Video"
+  short_description: "Choose the right OmniRouters video endpoint, model family, and payload."
+  default_prompt: "Use $omnirouters-video to route my OmniRouters video request to the right endpoint and payload."
+
+policy:
+  allow_implicit_invocation: true

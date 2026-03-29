@@ -103,7 +103,10 @@ export default defineConfig({
               {
                 text: 'OmniRouters Generation',
                 link: '/skills/omnirouters-generation'
-              }
+              },
+              { text: 'OmniRouters Video', link: '/skills/omnirouters-video' },
+              { text: 'OmniRouters Image', link: '/skills/omnirouters-image' },
+              { text: 'OmniRouters Speech', link: '/skills/omnirouters-speech' }
             ]
           },
           {
@@ -203,7 +206,10 @@ export default defineConfig({
               {
                 text: 'OmniRouters Generation',
                 link: '/zh/skills/omnirouters-generation'
-              }
+              },
+              { text: 'OmniRouters Video', link: '/zh/skills/omnirouters-video' },
+              { text: 'OmniRouters Image', link: '/zh/skills/omnirouters-image' },
+              { text: 'OmniRouters Speech', link: '/zh/skills/omnirouters-speech' }
             ]
           },
           {

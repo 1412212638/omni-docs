@@ -1,0 +1,7 @@
+interface:
+  display_name: "OmniRouters Image"
+  short_description: "Choose the right OmniRouters image endpoint, model family, and payload."
+  default_prompt: "Use $omnirouters-image to choose the right OmniRouters image generation endpoint and payload for my request."
+
+policy:
+  allow_implicit_invocation: true

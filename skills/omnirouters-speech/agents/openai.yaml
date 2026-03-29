@@ -1,0 +1,7 @@
+interface:
+  display_name: "OmniRouters Speech"
+  short_description: "Choose the right OmniRouters speech endpoint, voice, and TTS payload."
+  default_prompt: "Use $omnirouters-speech to choose the right OmniRouters TTS endpoint, voice, and payload for my request."
+
+policy:
+  allow_implicit_invocation: true
