@@ -28,6 +28,13 @@ Use this skill for OmniRouters speech tasks, especially when the user wants to:
    - minimal payload
    - important metadata fields
 
+## Scripts
+
+Prefer the bundled scripts when the user wants to actually submit or inspect requests:
+
+- `scripts/create-speech.mjs` for `/v1/audio/speech`
+- `scripts/create-gemini-speech.mjs` for Gemini-compatible speech requests
+
 ## Default routing
 
 - standard TTS -> `/v1/audio/speech`

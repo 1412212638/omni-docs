@@ -31,6 +31,14 @@ Use this skill for OmniRouters music tasks, especially when the user wants to:
    - minimal payload
    - polling or callback strategy
 
+## Scripts
+
+Prefer the bundled scripts when the user wants to actually submit or inspect requests:
+
+- `scripts/create-music.mjs` for `/suno/submit/music`
+- `scripts/create-lyrics.mjs` for `/suno/submit/lyrics`
+- `scripts/get-task.mjs` for `/suno/fetch/{task_id}`
+
 ## Default routing
 
 - create music -> `/suno/submit/music`

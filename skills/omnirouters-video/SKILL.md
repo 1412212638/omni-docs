@@ -30,6 +30,14 @@ Use this skill for OmniRouters video work, especially when the user wants to:
    - required constraints such as `seconds`, image limits, and URL-only inputs
 4. If the endpoint is async, explain how to poll the task result.
 
+## Scripts
+
+Prefer the bundled scripts when the user wants to actually submit or inspect requests instead of only drafting docs:
+
+- `scripts/create-standard-video.mjs` for `/v1/videos/generations`
+- `scripts/create-remix-video.mjs` for `/v1/video/generations`
+- `scripts/get-task.mjs` for task lookup and polling
+
 ## Default routing
 
 - prompt-only or image-to-video -> `/v1/videos/generations`

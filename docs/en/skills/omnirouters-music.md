@@ -31,6 +31,23 @@ Focused skill for OmniRouters Suno-based music generation, lyric generation, con
 - `chirp-bluejay`
 - `chirp-crow`
 
+## Direct execution
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/create-music.mjs \
+  --prompt "[Verse]\nCity lights shimmer tonight" \
+  --mv chirp-v5 \
+  --poll
+
+node scripts/create-lyrics.mjs --prompt "dream pop song about the ocean"
+
+node scripts/get-task.mjs --task-id your_task_id
+```
+
+Use `--gpt-description-prompt` when you want inspiration mode instead of a fully custom lyric block.
+
 ## Related Links
 
 - [OmniRouters Generation](/skills/omnirouters-generation)

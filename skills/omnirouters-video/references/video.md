@@ -44,7 +44,8 @@ Important fields:
 - `model`: required
 - `seconds`: required
 - `prompt`: required when no image/video references are passed
-- `images`: public `http(s)` URLs only
+- `image`: the public OpenAPI example for `/v1/videos/generations` uses a single reference image URL
+- `images`: some account-specific or remix-style flows use public `http(s)` URL arrays
 - `videos`: public `http(s)` URLs only and only for some models
 
 Selected limits from current references:

@@ -31,6 +31,23 @@
 - `chirp-bluejay`
 - `chirp-crow`
 
+## 直接执行
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/create-music.mjs \
+  --prompt "[Verse]\n城市灯火在夜里闪烁" \
+  --mv chirp-v5 \
+  --poll
+
+node scripts/create-lyrics.mjs --prompt "写一首关于海洋的 dream pop 歌词"
+
+node scripts/get-task.mjs --task-id your_task_id
+```
+
+如果你想走灵感模式，而不是直接提供完整歌词，可以改用 `--gpt-description-prompt`。
+
 ## 相关链接
 
 - [OmniRouters Generation](/zh/skills/omnirouters-generation)

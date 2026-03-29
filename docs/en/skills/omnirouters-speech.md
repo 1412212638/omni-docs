@@ -28,6 +28,24 @@ Focused skill for OmniRouters text-to-speech and Gemini-compatible speech genera
 - Anna
 - Adam
 
+## Direct execution
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/create-speech.mjs \
+  --input "Welcome to OmniRouters. Your request has been received." \
+  --voice en_female_anna_mars_bigtts \
+  --response-format mp3 \
+  --output welcome.mp3
+
+node scripts/create-gemini-speech.mjs \
+  --input "Please say hello in a calm voice." \
+  --voice-name Kore
+```
+
+Use `--dry-run` to inspect the request before you submit it.
+
 ## Related Links
 
 - [OmniRouters Generation](/skills/omnirouters-generation)

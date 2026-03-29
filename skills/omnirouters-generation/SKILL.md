@@ -47,6 +47,13 @@ Typical user asks that should trigger this skill:
    - Do not invent unsupported fields
    - If enabled models depend on the user's account, say so explicitly
 
+## Scripts
+
+Prefer the bundled scripts when the user wants to actually submit or inspect requests:
+
+- `scripts/run-generation.mjs` for unified video, image, and speech submission
+- `scripts/get-task.mjs` for video and music task lookup
+
 ## Routing Cheat Sheet
 
 ### Video

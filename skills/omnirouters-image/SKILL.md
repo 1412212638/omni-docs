@@ -27,6 +27,13 @@ Use this skill for OmniRouters image tasks, especially when the user wants to:
    - minimal payload
    - image-count and aspect-ratio constraints
 
+## Scripts
+
+Prefer the bundled scripts when the user wants to actually submit or inspect requests:
+
+- `scripts/create-image.mjs` for `/v1/images/generations`
+- `scripts/create-gemini-image.mjs` for Gemini-compatible image requests
+
 ## Default routing
 
 - standard image generation -> `/v1/images/generations`

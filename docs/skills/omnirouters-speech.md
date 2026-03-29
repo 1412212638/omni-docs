@@ -28,6 +28,24 @@
 - Anna
 - Adam
 
+## 直接执行
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/create-speech.mjs \
+  --input "欢迎使用 OmniRouters，您的请求已经收到。" \
+  --voice zh_male_wennuanahu_moon_bigtts \
+  --response-format mp3 \
+  --output welcome.mp3
+
+node scripts/create-gemini-speech.mjs \
+  --input "请用平静的语气说一句你好。" \
+  --voice-name Kore
+```
+
+如果想先检查请求，不真正发送，可以加 `--dry-run`。
+
 ## 相关链接
 
 - [OmniRouters Generation](/zh/skills/omnirouters-generation)

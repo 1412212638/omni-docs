@@ -27,6 +27,23 @@
 - Gemini Image
 - Vidu 图片工作流
 
+## 直接执行
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/create-image.mjs \
+  --prompt "一张干净的产品主视觉，棚拍柔光背景" \
+  --model doubao-seedream-4-5-251128 \
+  --size 4K
+
+node scripts/create-gemini-image.mjs \
+  --text "生成一张日落下的未来城市海报" \
+  --model gemini-2.5-flash-image
+```
+
+如果你已经有完整请求体，也可以直接传 `--payload-file payload.json`。
+
 ## 相关链接
 
 - [OmniRouters Generation](/zh/skills/omnirouters-generation)

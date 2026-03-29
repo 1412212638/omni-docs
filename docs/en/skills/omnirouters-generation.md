@@ -25,6 +25,33 @@ Use the same auth format across requests:
 
 The current public surface is documented in the [API Reference](/api/).
 
+## Direct execution
+
+The skill package now includes executable Node scripts, so it can route and submit requests directly:
+
+```bash
+export OMNIROUTERS_API_KEY=your_key
+
+node scripts/run-generation.mjs \
+  --media video \
+  --prompt "A futuristic 16:9 product promo" \
+  --duration 5 \
+  --poll
+
+node scripts/run-generation.mjs \
+  --media image \
+  --prompt "A cyberpunk city poster" \
+  --size 4K
+
+node scripts/run-generation.mjs \
+  --media speech \
+  --input "Welcome to OmniRouters." \
+  --voice en_female_anna_mars_bigtts \
+  --output welcome.mp3
+```
+
+You can inspect the final request with `--dry-run`, or fetch tasks later with `node scripts/get-task.mjs --task-id ... --family video-standard`.
+
 ## Quick Start
 
 Describe what you want to generate and the skill can route it to the right interface:
@@ -151,7 +178,8 @@ For Gemini-style speech requests, use:
 ### Video
 
 - `seconds` is required and allowed ranges depend on the target model
-- `images` only supports public `http(s)` URLs and does not use a separate `image` field
+- the public `/v1/videos/generations` example uses a single `image` URL for reference-video generation
+- some account-specific or remix-style flows may use `images` arrays, and those should still be public `http(s)` URLs
 - `videos` only supports public `http(s)` URLs and is only available for part of the model set
 - Common `metadata` fields include:
   - `aspect_ratio`
