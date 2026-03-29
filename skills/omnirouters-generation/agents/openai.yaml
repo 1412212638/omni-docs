@@ -1,0 +1,7 @@
+interface:
+  display_name: "OmniRouters Generation"
+  short_description: "Route OmniRouters video, image, and TTS requests to the right endpoint and model."
+  default_prompt: "Use $omnirouters-generation to choose the right OmniRouters media generation endpoint, model, and payload for my request."
+
+policy:
+  allow_implicit_invocation: true
