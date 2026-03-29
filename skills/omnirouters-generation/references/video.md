@@ -8,10 +8,8 @@ Primary paths:
 
 - `POST /v1/videos`
 - `POST /v1/video/generations`
-- `POST /v1/videos/generations`
 - `GET /v1/videos/{task_id}`
 - `GET /v1/video/generations/{task_id}`
-- `GET /v1/videos/generations/{task_id}`
 
 Standard auth:
 
@@ -19,8 +17,8 @@ Standard auth:
 
 ## Recommended Routing
 
-- Pure prompt-based short video -> `/v1/videos/generations`
-- Image-to-video -> `/v1/videos/generations`
+- Pure prompt-based short video -> `/v1/videos`
+- Image-to-video -> `/v1/videos`
 - Existing video or asset remix workflow -> `/v1/video/generations`
 - Task status lookup -> matching `.../{task_id}` route
 

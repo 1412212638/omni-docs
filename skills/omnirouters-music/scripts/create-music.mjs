@@ -14,7 +14,7 @@ const usage = `Usage:
 
 Options:
   --prompt                  Lyrics or custom prompt
-  --mv                      Default: chirp-v5
+  --mv                      Default: chirp-crow
   --title                   Optional title
   --tags                    Optional style tags
   --make-instrumental       Default: false
@@ -41,7 +41,7 @@ const payload = readJsonInput(args, () => {
 
   return {
     ...(args.prompt !== undefined ? { prompt: String(args.prompt) } : {}),
-    mv: String(args.mv || 'chirp-v5'),
+    mv: String(args.mv || 'chirp-crow'),
     ...(args.title ? { title: String(args.title) } : {}),
     ...(args.tags ? { tags: String(args.tags) } : {}),
     ...(args.makeInstrumental !== undefined

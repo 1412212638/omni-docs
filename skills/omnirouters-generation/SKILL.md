@@ -58,10 +58,10 @@ Prefer the bundled scripts when the user wants to actually submit or inspect req
 
 ### Video
 
-- Pure prompt -> `/v1/videos/generations`
-- Single reference image + motion intent -> `/v1/videos/generations`
+- Pure prompt -> `/v1/videos`
+- Single reference image + motion intent -> `/v1/videos`
 - Existing video or product assets for remix / replacement -> `/v1/video/generations`
-- Async task lookup -> `/v1/video/generations/{task_id}` or equivalent task query route
+- Async task lookup -> `/v1/videos/{task_id}` or `/v1/video/generations/{task_id}`
 
 ### Image
 

@@ -1,4 +1,4 @@
-# OmniRouters Speech
+﻿# OmniRouters Speech
 
 面向 OmniRouters 文本转语音和 Gemini 兼容语音请求的专用 Skill。
 
@@ -11,8 +11,8 @@
 ## 适用场景
 
 - 文本转语音
-- 音色推荐
-- 语速和格式控制
+- 音色选择
+- 语速和输出格式控制
 - 时间戳和情绪参数
 
 ## 默认路由
@@ -44,7 +44,9 @@ node scripts/create-gemini-speech.mjs \
   --voice-name Kore
 ```
 
-如果想先检查请求，不真正发送，可以加 `--dry-run`。
+如需先检查请求而不真正发送，可以加 `--dry-run`。
+
+`speed` 需要传数值，例如 `1`，不要传字符串 `"1"`。
 
 ## 相关链接
 

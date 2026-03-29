@@ -15,7 +15,7 @@ if (args.help) {
 requireValue(args, 'taskId', 'Missing --task-id.');
 
 const endpointBuilder = (id) =>
-  args.route === 'remix' ? `/v1/video/generations/${id}` : `/v1/videos/generations/${id}`;
+  args.route === 'remix' ? `/v1/video/generations/${id}` : `/v1/videos/${id}`;
 
 if (args.poll) {
   const result = await pollTask({

@@ -881,7 +881,7 @@ paths:
                 properties: {}
           headers: {}
       security: []
-  /v1/videos/generations:
+  /v1/videos:
     post:
       summary: 1.5-Pro-Create Task
       deprecated: false
@@ -1362,7 +1362,7 @@ paths:
                     [Chorus], [Bridge], etc.
                 mv:
                   type: string
-                  description: Model version, e.g. chirp-v5
+                  description: Model version, e.g. chirp-crow
             example:
               prompt: |-
                 [Verse]
@@ -1426,7 +1426,7 @@ paths:
                 Like a show
                 Cat dance
                 Let's steal the glow
-              mv: chirp-v5
+              mv: chirp-crow
         required: true
       responses:
         '200':
@@ -1602,7 +1602,7 @@ paths:
                   title: Response Format
                   description: The format of the audio output, supports text or audio
                 speed:
-                  type: string
+                  type: number
                   title: Speed
                   description: The speed of speech generation, default is 1.0
                 metadata:

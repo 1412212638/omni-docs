@@ -109,6 +109,6 @@ Lyrics task results may include:
 
 - For sectioned lyrics, use structures like `[Verse]`, `[Chorus]`, and `[Bridge]`
 - Poll every `2-5` seconds when not using `notify_hook`
-- Prefer newer `mv` versions when quality matters
+- Prefer `chirp-crow` when the user asks for the latest v5-style generation
 - Use `notify_hook` when you want fewer polling requests
 - Explain custom mode and inspiration mode separately so users do not mix the required fields

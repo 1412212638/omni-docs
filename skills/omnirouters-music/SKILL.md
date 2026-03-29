@@ -58,6 +58,7 @@ Include:
 ## Guardrails
 
 - Keep Suno `mv` values exact
+- Prefer `chirp-crow` when the user asks for the latest generally available Suno v5 path
 - Distinguish inspiration mode from custom mode
 - Mention when continuation needs `task_id`, `continue_at`, and `continue_clip_id`
 - Mention that polling every `2-5` seconds is the safer default when no callback is used

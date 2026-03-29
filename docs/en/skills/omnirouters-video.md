@@ -13,11 +13,11 @@ Focused skill for OmniRouters video generation, image-to-video, and asset remix 
 - text-to-video
 - image-to-video
 - remixing existing footage with new assets
-- choosing between `/v1/videos/generations` and `/v1/video/generations`
+- choosing between `/v1/videos` and `/v1/video/generations`
 
 ## Default routing
 
-- prompt-only or image-based generation -> `/v1/videos/generations`
+- prompt-only or image-based generation -> `/v1/videos`
 - asset remix -> `/v1/video/generations`
 - task lookup -> matching `.../{task_id}` route
 
@@ -38,9 +38,9 @@ export OMNIROUTERS_API_KEY=your_key
 
 node scripts/create-standard-video.mjs \
   --prompt "A cinematic product teaser with soft camera motion" \
-  --model doubao-seedance-1-5-pro-251215 \
-  --duration 5 \
-  --ratio 16:9 \
+  --model Vidu-q2-turbo-720p \
+  --seconds 5 \
+  --aspect-ratio 16:9 \
   --poll
 
 node scripts/create-remix-video.mjs \
@@ -53,6 +53,8 @@ node scripts/get-task.mjs --task-id your_task_id --route standard
 ```
 
 Use `--dry-run` if you want to inspect the final request without sending it.
+
+For the standard route, the bundled script now targets the verified `/v1/videos` path.
 
 ## Related Links
 

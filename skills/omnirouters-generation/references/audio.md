@@ -22,7 +22,7 @@ Primary paths:
   "voice": "zh_male_wennuanahu_moon_bigtts",
   "input": "Welcome to OmniRouters.",
   "response_format": "mp3",
-  "speed": "1"
+  "speed": 1
 }
 ```
 
@@ -44,6 +44,7 @@ Optional structured metadata currently shown in the public spec:
 Important note from the current API reference:
 
 - voice timbre used in `seed-tts-1.0` and `seed-tts-2.0` must match the corresponding version
+- `speed` should be sent as a numeric value such as `1`, not a string such as `"1"`
 
 ## Gemini-Compatible Speech
 

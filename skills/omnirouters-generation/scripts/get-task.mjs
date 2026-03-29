@@ -23,7 +23,7 @@ function endpointBuilder(id) {
       return `/suno/fetch/${id}`;
     case 'video-standard':
     default:
-      return `/v1/videos/generations/${id}`;
+      return `/v1/videos/${id}`;
   }
 }
 

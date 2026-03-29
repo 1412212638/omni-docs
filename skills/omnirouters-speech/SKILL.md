@@ -53,6 +53,7 @@ Include:
 
 - Always include the exact `voice` ID
 - Mention when voice IDs need to match the relevant Seed-TTS version
+- Treat `speed` as a numeric field in payload examples
 - Keep emotion and timestamp guidance tied to documented fields
 
 ## Reference

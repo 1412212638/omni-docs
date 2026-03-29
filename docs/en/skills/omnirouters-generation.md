@@ -70,9 +70,9 @@ Read this welcome script in a warm male voice
 
 | Type | Trigger | API | Notes |
 | --- | --- | --- | --- |
-| Text-to-video | Pure text prompt | `/v1/videos/generations` | Best for short videos created directly from prompts |
-| Image-to-video | One reference image plus motion instructions | `/v1/videos/generations` | Best for animating a still image into a short clip |
-| Multi-image video | Multiple reference images | `/v1/videos/generations` | Best for multi-subject or shot-switching style videos |
+| Text-to-video | Pure text prompt | `/v1/videos` | Best for short videos created directly from prompts |
+| Image-to-video | One reference image plus motion instructions | `/v1/videos` | Best for animating a still image into a short clip |
+| Multi-image video | Multiple reference images | `/v1/videos` | Best for multi-subject or shot-switching style videos |
 | Asset-driven remix | Source video, product images, or asset pack | `/v1/video/generations` | Best for ad-style remix, replacement, or restructuring workflows |
 
 ### Image generation
@@ -178,7 +178,7 @@ For Gemini-style speech requests, use:
 ### Video
 
 - `seconds` is required and allowed ranges depend on the target model
-- the public `/v1/videos/generations` example uses a single `image` URL for reference-video generation
+- standard `/v1/videos` flows can use a single `image` URL for reference-video generation
 - some account-specific or remix-style flows may use `images` arrays, and those should still be public `http(s)` URLs
 - `videos` only supports public `http(s)` URLs and is only available for part of the model set
 - Common `metadata` fields include:
@@ -210,8 +210,9 @@ For Gemini-style speech requests, use:
   - `model`
   - `voice`
   - `input`
-  - `response_format`
-  - `speed`
+- `response_format`
+- `speed`
+- `speed` should be numeric, for example `1`
 
 ## TTS Voice Suggestions
 
@@ -237,7 +238,7 @@ Recommendation notes:
 
 ### Video generation
 
-- Use `/v1/videos/generations` first for standard text-to-video and image-to-video flows
+- Use `/v1/videos` first for standard text-to-video and image-to-video flows
 - Use `/v1/video/generations` when the request is centered on existing `video_url` input, product assets, or remix workflows
 - For async video tasks, continue with the task lookup flow returned by the relevant interface
 
@@ -256,7 +257,7 @@ Recommendation notes:
 - Keep model names aligned with the models actually enabled on your OmniRouters account
 - Use stable public URLs for image and video assets
 - Define aspect ratio, duration, and output format up front to reduce failed retries
-- For TTS, explicitly pass `voice`, `response_format`, and `speed`
+- For TTS, explicitly pass `voice`, `response_format`, and numeric `speed`
 - In production, retain task IDs, original payloads, and output records for troubleshooting
 
 ## Related Links

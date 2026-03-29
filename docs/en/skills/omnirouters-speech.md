@@ -46,6 +46,8 @@ node scripts/create-gemini-speech.mjs \
 
 Use `--dry-run` to inspect the request before you submit it.
 
+Pass `speed` as a number, for example `1`, not as a quoted string.
+
 ## Related Links
 
 - [OmniRouters Generation](/skills/omnirouters-generation)

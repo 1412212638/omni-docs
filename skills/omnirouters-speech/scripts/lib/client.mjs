@@ -158,23 +158,16 @@ export async function request({
   const url = `${getBaseUrl(args)}${endpoint}`;
 
   if (asBoolean(args.dryRun, false)) {
-    console.log(
-      JSON.stringify(
-        {
-          method,
-          url,
-          headers: {
-            Authorization: getApiKey(args) ? 'Bearer ***' : 'Bearer <OMNIROUTERS_API_KEY>',
-            'Content-Type': body === undefined ? undefined : 'application/json'
-          },
-          body
-        },
-        null,
-        2
-      )
-    );
-
-    return { dryRun: true, url, body };
+    return {
+      dryRun: true,
+      method,
+      url,
+      headers: {
+        Authorization: getApiKey(args) ? 'Bearer ***' : 'Bearer <OMNIROUTERS_API_KEY>',
+        'Content-Type': body === undefined ? undefined : 'application/json'
+      },
+      body
+    };
   }
 
   const apiKey = getApiKey(args);
@@ -291,18 +284,12 @@ export async function pollTask({
   defaultBinaryFileName
 }) {
   if (asBoolean(args.dryRun, false)) {
-    console.log(
-      JSON.stringify(
-        {
-          action: 'poll',
-          taskId,
-          url: `${getBaseUrl(args)}${endpointBuilder(taskId)}`
-        },
-        null,
-        2
-      )
-    );
-    return { dryRun: true, taskId };
+    return {
+      dryRun: true,
+      action: 'poll',
+      taskId,
+      url: `${getBaseUrl(args)}${endpointBuilder(taskId)}`
+    };
   }
 
   const intervalSeconds = asNumber(args.intervalSeconds, 5);

@@ -68,7 +68,7 @@ const payload = readJsonInput(args, () => {
     voice: args.voice || 'zh_male_wennuanahu_moon_bigtts',
     input: String(args.input),
     response_format: String(args.responseFormat || 'mp3'),
-    speed: String(args.speed || '1'),
+    speed: asNumber(args.speed, 1),
     ...(Object.keys(metadata).length ? { metadata } : {})
   };
 });

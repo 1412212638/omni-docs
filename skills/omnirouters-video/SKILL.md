@@ -12,7 +12,7 @@ Use this skill for OmniRouters video work, especially when the user wants to:
 - generate a video from a text prompt
 - animate one or more reference images
 - remix an existing video with new product assets
-- choose between `/v1/videos/generations` and `/v1/video/generations`
+- choose between `/v1/videos` and `/v1/video/generations`
 - write docs, examples, or SDK snippets for OmniRouters video APIs
 
 ## Workflow
@@ -34,13 +34,13 @@ Use this skill for OmniRouters video work, especially when the user wants to:
 
 Prefer the bundled scripts when the user wants to actually submit or inspect requests instead of only drafting docs:
 
-- `scripts/create-standard-video.mjs` for `/v1/videos/generations`
+- `scripts/create-standard-video.mjs` for `/v1/videos`
 - `scripts/create-remix-video.mjs` for `/v1/video/generations`
 - `scripts/get-task.mjs` for task lookup and polling
 
 ## Default routing
 
-- prompt-only or image-to-video -> `/v1/videos/generations`
+- prompt-only or image-to-video -> `/v1/videos`
 - remix based on `video_url`, product images, or source footage -> `/v1/video/generations`
 - task lookup -> matching `.../{task_id}` route
 

@@ -1,4 +1,4 @@
-# OmniRouters Video
+﻿# OmniRouters Video
 
 面向 OmniRouters 视频生成、图生视频和素材重组场景的专用 Skill。
 
@@ -13,11 +13,11 @@
 - 文生视频
 - 图生视频
 - 基于现有视频或商品素材做重组
-- 选择 `/v1/videos/generations` 和 `/v1/video/generations`
+- 在 `/v1/videos` 和 `/v1/video/generations` 之间选择正确路由
 
 ## 默认路由
 
-- 文本或图片驱动的视频生成 -> `/v1/videos/generations`
+- 常规文生视频、图生视频 -> `/v1/videos`
 - 素材重组视频 -> `/v1/video/generations`
 - 任务查询 -> 对应的 `.../{task_id}` 路径
 
@@ -38,9 +38,9 @@ export OMNIROUTERS_API_KEY=your_key
 
 node scripts/create-standard-video.mjs \
   --prompt "一个有电影感的产品短片，镜头缓慢推进" \
-  --model doubao-seedance-1-5-pro-251215 \
-  --duration 5 \
-  --ratio 16:9 \
+  --model Vidu-q2-turbo-720p \
+  --seconds 5 \
+  --aspect-ratio 16:9 \
   --poll
 
 node scripts/create-remix-video.mjs \
@@ -52,7 +52,9 @@ node scripts/create-remix-video.mjs \
 node scripts/get-task.mjs --task-id your_task_id --route standard
 ```
 
-如果你只想先检查最终请求体，可以加 `--dry-run`。
+如需先查看最终请求体而不真正发送，可加 `--dry-run`。
+
+标准视频脚本当前已经切到真实联调通过的 `/v1/videos` 路径。
 
 ## 相关链接
 

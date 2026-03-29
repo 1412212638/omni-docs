@@ -57,25 +57,35 @@ function buildVideoRequest() {
   }
 
   return {
-    endpoint: '/v1/videos/generations',
+    endpoint: '/v1/videos',
     body: readJsonInput(args, () => {
       requireValue(args, 'prompt', 'Missing --prompt or --payload-file.');
+      const imageList = asList(args.images);
+
+      if (args.image) {
+        imageList.unshift(String(args.image));
+      }
 
       return {
-        model: args.model || 'doubao-seedance-1-5-pro-251215',
+        model: args.model || 'Vidu-q2-turbo-720p',
+        seconds: String(asNumber(args.seconds ?? args.duration, 5)),
         prompt: String(args.prompt),
-        ...(args.image ? { image: String(args.image) } : {}),
+        ...(imageList.length === 1 ? { image: imageList[0] } : {}),
+        ...(imageList.length > 1 ? { images: imageList } : {}),
         metadata: {
-          resolution: String(args.resolution || '1280x720'),
-          ratio: String(args.ratio || '16:9'),
-          duration: asNumber(args.duration, 5),
-          seed: asNumber(args.seed, 12345),
-          generate_audio: asBoolean(args.generateAudio, false),
-          watermark: asBoolean(args.watermark, false)
+          aspect_ratio: String(args.aspectRatio || args.ratio || '16:9'),
+          enhance_prompt: String(args.enhancePrompt || 'Enabled'),
+          input_region: String(args.inputRegion || 'Oversea'),
+          output_config: {
+            AudioGeneration: asBoolean(args.generateAudio, false) ? 'Enabled' : 'Disabled',
+            PersonGeneration: String(args.personGeneration || 'AllowAdult'),
+            InputComplianceCheck: String(args.inputComplianceCheck || 'Disabled'),
+            OutputComplianceCheck: String(args.outputComplianceCheck || 'Disabled')
+          }
         }
       };
     }),
-    pollEndpoint: (id) => `/v1/videos/generations/${id}`
+    pollEndpoint: (id) => `/v1/videos/${id}`
   };
 }
 
@@ -164,7 +174,7 @@ function buildSpeechRequest() {
         voice: args.voice || 'zh_male_wennuanahu_moon_bigtts',
         input: String(args.input),
         response_format: String(args.responseFormat || 'mp3'),
-        speed: String(args.speed || '1')
+        speed: asNumber(args.speed, 1)
       };
     }),
     defaultBinaryFileName: `omnirouters-speech.${args.responseFormat || 'mp3'}`

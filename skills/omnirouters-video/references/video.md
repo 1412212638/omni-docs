@@ -4,15 +4,13 @@ Primary paths:
 
 - `POST /v1/videos`
 - `POST /v1/video/generations`
-- `POST /v1/videos/generations`
 - `GET /v1/videos/{task_id}`
 - `GET /v1/video/generations/{task_id}`
-- `GET /v1/videos/generations/{task_id}`
 
 Recommended routing:
 
-- standard prompt-only video -> `/v1/videos/generations`
-- image-to-video -> `/v1/videos/generations`
+- standard prompt-only video -> `/v1/videos`
+- image-to-video -> `/v1/videos`
 - asset remix workflow -> `/v1/video/generations`
 
 Common model families seen in current references:
@@ -44,7 +42,7 @@ Important fields:
 - `model`: required
 - `seconds`: required
 - `prompt`: required when no image/video references are passed
-- `image`: the public OpenAPI example for `/v1/videos/generations` uses a single reference image URL
+- `image`: standard `/v1/videos` flows can use a single reference image URL
 - `images`: some account-specific or remix-style flows use public `http(s)` URL arrays
 - `videos`: public `http(s)` URLs only and only for some models
 
@@ -69,7 +67,6 @@ Image count limits:
 Useful metadata fields:
 
 - `aspect_ratio`
-- `negative_prompt`
 - `enhance_prompt`
 - `input_region`
 - `output_config`
