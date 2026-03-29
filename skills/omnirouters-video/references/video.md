@@ -25,6 +25,20 @@ Common model families seen in current references:
 - `GV-3.1-1080p`
 - `OS-2.0-720p`
 
+Expanded capability notes from the current comparison sheet:
+
+- `Hailuo-02`: text-to-video, image-to-video, first/last frame support, 720P/1080P
+- `Hailuo-2.3`: text-to-video and image-to-video, 768P/1080P
+- `Hailuo-2.3-fast`: image-to-video oriented, single-image input, 768P/1080P
+- `Kling-2.1`: text-to-video and image-to-video, up to 4 images, `camera_control`
+- `Kling-2.5 Turbo`: text-to-video and image-to-video, 1080P
+- `Kling-O1`: text/video/image hybrid reference workflows, supports first/last frame
+- `Kling-2.6`: text-to-video and image-to-video
+- `Kling-2.6 (audio-video)`: audio-video output capable
+- `Kling-3.0`: text-to-video and image-to-video, `3-15s`, audio-video capable
+- `Kling-3.0-omni`: supports first/last frame, reference video, and audio-video with some limits
+- `Veo-3.1`: text-to-video and image-to-video, `16:9` / `9:16`, up to 3 references
+
 Important fields:
 
 - `model`: required
@@ -58,6 +72,11 @@ Useful metadata fields:
 - `enhance_prompt`
 - `input_region`
 - `output_config`
+
+Audio-video notes from the matrix:
+
+- some Kling variants support direct audio-video generation
+- `Veo-3.1` audio output depends on enabling the audio-generation flag
 
 Common aspect ratios:
 

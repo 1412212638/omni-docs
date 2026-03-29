@@ -1,0 +1,7 @@
+interface:
+  display_name: "OmniRouters Music"
+  short_description: "Choose the right OmniRouters Suno endpoint, model version, and music payload."
+  default_prompt: "Use $omnirouters-music to choose the right OmniRouters music endpoint, Suno model version, and payload for my request."
+
+policy:
+  allow_implicit_invocation: true

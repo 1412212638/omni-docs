@@ -16,3 +16,6 @@ This section collects skill-style usage guides built around OmniRouters, includi
 - [OmniRouters Speech](/skills/omnirouters-speech)
   Focused skill for OmniRouters TTS and Gemini-compatible speech workflows.
   [Source](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-speech) / [Download](/downloads/omnirouters-speech-skill.zip)
+- [OmniRouters Music](/skills/omnirouters-music)
+  Focused skill for OmniRouters Suno-based music generation and lyric workflows.
+  [Source](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-music) / [Download](/downloads/omnirouters-music-skill.zip)

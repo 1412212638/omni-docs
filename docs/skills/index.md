@@ -16,3 +16,6 @@
 - [OmniRouters Speech](/zh/skills/omnirouters-speech)
   面向文本转语音和 Gemini 兼容语音请求的专用 Skill。
   [源码](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-speech) / [下载](/downloads/omnirouters-speech-skill.zip)
+- [OmniRouters Music](/zh/skills/omnirouters-music)
+  面向 Suno 音乐生成、歌词生成和任务查询的专用 Skill。
+  [源码](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters-music) / [下载](/downloads/omnirouters-music-skill.zip)

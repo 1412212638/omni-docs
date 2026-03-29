@@ -21,6 +21,20 @@ Model directions seen in current references:
 - GEM 2.5 / 3.0 / 3.1 families
 - Vidu q2 image capability
 
+Expanded model notes from the current comparison sheet:
+
+- `Google nano 2.5`: up to 4K, max 3 references
+- `Google nano 3.0`: up to 4K, max 14 references
+- `Google nano 3.1`: up to 4K, max 14 references, includes very wide/tall ratios
+- `Kling 2.1`: 1K / 2K, up to 4 references
+- `Kling 3.0`: 1K / 2K, up to 1 reference
+- `Kling 3.0-Omni`: 1K / 2K / 4K, up to 1 reference, subject-image support
+- `Seedream 4.0`: up to 4K, prompt-driven aspect ratio
+- `Seedream 4.5`: 2K / 4K, prompt-driven aspect ratio
+- `Seedream 5.0-lite`: 2K / 3K, prompt-driven aspect ratio
+- `Jimeng 4.0`: 1024 to 4096 square-ish image range, no aspect-ratio matrix in the sheet
+- `Vidu q2`: 1080p / 2K / 4K, up to 7 references
+
 Image count guidance:
 
 - `GEM 2.5`: `0-3`

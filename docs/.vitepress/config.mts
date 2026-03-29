@@ -106,7 +106,8 @@ export default defineConfig({
               },
               { text: 'OmniRouters Video', link: '/skills/omnirouters-video' },
               { text: 'OmniRouters Image', link: '/skills/omnirouters-image' },
-              { text: 'OmniRouters Speech', link: '/skills/omnirouters-speech' }
+              { text: 'OmniRouters Speech', link: '/skills/omnirouters-speech' },
+              { text: 'OmniRouters Music', link: '/skills/omnirouters-music' }
             ]
           },
           {
@@ -209,7 +210,8 @@ export default defineConfig({
               },
               { text: 'OmniRouters Video', link: '/zh/skills/omnirouters-video' },
               { text: 'OmniRouters Image', link: '/zh/skills/omnirouters-image' },
-              { text: 'OmniRouters Speech', link: '/zh/skills/omnirouters-speech' }
+              { text: 'OmniRouters Speech', link: '/zh/skills/omnirouters-speech' },
+              { text: 'OmniRouters Music', link: '/zh/skills/omnirouters-music' }
             ]
           },
           {
