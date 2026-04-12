@@ -80,7 +80,6 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/' },
-          { text: 'Docs', link: '/guide/overview' },
           { text: 'API Reference', link: '/api/' },
           { text: 'AI Apps', link: '/ai-apps/' },
           { text: 'Skills', link: '/skills/' },
@@ -191,7 +190,6 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh/' },
-          { text: '使用文档', link: '/zh/guide/overview' },
           { text: 'API参考', link: '/zh/api/' },
           { text: 'AI应用', link: '/zh/ai-apps/' },
           { text: 'Skills', link: '/zh/skills/' },
