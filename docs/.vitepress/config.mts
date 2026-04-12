@@ -80,6 +80,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/' },
+          { text: 'Docs', link: '/guide/overview' },
           { text: 'API Reference', link: '/api/' },
           { text: 'AI Apps', link: '/ai-apps/' },
           { text: 'Skills', link: '/skills/' },
@@ -113,13 +114,19 @@ export default defineConfig({
           {
             text: 'Guide',
             items: [
+              { text: 'Platform Overview', link: '/guide/overview' },
+              { text: 'Quick Start', link: '/guide/quick-start' },
+              { text: 'Usage Guide', link: '/guide/usage' },
               { text: 'Support', link: '/guide/getting-started' },
               { text: 'Business', link: '/guide/structure' }
             ]
           },
           {
             text: 'API Reference',
-            items: [{ text: 'API Reference', link: '/api/' }]
+            items: [
+              { text: 'API Reference', link: '/api/' },
+              { text: 'Apifox Reference', link: 'https://omnirouters.apifox.cn/' }
+            ]
           },
           {
             text: 'Updates',
@@ -184,6 +191,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh/' },
+          { text: '使用文档', link: '/zh/guide/overview' },
           { text: 'API参考', link: '/zh/api/' },
           { text: 'AI应用', link: '/zh/ai-apps/' },
           { text: 'Skills', link: '/zh/skills/' },
@@ -217,13 +225,19 @@ export default defineConfig({
           {
             text: '指南',
             items: [
+              { text: '平台简介', link: '/zh/guide/overview' },
+              { text: '快速开始', link: '/zh/guide/quick-start' },
+              { text: '使用文档', link: '/zh/guide/usage' },
               { text: '技术支持', link: '/zh/guide/getting-started' },
               { text: '商务合作', link: '/zh/guide/structure' }
             ]
           },
           {
             text: 'API参考',
-            items: [{ text: 'API参考', link: '/zh/api/' }]
+            items: [
+              { text: 'API参考', link: '/zh/api/' },
+              { text: 'Apifox 接口参考', link: 'https://omnirouters.apifox.cn/' }
+            ]
           },
           {
             text: '更新记录',

@@ -2,6 +2,14 @@
 
 This page tracks notable updates to OmniRouters Docs so that team members and external users can quickly understand structural, legal, and documentation changes.
 
+## 2026-04-13
+
+### API Documentation
+
+- Converted the API Reference page from a full Apifox embed into a documentation entry point
+- Added Platform Overview, Quick Start, and Usage Guide pages
+- Kept Apifox as the full endpoint reference for parameter and response details
+
 ## 2026-03-27
 
 ### Structure and Experience
