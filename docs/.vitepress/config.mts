@@ -152,6 +152,10 @@ export default defineConfig({
               },
               { text: 'Invoice Notice', link: '/legal/invoicing' },
               {
+                text: 'Special Terms for Mainland China Users',
+                link: '/legal/mainland-china'
+              },
+              {
                 text: 'Acceptable Use Policy',
                 link: '/legal/acceptable-use'
               },
@@ -264,6 +268,10 @@ export default defineConfig({
                 link: '/zh/legal/billing-refund'
               },
               { text: '开票须知', link: '/zh/legal/invoicing' },
+              {
+                text: '中国内地用户特别约定',
+                link: '/zh/legal/mainland-china'
+              },
               {
                 text: '可接受使用政策',
                 link: '/zh/legal/acceptable-use'

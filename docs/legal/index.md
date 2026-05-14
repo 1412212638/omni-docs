@@ -19,6 +19,7 @@ OmniRouters 由 `香港智介智能科技有限公司` 运营，英文名称为 
 
 - [计费与退款说明](/zh/legal/billing-refund)
 - [开票须知](/zh/legal/invoicing)
+- [中国内地用户特别约定](/zh/legal/mainland-china)
 - [可接受使用政策](/zh/legal/acceptable-use)
 
 ## 企业客户与 AI 治理

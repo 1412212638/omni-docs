@@ -19,6 +19,7 @@ OmniRouters is operated by `HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED`, wi
 
 - [Billing and Refund Policy](/legal/billing-refund)
 - [Invoice Notice](/legal/invoicing)
+- [Special Terms for Mainland China Users](/legal/mainland-china)
 - [Acceptable Use Policy](/legal/acceptable-use)
 
 ## Enterprise and AI Governance

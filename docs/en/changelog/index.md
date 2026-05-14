@@ -2,6 +2,13 @@
 
 This page tracks notable updates to OmniRouters Docs so that team members and external users can quickly understand structural, legal, and documentation changes.
 
+## 2026-05-14
+
+### Legal and Compliance
+
+- Added the Special Terms for Mainland China Users covering Mainland China access, cross-border data handling, and overseas model usage
+- Added the new legal entry to the legal index and sidebar navigation
+
 ## 2026-04-13
 
 ### API Documentation
