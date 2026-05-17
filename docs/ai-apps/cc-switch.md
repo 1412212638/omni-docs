@@ -39,33 +39,31 @@ CC Switch 是一款开源的 AI CLI 管理工具，适合统一管理 Claude Cod
 
 ## OmniRouters 接入方法
 
-### 参数填写
-
-| 参数 | 说明 |
-| --- | --- |
-| Provider 名称 | 自定义一个便于识别的名称，例如 `OmniRouters Codex` |
-| API Key | 在 OmniRouters 获取：[https://omnirouters.com/console/token](https://omnirouters.com/console/token) |
-| Base URL | 填写 `https://omnirouters.com/v1` |
-| 模型名称 | 与 OmniRouters 中实际可用的模型名称保持一致 |
-
 ### 配置步骤
 
-1. 打开 [OmniRouters Token 页面](https://omnirouters.com/console/token)，创建并复制 API Key。
-2. 打开 CC Switch，选择需要管理的目标应用，例如 Claude、Codex 或 Gemini。
-3. 新建一个 Provider 配置，并填写一个方便识别的名称。
-4. 在端点或 API 配置中填入：
+1. 打开 [OmniRouters Keys 页面](https://omnirouters.com/keys)，创建 API Key。
+2. 在目标 API Key 的操作菜单中选择 `CC 切换`。
 
-   - Base URL：`https://omnirouters.com/v1`
-   - API Key：你从 OmniRouters 复制的密钥
+   ![在 Keys 页面选择 CC 切换](/images/ai-apps/cc-switch-key-menu.png)
 
-5. 根据你的使用习惯填写模型配置。常见做法是：
+3. 系统会打开一个 `填写 CC Switch` 弹窗，在这里完成目标应用和模型配置。
 
-   - 主模型：填写默认使用的主力模型
-   - 轻量模型：填写响应更快、成本更低的模型
-   - 高性能模型：填写更强的推理或生成模型
-   - 自定义模型：保留给特定工作流使用
+   ![填写 CC Switch 弹窗](/images/ai-apps/cc-switch-dialog.png)
 
-6. 保存配置后，切换到对应 CLI 工具中测试连接是否成功。
+### 弹窗各字段说明
+
+- 应用：顶部切换应用类型，可在 `Claude`、`Codex`、`Gemini` 之间选择目标应用
+- 名称：为当前配置填写一个便于识别的名称，例如 `My Claude`
+- 主模型：必填项，填写默认使用的主力模型
+- Haiku 模型：轻量快速模型
+- Sonnet 模型：均衡模型
+- Opus 模型：最强模型
+- 所有模型均为下拉选择；如果尚未选择，会显示“请选择模型”
+
+### 完成导入
+
+- 完成配置后，点击 `打开 CC Switch`，即可将配置导入 CC Switch 并开始使用
+- 如果暂时不导入，点击 `取消` 即可放弃本次操作
 
 ## 安装方式
 
@@ -94,9 +92,9 @@ brew install --cask cc-switch
 
 ## 使用建议
 
-- 建议统一把 OmniRouters 的 Base URL 配置到 `/v1`
+- 在创建 API Key 后再进入 `CC 切换` 流程，避免切换时没有可用密钥
 - 模型名称必须与 OmniRouters 中可调用的名称完全一致
-- 首次配置完成后，先用一个简单请求测试连通性
+- 首次导入完成后，建议先在目标 CLI 工具中执行一个简单请求测试连通性
 - 如果团队会共用配置，建议先定义统一的 Provider 命名规则
 - 如果你会同时管理多个 CLI，建议把常用模型拆成主模型、轻量模型和高性能模型三类
 
@@ -109,5 +107,5 @@ brew install --cask cc-switch
 
 - [GitHub 仓库](https://github.com/farion1231/cc-switch)
 - [Releases 下载页](https://github.com/farion1231/cc-switch/releases)
-- [OmniRouters API Key 页面](https://omnirouters.com/console/token)
+- [OmniRouters Keys 页面](https://omnirouters.com/keys)
 - [OmniRouters API 参考](/zh/api/)

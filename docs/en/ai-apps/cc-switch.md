@@ -39,33 +39,31 @@ CC Switch is an open-source AI CLI manager designed to unify provider configurat
 
 ## OmniRouters Integration
 
-### Parameters
-
-| Parameter | Description |
-| --- | --- |
-| Provider name | Use a descriptive name such as `OmniRouters Codex` |
-| API key | Get it from OmniRouters: [https://omnirouters.com/console/token](https://omnirouters.com/console/token) |
-| Base URL | Use `https://omnirouters.com/v1` |
-| Model name | Must match the actual model name available in OmniRouters |
-
 ### Setup Steps
 
-1. Open the [OmniRouters token page](https://omnirouters.com/console/token), create an API key, and copy it.
-2. Open CC Switch and choose the target application you want to manage, such as Claude, Codex, or Gemini.
-3. Create a new provider configuration and give it a clear display name.
-4. In the endpoint or API configuration section, fill in:
+1. Open the [OmniRouters Keys page](https://omnirouters.com/keys) and create an API key.
+2. Open the action menu for the target key and select `CC Switch`.
 
-   - Base URL: `https://omnirouters.com/v1`
-   - API Key: the key copied from OmniRouters
+   ![Choose CC Switch from the key action menu](/images/ai-apps/cc-switch-key-menu.png)
 
-5. Configure your model mapping based on your workflow. A common setup is:
+3. OmniRouters will open a `Fill in CC Switch` dialog where you complete the target application and model mapping.
 
-   - Primary model: your default day-to-day model
-   - Lightweight model: a faster and lower-cost model
-   - High-performance model: a stronger reasoning or generation model
-   - Custom model: reserved for special workflows
+   ![Fill in the CC Switch dialog](/images/ai-apps/cc-switch-dialog.png)
 
-6. Save the configuration and test it from the corresponding CLI tool.
+### Dialog Field Reference
+
+- Application: switch the target application at the top of the dialog between `Claude`, `Codex`, and `Gemini`
+- Name: enter a recognizable name for the configuration, such as `My Claude`
+- Primary model: required, used as the default main model
+- Haiku model: lightweight and fast model
+- Sonnet model: balanced model
+- Opus model: strongest model option
+- All models are selected from dropdown lists; when nothing is chosen, the field shows “Please select a model”
+
+### Complete the Import
+
+- After finishing the configuration, click `Open CC Switch` to import the settings into CC Switch and start using them
+- If you do not want to continue, click `Cancel` to close the flow without importing
 
 ## Installation
 
@@ -94,9 +92,9 @@ If you want to use CC Switch on a headless machine or over SSH, check the projec
 
 ## Recommendations
 
-- Always keep the OmniRouters base URL pointed to `/v1`
+- Create the API key first, then start the `CC Switch` flow from the key action menu
 - Make sure model names exactly match the names available in OmniRouters
-- After the first setup, validate the connection with a simple test request
+- After the first import, validate connectivity with a simple test request in the target CLI
 - If multiple teammates share configurations, define a consistent provider naming convention
 - If you manage several CLIs at once, split your model mapping into primary, lightweight, and high-performance groups
 
@@ -109,5 +107,5 @@ If you want to use CC Switch on a headless machine or over SSH, check the projec
 
 - [GitHub repository](https://github.com/farion1231/cc-switch)
 - [Releases](https://github.com/farion1231/cc-switch/releases)
-- [OmniRouters API key page](https://omnirouters.com/console/token)
+- [OmniRouters Keys page](https://omnirouters.com/keys)
 - [OmniRouters API Reference](/api/)
