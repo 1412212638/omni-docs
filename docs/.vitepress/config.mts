@@ -93,7 +93,8 @@ export default defineConfig({
             text: 'AI Apps',
             items: [
               { text: 'Overview', link: '/ai-apps/' },
-              { text: 'AionUi', link: '/ai-apps/aionui' }
+              { text: 'AionUi', link: '/ai-apps/aionui' },
+              { text: 'CC Switch', link: '/ai-apps/cc-switch' }
             ]
           },
           {
@@ -207,7 +208,8 @@ export default defineConfig({
             text: 'AI应用',
             items: [
               { text: 'AI应用概览', link: '/zh/ai-apps/' },
-              { text: 'AionUi', link: '/zh/ai-apps/aionui' }
+              { text: 'AionUi', link: '/zh/ai-apps/aionui' },
+              { text: 'CC Switch', link: '/zh/ai-apps/cc-switch' }
             ]
           },
           {
