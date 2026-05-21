@@ -125,6 +125,15 @@ export default defineConfig({
             text: 'API Reference',
             items: [
               { text: 'API Reference', link: '/api/' },
+              { text: 'LLM Text Generation', link: '/api/llm/' },
+              { text: 'OpenAI Chat Completions', link: '/api/llm/openai-chat' },
+              { text: 'OpenAI Responses', link: '/api/llm/openai-responses' },
+              { text: 'Claude Messages', link: '/api/llm/claude-messages' },
+              {
+                text: 'Gemini Generate Content',
+                link: '/api/llm/gemini-generate-content'
+              },
+              { text: 'Protocol Comparison', link: '/api/llm/protocol-comparison' },
               { text: 'Apifox Reference', link: 'https://omnirouters.apifox.cn/' }
             ]
           },
@@ -240,6 +249,15 @@ export default defineConfig({
             text: 'API参考',
             items: [
               { text: 'API参考', link: '/zh/api/' },
+              { text: 'LLM 文本生成', link: '/zh/api/llm/' },
+              { text: 'OpenAI Chat Completions', link: '/zh/api/llm/openai-chat' },
+              { text: 'OpenAI Responses', link: '/zh/api/llm/openai-responses' },
+              { text: 'Claude Messages', link: '/zh/api/llm/claude-messages' },
+              {
+                text: 'Gemini Generate Content',
+                link: '/zh/api/llm/gemini-generate-content'
+              },
+              { text: '协议对比', link: '/zh/api/llm/protocol-comparison' },
               { text: 'Apifox 接口参考', link: 'https://omnirouters.apifox.cn/' }
             ]
           },

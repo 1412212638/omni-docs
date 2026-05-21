@@ -8,6 +8,19 @@ Use this page as the entry point for OmniRouters API documentation. OmniRouters 
 
 The complete endpoint catalogue is maintained in Apifox. This site provides the onboarding path, integration notes, and links to the full reference.
 
+## LLM Text Generation
+
+If you are integrating chat, text generation, or reasoning workflows, start with the dedicated LLM protocol pages:
+
+- [LLM Text Generation overview](/api/llm/)
+- [OpenAI Chat Completions](/api/llm/openai-chat)
+- [OpenAI Responses](/api/llm/openai-responses)
+- [Claude Messages](/api/llm/claude-messages)
+- [Gemini Generate Content](/api/llm/gemini-generate-content)
+- [Protocol Comparison](/api/llm/protocol-comparison)
+
+OmniRouters supports OpenAI-compatible requests across all enabled models. If you are unsure which protocol to use, start with OpenAI-compatible routes first.
+
 ## Full Endpoint Reference
 
 Open the full API reference when you need endpoint parameters, request examples, response schemas, or capability-specific details:
@@ -18,7 +31,7 @@ Open the full API reference when you need endpoint parameters, request examples,
 
 | Item | Value |
 | --- | --- |
-| API key console | [https://omnirouters.com/console/token](https://omnirouters.com/console/token) |
+| API key console | [https://omnirouters.com/keys](https://omnirouters.com/keys) |
 | Base URL | `https://omnirouters.com/v1` |
 | Authentication | `Authorization: Bearer <your-api-key>` |
 | Request format | Usually `Content-Type: application/json` |
@@ -28,7 +41,8 @@ Open the full API reference when you need endpoint parameters, request examples,
 1. Read the [Platform Overview](/guide/overview) page.
 2. Complete your first request with [Quick Start](/guide/quick-start).
 3. Review the [Usage Guide](/guide/usage).
-4. Open the [Apifox API Reference](https://omnirouters.apifox.cn/) for endpoint-level details.
+4. Read the [LLM Text Generation](/api/llm/) section if your use case is chat or text generation.
+5. Open the [Apifox API Reference](https://omnirouters.apifox.cn/) for endpoint-level details.
 
 ## Common Capability Areas
 
