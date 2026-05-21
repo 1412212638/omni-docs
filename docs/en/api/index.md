@@ -21,6 +21,13 @@ If you are integrating chat, text generation, or reasoning workflows, start with
 
 OmniRouters supports OpenAI-compatible requests across all enabled models. If you are unsure which protocol to use, start with OpenAI-compatible routes first.
 
+## Video and Image Generation
+
+If you are integrating text-to-video, image-to-video, image generation, or reference-image workflows, start with these pages:
+
+- [Omni-Video API](/api/omni-video): video task creation, task lookup, `metadata`, model duration limits, and reference asset rules.
+- [Omni-Image API](/api/omni-image): standard image generation, reference-to-image, Gemini-compatible image requests, sizes, and aspect ratios.
+
 ## Full Endpoint Reference
 
 Open the full API reference when you need endpoint parameters, request examples, response schemas, or capability-specific details:
@@ -42,7 +49,8 @@ Open the full API reference when you need endpoint parameters, request examples,
 2. Complete your first request with [Quick Start](/guide/quick-start).
 3. Review the [Usage Guide](/guide/usage).
 4. Read the [LLM Text Generation](/api/llm/) section if your use case is chat or text generation.
-5. Open the [Apifox API Reference](https://omnirouters.apifox.cn/) for endpoint-level details.
+5. Read [Omni-Video API](/api/omni-video) or [Omni-Image API](/api/omni-image) if your use case is video or image generation.
+6. Open the [Apifox API Reference](https://omnirouters.apifox.cn/) for endpoint-level details.
 
 ## Common Capability Areas
 

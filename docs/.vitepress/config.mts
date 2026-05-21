@@ -125,6 +125,8 @@ export default defineConfig({
             text: 'API Reference',
             items: [
               { text: 'API Reference', link: '/api/' },
+              { text: 'Omni-Video API', link: '/api/omni-video' },
+              { text: 'Omni-Image API', link: '/api/omni-image' },
               { text: 'LLM Text Generation', link: '/api/llm/' },
               { text: 'OpenAI Chat Completions', link: '/api/llm/openai-chat' },
               { text: 'OpenAI Responses', link: '/api/llm/openai-responses' },
@@ -249,6 +251,8 @@ export default defineConfig({
             text: 'API参考',
             items: [
               { text: 'API参考', link: '/zh/api/' },
+              { text: 'Omni-Video API', link: '/zh/api/omni-video' },
+              { text: 'Omni-Image API', link: '/zh/api/omni-image' },
               { text: 'LLM 文本生成', link: '/zh/api/llm/' },
               { text: 'OpenAI Chat Completions', link: '/zh/api/llm/openai-chat' },
               { text: 'OpenAI Responses', link: '/zh/api/llm/openai-responses' },

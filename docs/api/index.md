@@ -21,6 +21,13 @@ title: API 参考
 
 OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模型。如果你不确定该用哪条协议，优先从 OpenAI 兼容路由开始。
 
+## 视频与图片生成
+
+如果你的场景是文生视频、图生视频、生图或参考图生图，可以先看这两页：
+
+- [Omni-Video API](/zh/api/omni-video)：视频任务创建、任务查询、`metadata`、模型时长与参考素材限制。
+- [Omni-Image API](/zh/api/omni-image)：标准图片生成、参考图生图、Gemini 图片兼容请求、图片尺寸和宽高比。
+
 ## 完整接口参考
 
 当你需要查看接口参数、请求示例、响应结构或能力细节时，可以直接打开完整 Apifox 参考：
@@ -42,7 +49,8 @@ OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模
 2. 通过 [快速开始](/zh/guide/quick-start) 完成第一条请求。
 3. 阅读 [使用文档](/zh/guide/usage) 了解通用接入规则。
 4. 如果是 LLM 对话或文本生成场景，阅读 [LLM 文本生成](/zh/api/llm/)。
-5. 最后打开 [Apifox API 参考](https://omnirouters.apifox.cn/) 查看字段级细节。
+5. 如果是视频或图片生成场景，阅读 [Omni-Video API](/zh/api/omni-video) 或 [Omni-Image API](/zh/api/omni-image)。
+6. 最后打开 [Apifox API 参考](https://omnirouters.apifox.cn/) 查看字段级细节。
 
 ## 常见能力范围
 
