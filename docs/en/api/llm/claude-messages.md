@@ -17,13 +17,22 @@ Use it when you already have Anthropic-style request bodies and want a migration
 
 There are two OmniRouters-specific differences to remember:
 
-1. Authentication uses OmniRouters bearer auth, not Anthropic's `x-api-key`
+1. OmniRouters recommends the unified `Authorization: Bearer <token>` header, and also accepts the Anthropic-native `x-api-key` header
 2. The request header should include `anthropic-version`
 
 ```text
 Authorization: Bearer <your-api-key>
 anthropic-version: 2023-06-01
 ```
+
+If you use an Anthropic-native SDK or want to keep the request as close to native Claude as possible, you can use:
+
+```text
+x-api-key: <your-api-key>
+anthropic-version: 2023-06-01
+```
+
+Use either `Authorization` or `x-api-key`; do not send both authentication headers in the same request.
 
 Also remember that all models can still be called through the OpenAI-compatible protocol. Choose Claude Messages only when the Claude-style request format is the better fit for your integration.
 
@@ -75,6 +84,14 @@ curl https://omnirouters.com/v1/messages \
 | `metadata` | object | No | Request metadata. The current schema explicitly supports `metadata.user_id`. |
 | `tools` | array | No | Tool definitions. Claude tools use `name`, `description`, and `input_schema`. |
 | `tool_choice` | object | No | Controls tool use. `type` may be `auto`, `any`, or `tool`; when `type` is `tool`, provide `name`. |
+
+Common request headers:
+
+| Header | Required | Description |
+| --- | --- | --- |
+| `anthropic-version` | Yes | Anthropic API version, for example `2023-06-01`. |
+| `Authorization` | One of two | OmniRouters unified auth header, formatted as `Bearer <your-api-key>`. |
+| `x-api-key` | One of two | Anthropic-native auth header. Useful when migrating Anthropic SDK integrations. |
 
 ## `messages` Object Structure
 

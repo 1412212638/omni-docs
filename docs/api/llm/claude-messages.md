@@ -17,13 +17,22 @@ title: Claude Messages
 
 这里有两个需要特别注意的 OmniRouters 差异：
 
-1. 在 OmniRouters 上使用的是 Bearer Token 认证，而不是 Anthropic 原生的 `x-api-key`
+1. OmniRouters 推荐使用统一的 `Authorization: Bearer <token>` 认证，同时也兼容 Anthropic 原生 `x-api-key`
 2. 请求头中需要带上 `anthropic-version`
 
 ```text
 Authorization: Bearer <your-api-key>
 anthropic-version: 2023-06-01
 ```
+
+如果你使用 Anthropic 原生 SDK 或希望最大程度保持原生 Claude 请求格式，也可以改用：
+
+```text
+x-api-key: <your-api-key>
+anthropic-version: 2023-06-01
+```
+
+`Authorization` 和 `x-api-key` 二选一即可，不建议在同一个请求里同时传两个认证头。
 
 另外，别忘了 OmniRouters 上所有模型都能通过 OpenAI 兼容协议调用。只有当 Claude 风格请求体更适合你现有集成时，才更推荐使用这条路由。
 
@@ -75,6 +84,14 @@ curl https://omnirouters.com/v1/messages \
 | `metadata` | object | 否 | 请求元数据。当前 schema 明确支持 `metadata.user_id`。 |
 | `tools` | array | 否 | 工具定义数组。Claude 使用 `name`、`description`、`input_schema` 描述工具。 |
 | `tool_choice` | object | 否 | 控制工具使用策略。`type` 可为 `auto`、`any`、`tool`；当 `type` 为 `tool` 时需要指定 `name`。 |
+
+常用请求头：
+
+| Header | 是否必填 | 说明 |
+| --- | --- | --- |
+| `anthropic-version` | 是 | Anthropic API 版本，例如 `2023-06-01`。 |
+| `Authorization` | 二选一 | OmniRouters 统一认证方式，格式为 `Bearer <your-api-key>`。 |
+| `x-api-key` | 二选一 | Anthropic 原生认证方式。使用 Anthropic SDK 迁移时可以用这个头。 |
 
 ## `messages` 数组中对象的结构
 

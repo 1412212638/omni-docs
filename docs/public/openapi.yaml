@@ -630,6 +630,13 @@ paths:
           example: Bearer sk-xxxx
           schema:
             type: string
+        - name: x-api-key
+          in: header
+          description: Anthropic API Key. Optional when using Bearer Token.
+          required: false
+          example: sk-xxxx
+          schema:
+            type: string
         - name: anthropic-version
           in: header
           description: ''
