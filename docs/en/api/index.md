@@ -25,8 +25,8 @@ OmniRouters supports OpenAI-compatible requests across all enabled models. If yo
 
 If you are integrating text-to-video, image-to-video, image generation, or reference-image workflows, start with these pages:
 
-- [Omni-Video API](/api/omni-video): video task creation, task lookup, `metadata`, model duration limits, and reference asset rules.
-- [Omni-Image API](/api/omni-image): standard image generation, reference-to-image, Gemini-compatible image requests, sizes, and aspect ratios.
+- [Omni-Video API](/api/omni-video): compatible video creation routes, minimal text-to-video/image-to-video examples, and top-level request fields.
+- [Omni-Image API](/api/omni-image): standard image generation, minimal reference-to-image examples, and top-level request fields.
 
 ## Full Endpoint Reference
 

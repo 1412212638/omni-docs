@@ -25,8 +25,8 @@ OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模
 
 如果你的场景是文生视频、图生视频、生图或参考图生图，可以先看这两页：
 
-- [Omni-Video API](/zh/api/omni-video)：视频任务创建、任务查询、`metadata`、模型时长与参考素材限制。
-- [Omni-Image API](/zh/api/omni-image)：标准图片生成、参考图生图、Gemini 图片兼容请求、图片尺寸和宽高比。
+- [Omni-Video API](/zh/api/omni-video)：视频创建兼容路由、文生视频/图生视频最小可用示例、顶层请求参数。
+- [Omni-Image API](/zh/api/omni-image)：标准图片生成、参考图生图最小可用示例、顶层请求参数。
 
 ## 完整接口参考
 
