@@ -3,7 +3,7 @@
 OmniRouters is a user-level skill for OmniRouters account operations and support workflows. It is designed for Claude Code, Codex, OpenClaw, and other AI coding assistants, allowing users to inspect models, manage tokens, check groups and balance, and reconcile per-request usage by `request_id`.
 
 ::: info
-The OmniRouters Skill adapts the New API / new-api user workflow for OmniRouters. It avoids printing real `sk-` keys in terminal output, chat, logs, or files; sensitive operations such as copying token keys use safer channels.
+The OmniRouters Skill is designed for OmniRouters user-side account workflows. It avoids printing real `sk-` keys in terminal output, chat, logs, or files; sensitive operations such as copying token keys use safer channels.
 :::
 
 ## Source / Download
@@ -69,7 +69,7 @@ Any AI tool that supports the Skills protocol or can read a skill directory can 
 
 | Command | Description | Use case |
 | --- | --- | --- |
-| `/omnirouters help <question>` | Ask OmniRouters / New API usage questions | Get help for deployment, configuration, API calls, groups, and tokens |
+| `/omnirouters help <question>` | Ask OmniRouters usage questions | Get help for deployment, configuration, API calls, groups, and tokens |
 
 ## Installation and Configuration
 
@@ -98,16 +98,6 @@ export OMNIROUTERS_USER_ID=1
 | `OMNIROUTERS_ACCESS_TOKEN` | Profile access token, not a model API key | `your-profile-access-token` |
 | `OMNIROUTERS_USER_ID` | User id used by the `New-Api-User` request header | `1` |
 | `OMNIROUTERS_QUOTA_PER_UNIT` | Optional conversion value, otherwise read from API or defaults to `500000` | `500000` |
-
-The script also accepts upstream New API-style variables:
-
-```bash
-export NEWAPI_BASE_URL=https://omnirouters.com
-export NEWAPI_ACCESS_TOKEN=your-profile-access-token
-export NEWAPI_USER_ID=1
-```
-
-Do not commit `.env` files containing access tokens to Git.
 
 ## Start Using
 
@@ -181,5 +171,3 @@ The script uses `fetch` for OmniRouters API calls and the system clipboard for `
 
 - [OmniRouters API Reference](/api/)
 - [OmniRouters Skills overview](/skills/)
-- [New API Skill reference](https://docs.newapi.pro/zh/docs/skills/newapi)
-- [New API GitHub](https://github.com/QuantumNous/new-api)

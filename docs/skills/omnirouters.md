@@ -3,7 +3,7 @@
 OmniRouters 是面向 OmniRouters 账户操作和支持工作流的用户级 Skill。它适合在 Claude Code、Codex、OpenClaw（龙虾）等 AI 编码助手里，通过自然语言或 `/omnirouters` 指令查询模型、管理令牌、查看分组与余额，并按 `request_id` 查询单次请求用量。
 
 ::: info
-OmniRouters Skill 基于 New API / new-api 生态的用户侧工作流做了 OmniRouters 适配。它不会在终端、聊天、日志或文件中明文输出 `sk-` 密钥，令牌复制等敏感操作会通过安全通道完成。
+OmniRouters Skill 面向 OmniRouters 用户侧账户工作流设计。它不会在终端、聊天、日志或文件中明文输出 `sk-` 密钥，令牌复制等敏感操作会通过安全通道完成。
 :::
 
 ## 源码 / 下载
@@ -69,7 +69,7 @@ OmniRouters Skill 是一个轻量级的 AI 编码助手扩展。安装后，助�
 
 | 指令 | 说明 | 用途 |
 | --- | --- | --- |
-| `/omnirouters help <question>` | 提问 OmniRouters / New API 使用问题 | 获取部署、配置、接口调用、分组、令牌等帮助 |
+| `/omnirouters help <question>` | 提问 OmniRouters 使用问题 | 获取部署、配置、接口调用、分组、令牌等帮助 |
 
 ## 安装与配置
 
@@ -98,16 +98,6 @@ export OMNIROUTERS_USER_ID=1
 | `OMNIROUTERS_ACCESS_TOKEN` | 个人资料页的系统访问令牌，不是模型 API Key | `your-profile-access-token` |
 | `OMNIROUTERS_USER_ID` | 用户 ID，用于 `New-Api-User` 请求头 | `1` |
 | `OMNIROUTERS_QUOTA_PER_UNIT` | 可选，额度换算值，默认读取接口或使用 `500000` | `500000` |
-
-也兼容上游 New API 风格变量：
-
-```bash
-export NEWAPI_BASE_URL=https://omnirouters.com
-export NEWAPI_ACCESS_TOKEN=your-profile-access-token
-export NEWAPI_USER_ID=1
-```
-
-请勿把包含访问令牌的 `.env` 文件提交到 Git 仓库。
 
 ## 开始使用
 
@@ -181,5 +171,3 @@ OmniRouters Skill 使用 Node.js 脚本执行用户接口调用：
 
 - [OmniRouters API 参考](/zh/api/)
 - [OmniRouters Skills 总览](/zh/skills/)
-- [New API Skill 参考文档](https://docs.newapi.pro/zh/docs/skills/newapi)
-- [New API GitHub](https://github.com/QuantumNous/new-api)
