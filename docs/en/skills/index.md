@@ -4,8 +4,8 @@ This section collects skill-style usage guides built around OmniRouters, includi
 
 ## Current Entry
 
-- [OmniRouters](/skills/omnirouters)
-  User-level skill for OmniRouters account operations and support workflows, including models, groups, balance, tokens, and per-request usage.
+- [OmniRouters Support](/skills/omnirouters)
+  User-level skill for OmniRouters after-sales and technical support workflows, including request diagnosis, usage reconciliation, models, groups, balance, tokens, and reply drafts.
   [Source](https://github.com/1412212638/omni-docs/tree/main/skills/omnirouters) / [Download](/downloads/omnirouters-skill.zip)
 - [OmniRouters Generation](/skills/omnirouters-generation)
   A unified generation skill guide built from the OmniRouters video, image, and speech interfaces.

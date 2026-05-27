@@ -1,9 +1,9 @@
-# OmniRouters
+# OmniRouters Support
 
-OmniRouters is a user-level skill for OmniRouters account operations and support workflows. It is designed for Claude Code, Codex, OpenClaw, and other AI coding assistants, allowing users to inspect models, manage tokens, check groups and balance, and reconcile per-request usage by `request_id`.
+OmniRouters Support is a user-level skill for OmniRouters after-sales and technical support workflows. It is designed for Claude Code, Codex, OpenClaw, and other AI coding assistants, allowing support staff to diagnose customer requests, reconcile per-request usage, inspect models/groups/balance/tokens, and draft customer-facing replies.
 
 ::: info
-The OmniRouters Skill is designed for OmniRouters user-side account workflows. It avoids printing real `sk-` keys in terminal output, chat, logs, or files; sensitive operations such as copying token keys use safer channels.
+The OmniRouters Support Skill is designed for OmniRouters operated-platform support scenarios. It avoids printing real `sk-` keys in terminal output, chat, logs, or files; sensitive operations such as copying token keys use safer channels, and customer replies avoid internal routes, upstream keys, and protected implementation details.
 :::
 
 ## Source / Download
@@ -12,9 +12,9 @@ The OmniRouters Skill is designed for OmniRouters user-side account workflows. I
 - [Download skill package](/downloads/omnirouters-skill.zip)
 - [Open `SKILL.md`](https://github.com/1412212638/omni-docs/blob/main/skills/omnirouters/SKILL.md)
 
-## What Is OmniRouters Skill
+## What Is OmniRouters Support Skill
 
-OmniRouters Skill is a lightweight extension for AI coding assistants. After installation, the assistant can call the bundled script during a conversation and access OmniRouters user APIs for model lookup, group lookup, balance checks, token management, and request-level billing reconciliation.
+OmniRouters Support Skill is a lightweight extension for AI coding assistants. After installation, the assistant can call the bundled script during a conversation and access OmniRouters user APIs for model lookup, group lookup, balance checks, token management, request-level billing reconciliation, failed-request diagnosis, and customer reply drafting.
 
 It reduces context switching between the editor, terminal, and OmniRouters dashboard. You can ask from the current coding context:
 
@@ -22,14 +22,16 @@ It reduces context switching between the editor, terminal, and OmniRouters dashb
 /omnirouters models
 /omnirouters balance
 /omnirouters usage 202605220433553074851578268d9d6HOuv1cXR
+/omnirouters diagnose 202605220433553074851578268d9d6HOuv1cXR
 ```
 
 ## Why Use Skills
 
-- Zero switching: query OmniRouters account state directly from Claude Code, Codex, OpenClaw, and similar assistants.
-- Built-in operations: inspect models, groups, balance, and tokens; create or switch API tokens.
-- Request-level reconciliation: use `X-Oneapi-Request-Id` to check actual consumption for a single request.
-- Security first: token lists only show masked keys; real `sk-` keys are not printed.
+- Zero switching: handle OmniRouters support questions directly from Claude Code, Codex, OpenClaw, and similar assistants.
+- Built-in support operations: inspect models, groups, balance, and tokens; create or switch API tokens.
+- Request-level reconciliation: use `X-Oneapi-Request-Id` to check actual consumption or failure cause for one request.
+- Customer reply drafts: generate concise, actionable replies for common support situations.
+- Security first: token lists only show masked keys; real `sk-` keys are not printed, and customer replies filter internal details.
 - Ready to run: the skill includes a Node.js script, so you do not need to write API calls by hand.
 
 ## Supported AI Editors
@@ -55,6 +57,7 @@ Any AI tool that supports the Skills protocol or can read a skill directory can 
 | `/omnirouters groups` | List usable groups | Inspect account groups, ratios, and quota-related data |
 | `/omnirouters balance` | Check account balance | Show remaining quota, used quota, and request count |
 | `/omnirouters usage <request_id>` | Query per-request usage | Reconcile model, token, quota, and token counts by request id |
+| `/omnirouters diagnose <request_id>` | Diagnose one request | Query related logs, separate consume/error/refund records, and produce a support summary |
 
 ### Token Management Commands
 
@@ -65,11 +68,12 @@ Any AI tool that supports the Skills protocol or can read a skill directory can 
 | `/omnirouters switch-group <token_id> <group>` | Switch token group | Adjust model access and group routing for a token |
 | `/omnirouters copy-token <token_id>` | Copy the real key | Copy the key to the system clipboard without printing it |
 
-### Help Command
+### Support Reply Commands
 
 | Command | Description | Use case |
 | --- | --- | --- |
-| `/omnirouters help <question>` | Ask OmniRouters usage questions | Get help for deployment, configuration, API calls, groups, and tokens |
+| `/omnirouters reply <situation>` | Draft a customer-facing reply | Generate customer-readable replies for billing, failed requests, 401, compatibility, and similar cases |
+| `/omnirouters help <question>` | Ask OmniRouters usage questions | Get help for API calls, groups, tokens, usage, and troubleshooting |
 
 ## Installation and Configuration
 
@@ -113,7 +117,9 @@ Common examples:
 /omnirouters create-token my-app --group default
 /omnirouters switch-group 7 auto
 /omnirouters usage 202605220433553074851578268d9d6HOuv1cXR
+/omnirouters diagnose 202605220433553074851578268d9d6HOuv1cXR
 /omnirouters copy-token 7
+/omnirouters reply Customer says the request failed but has no request_id
 /omnirouters help How do I check the actual cost of one request?
 ```
 
@@ -124,6 +130,8 @@ node scripts/omnirouters.mjs models
 node scripts/omnirouters.mjs balance
 node scripts/omnirouters.mjs tokens --page-size 20
 node scripts/omnirouters.mjs usage <request_id>
+node scripts/omnirouters.mjs diagnose <request_id>
+node scripts/omnirouters.mjs reply "Customer asks why they were charged"
 ```
 
 Add `--json` to print sanitized JSON:
@@ -148,6 +156,35 @@ node scripts/omnirouters.mjs usage <request_id>
 
 In the result, `quota` is the final raw integer consumption for that request. USD conversion in docs or script output is only a display helper; keep the raw `quota` for settlement, audit exports, and reconciliation.
 
+## Failed Request Diagnosis
+
+If a customer reports a failed request, abnormal billing, or uncertainty about a call, ask for the `X-Oneapi-Request-Id` response header first, then run:
+
+```bash
+node scripts/omnirouters.mjs diagnose <request_id>
+```
+
+`diagnose` queries related logs and separates them into three categories:
+
+| Log type | Meaning |
+| --- | --- |
+| consume log | The request succeeded and produced actual usage |
+| error log | The request failed and usually has no successful consume record |
+| refund log | Quota has already been returned by the system |
+
+The output includes a fact summary, likely cause, and customer reply draft. When replying to customers, keep confirmed log facts separate from likely interpretations.
+
+## Support References
+
+The skill includes bundled support references that the assistant can read for the relevant scenario:
+
+| File | When to use |
+| --- | --- |
+| `references/support-playbook.md` | Support workflow, customer reply rules, and required information checklist |
+| `references/api-errors.md` | Customer-facing explanations for 401, 403, 429, 400, 5xx, and unavailable models |
+| `references/model-compatibility.md` | Protocol and model capability differences across OpenAI, Claude, Gemini, and other model families |
+| `references/actions.md` | Script actions, endpoint map, and usage reconciliation rules |
+
 ## Runtime Requirements
 
 OmniRouters Skill uses a Node.js script to call user APIs:
@@ -165,6 +202,8 @@ The script uses `fetch` for OmniRouters API calls and the system clipboard for `
 - `create-token` does not retrieve or print the real key after creation.
 - `copy-token` copies the real key to the system clipboard only.
 - `usage` preserves raw `quota` to avoid reconciliation errors caused by display conversions.
+- `diagnose` separates log facts, likely causes, and customer reply drafts.
+- `reply` avoids asking customers to send full API keys.
 - Error messages redact suspected secrets.
 
 ## Learn More

@@ -145,6 +145,25 @@ function printJson(value) {
   console.log(redactSecrets(JSON.stringify(value, null, 2)));
 }
 
+function logTypeName(type) {
+  switch (Number(type)) {
+    case 1:
+      return 'topup';
+    case 2:
+      return 'consume';
+    case 3:
+      return 'manage';
+    case 4:
+      return 'system';
+    case 5:
+      return 'error';
+    case 6:
+      return 'refund';
+    default:
+      return 'unknown';
+  }
+}
+
 function asInt(value, fallback) {
   const parsed = Number.parseInt(String(value), 10);
   return Number.isFinite(parsed) ? parsed : fallback;
@@ -316,6 +335,102 @@ async function actionUsage(cfg, args) {
   console.log(`Created: ${created}`);
 }
 
+async function actionDiagnose(cfg, args) {
+  const requestId = args._[1];
+  if (!requestId) throw new Error('Usage: diagnose <request_id>');
+
+  const data = unwrap(
+    await api(cfg, '/api/log/self', {
+      query: {
+        request_id: requestId,
+        p: 1,
+        page_size: 10
+      }
+    })
+  );
+  const items = Array.isArray(data?.items) ? data.items : [];
+  if (args.json) return printJson(data);
+
+  if (items.length === 0) {
+    console.log(`No log found for request_id=${requestId}.`);
+    console.log('Ask the customer for the exact X-Oneapi-Request-Id, approximate time, account email/username, and API key name. Do not ask for the full API key.');
+    return;
+  }
+
+  const quotaPerUnit = await getQuotaPerUnit(cfg);
+  const consume = items.find((item) => Number(item.type) === 2);
+  const error = items.find((item) => Number(item.type) === 5);
+  const refund = items.find((item) => Number(item.type) === 6);
+  const primary = consume || error || refund || items[0];
+  const quota = Number(primary?.quota || 0);
+
+  console.log(`Request: ${requestId}`);
+  console.log(`Logs found: ${items.length}`);
+  for (const item of items) {
+    console.log(
+      `- ${logTypeName(item.type)} model=${item.model_name || '-'} token=${item.token_name || '-'} quota=${item.quota || 0} time=${item.use_time || 0}s`
+    );
+  }
+
+  console.log('');
+  console.log('Support summary');
+  if (consume) {
+    console.log(`- The request completed and has a consume log.`);
+    console.log(`- Final quota: ${quota} (~$${(quota / quotaPerUnit).toFixed(6)}).`);
+    console.log(`- Tokens: prompt=${consume.prompt_tokens || 0}, completion=${consume.completion_tokens || 0}.`);
+  } else if (error) {
+    console.log('- The request has an error log and no consume log in the first page.');
+    console.log(`- Customer-safe error: ${sanitizeCustomerText(error.content || 'Request failed')}`);
+  } else if (refund) {
+    console.log('- A refund log was found for this request.');
+  } else {
+    console.log('- Logs exist, but no consume/error/refund entry was identified.');
+  }
+
+  console.log('');
+  console.log('Customer reply draft');
+  console.log(buildReplyFromLogs(requestId, { consume, error, refund, primary, quotaPerUnit }));
+}
+
+function sanitizeCustomerText(text) {
+  return redactSecrets(String(text || ''))
+    .replace(/channel\s*#?\d+/gi, 'upstream route')
+    .replace(/通道\s*#?\d+/g, '上游线路')
+    .trim();
+}
+
+function buildReplyFromLogs(requestId, { consume, error, refund, primary, quotaPerUnit }) {
+  if (consume) {
+    const quota = Number(consume.quota || 0);
+    const usd = (quota / quotaPerUnit).toFixed(6);
+    return [
+      `您好，已查询到请求 ${requestId} 的调用记录。`,
+      `该请求已成功完成，模型为 ${consume.model_name || primary?.model_name || '-'}，实际消耗额度为 ${quota}，约 $${usd}。`,
+      `本次用量为 prompt ${consume.prompt_tokens || 0} tokens、completion ${consume.completion_tokens || 0} tokens，耗时 ${consume.use_time || 0} 秒。`
+    ].join('\n');
+  }
+
+  if (error) {
+    return [
+      `您好，已查询到请求 ${requestId} 的失败记录。`,
+      `当前未查询到该请求的成功消费记录。错误信息为：${sanitizeCustomerText(error.content || '请求失败')}。`,
+      '建议您检查请求参数、模型名称、账户额度和 API Key 权限后重试；如仍有问题，请提供请求时间和使用的 API Key 名称，我们继续协助排查。'
+    ].join('\n');
+  }
+
+  if (refund) {
+    return [
+      `您好，已查询到请求 ${requestId} 的退款/返还记录。`,
+      '系统已按记录处理额度返还，请以账户余额和日志中的最终记录为准。'
+    ].join('\n');
+  }
+
+  return [
+    `您好，已查询到请求 ${requestId} 的相关日志，但暂未识别到明确的成功消费或失败记录。`,
+    '请补充请求时间、账户信息和 API Key 名称，我们会继续核对。请不要发送完整 API Key。'
+  ].join('\n');
+}
+
 async function actionCopyToken(cfg, args) {
   const tokenId = args._[1];
   if (!tokenId) throw new Error('Usage: copy-token <token_id>');
@@ -350,6 +465,76 @@ function copyToClipboard(value) {
   }
 }
 
+function actionReply(args) {
+  const situation = args._.slice(1).join(' ').trim();
+  if (!situation) {
+    console.log(`Usage: reply <situation>
+
+Examples:
+  reply 客户说请求失败但没有 request_id
+  reply 客户询问为什么扣费`);
+    return;
+  }
+
+  console.log(buildGenericSupportReply(situation));
+}
+
+function buildGenericSupportReply(situation) {
+  const text = situation.toLowerCase();
+
+  if (
+    text.includes('gemini') ||
+    text.includes('claude') ||
+    text.includes('openai格式') ||
+    text.includes('openai 格式') ||
+    text.includes('response_format') ||
+    text.includes('tool') ||
+    text.includes('tools') ||
+    text.includes('兼容') ||
+    text.includes('参数不生效')
+  ) {
+    return [
+      '您好，这通常属于不同模型协议之间的兼容性差异。',
+      'OmniRouters 支持用 OpenAI 兼容格式调用多类模型，但 Gemini、Claude、OpenAI 等上游的原生能力并不是完全一一对应，部分模型专属参数可能会被忽略、转换或只支持原生协议。',
+      '如果您依赖 Gemini/Claude 的原生能力，建议改用对应的原生接口格式；如果只是普通对话，可以继续使用 `/v1/chat/completions`。',
+      '请提供脱敏后的请求体、模型名称、endpoint 和请求 ID，我们可以帮您确认应该使用哪种协议。'
+    ].join('\n');
+  }
+
+  if (text.includes('request') || text.includes('请求') || text.includes('失败') || text.includes('报错')) {
+    return [
+      '您好，为了准确定位这次 API 调用，请您提供以下信息：',
+      '1. 响应头中的 X-Oneapi-Request-Id',
+      '2. 大致请求时间和时区',
+      '3. 使用的模型名称',
+      '4. API Key 名称即可，请不要发送完整 API Key',
+      '我们收到后会核对请求日志、错误原因和是否产生实际扣费。'
+    ].join('\n');
+  }
+
+  if (text.includes('扣费') || text.includes('费用') || text.includes('对账') || text.includes('消耗')) {
+    return [
+      '您好，单次调用的实际消耗需要按请求 ID 查询。',
+      '请提供响应头中的 X-Oneapi-Request-Id，我们会核对该请求的模型、token 用量、最终扣除额度和折算金额。',
+      '对账时建议以日志中的原始 quota 数值为准，金额展示仅作为换算参考。'
+    ].join('\n');
+  }
+
+  if (text.includes('key') || text.includes('令牌') || text.includes('鉴权') || text.includes('401')) {
+    return [
+      '您好，请先确认 API Key 属于当前账户且处于启用状态。',
+      '同时请检查该 Key 是否还有可用额度、是否限制了分组或模型访问权限。',
+      '为了安全，请不要发送完整 API Key；提供 API Key 名称或截图中打码后的尾号即可。'
+    ].join('\n');
+  }
+
+  return [
+    '您好，我们可以协助排查。',
+    '请提供问题现象、请求时间、模型名称，以及响应头中的 X-Oneapi-Request-Id（如有）。',
+    '如果涉及 API Key，请提供 Key 名称即可，请不要发送完整 API Key。'
+  ].join('\n');
+}
+
 function showHelp() {
   console.log(`OmniRouters skill actions
 
@@ -361,7 +546,9 @@ Usage:
   node scripts/omnirouters.mjs create-token <name> [--group default] [--unlimited]
   node scripts/omnirouters.mjs switch-group <token_id> <group>
   node scripts/omnirouters.mjs usage <request_id>
+  node scripts/omnirouters.mjs diagnose <request_id>
   node scripts/omnirouters.mjs copy-token <token_id>
+  node scripts/omnirouters.mjs reply <situation>
 
 Environment:
   OMNIROUTERS_BASE_URL=https://omnirouters.com
@@ -391,8 +578,12 @@ async function main() {
     case 'request':
     case 'reconcile':
       return actionUsage(cfg, args);
+    case 'diagnose':
+      return actionDiagnose(cfg, args);
     case 'copy-token':
       return actionCopyToken(cfg, args);
+    case 'reply':
+      return actionReply(args);
     case 'help':
     default:
       return showHelp();

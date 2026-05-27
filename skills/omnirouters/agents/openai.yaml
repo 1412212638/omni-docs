@@ -1,7 +1,7 @@
 interface:
-  display_name: "OmniRouters"
-  short_description: "Manage OmniRouters models, tokens, balance, and request usage."
-  default_prompt: "Use $omnirouters to inspect OmniRouters models, tokens, balance, or a request usage record."
+  display_name: "OmniRouters Support"
+  short_description: "Support customers with usage, billing, tokens, and API call issues."
+  default_prompt: "Use $omnirouters to diagnose a customer request, explain usage, or draft a support reply."
 
 policy:
   allow_implicit_invocation: true

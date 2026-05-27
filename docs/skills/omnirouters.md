@@ -1,9 +1,9 @@
-# OmniRouters
+# OmniRouters Support
 
-OmniRouters 是面向 OmniRouters 账户操作和支持工作流的用户级 Skill。它适合在 Claude Code、Codex、OpenClaw（龙虾）等 AI 编码助手里，通过自然语言或 `/omnirouters` 指令查询模型、管理令牌、查看分组与余额，并按 `request_id` 查询单次请求用量。
+OmniRouters Support 是面向 OmniRouters 售后和技术支持工作流的用户级 Skill。它适合在 Claude Code、Codex、OpenClaw（龙虾）等 AI 编码助手里，通过自然语言或 `/omnirouters` 指令排查客户请求、核对单次用量、查看模型/分组/余额/令牌，并生成面向客户的回复草稿。
 
 ::: info
-OmniRouters Skill 面向 OmniRouters 用户侧账户工作流设计。它不会在终端、聊天、日志或文件中明文输出 `sk-` 密钥，令牌复制等敏感操作会通过安全通道完成。
+OmniRouters Support Skill 面向 OmniRouters 托管平台支持场景设计。它不会在终端、聊天、日志或文件中明文输出 `sk-` 密钥，令牌复制等敏感操作会通过安全通道完成；对外回复也会避免暴露内部线路、上游密钥和受保护的实现细节。
 :::
 
 ## 源码 / 下载
@@ -12,9 +12,9 @@ OmniRouters Skill 面向 OmniRouters 用户侧账户工作流设计。它不会�
 - [下载 Skill 压缩包](/downloads/omnirouters-skill.zip)
 - [查看 `SKILL.md`](https://github.com/1412212638/omni-docs/blob/main/skills/omnirouters/SKILL.md)
 
-## 什么是 OmniRouters Skill
+## 什么是 OmniRouters Support Skill
 
-OmniRouters Skill 是一个轻量级的 AI 编码助手扩展。安装后，助手可以在对话中调用随 Skill 打包的脚本，直接访问 OmniRouters 用户接口，完成模型查询、分组查看、余额查看、令牌管理和请求级账单核对等操作。
+OmniRouters Support Skill 是一个轻量级的 AI 编码助手扩展。安装后，助手可以在对话中调用随 Skill 打包的脚本，直接访问 OmniRouters 用户接口，完成模型查询、分组查看、余额查看、令牌管理、请求级账单核对、失败请求诊断和客服回复草稿生成等操作。
 
 它解决的核心问题是减少在编辑器、终端和 OmniRouters 控制台之间反复切换的成本。你可以在当前编码上下文里直接询问：
 
@@ -22,14 +22,16 @@ OmniRouters Skill 是一个轻量级的 AI 编码助手扩展。安装后，助�
 /omnirouters models
 /omnirouters balance
 /omnirouters usage 202605220433553074851578268d9d6HOuv1cXR
+/omnirouters diagnose 202605220433553074851578268d9d6HOuv1cXR
 ```
 
 ## 为什么使用 Skills
 
-- 零切换：在 Claude Code、Codex、OpenClaw 等 AI 编码助手里直接查询 OmniRouters 账户状态。
-- 内置运维动作：可查看模型、分组、余额、令牌列表，并创建或切换 API Token。
-- 请求级核对：通过响应头里的 `X-Oneapi-Request-Id` 查询单次请求实际消耗。
-- 安全优先：令牌列表只展示掩码密钥，真实 `sk-` 密钥不会被打印出来。
+- 零切换：在 Claude Code、Codex、OpenClaw 等 AI 编码助手里直接处理 OmniRouters 支持问题。
+- 内置支持动作：可查看模型、分组、余额、令牌列表，并创建或切换 API Token。
+- 请求级核对：通过响应头里的 `X-Oneapi-Request-Id` 查询单次请求实际消耗或失败原因。
+- 客服回复草稿：可根据常见场景生成简短、明确、可直接发给客户的回复。
+- 安全优先：令牌列表只展示掩码密钥，真实 `sk-` 密钥不会被打印出来，对外回复也会过滤内部细节。
 - 即插即用：Skill 自带 Node.js 脚本，不需要额外写接口调用代码。
 
 ## 支持的 AI 编辑器
@@ -55,6 +57,7 @@ OmniRouters Skill 是一个轻量级的 AI 编码助手扩展。安装后，助�
 | `/omnirouters groups` | 列出可用分组 | 查看账户分组、倍率与配额相关信息 |
 | `/omnirouters balance` | 查看账户余额 | 查询剩余额度、已用额度和请求次数 |
 | `/omnirouters usage <request_id>` | 查询单次请求用量 | 按请求 ID 核对模型、令牌、消耗和 Token 数 |
+| `/omnirouters diagnose <request_id>` | 诊断单次请求 | 查询相关日志，区分成功消费、失败、退款，并生成支持摘要 |
 
 ### 令牌管理指令
 
@@ -65,11 +68,12 @@ OmniRouters Skill 是一个轻量级的 AI 编码助手扩展。安装后，助�
 | `/omnirouters switch-group <token_id> <group>` | 切换令牌分组 | 调整令牌所属分组和模型访问范围 |
 | `/omnirouters copy-token <token_id>` | 复制真实密钥 | 将真实密钥复制到系统剪贴板，不在终端显示 |
 
-### 帮助指令
+### 支持回复指令
 
 | 指令 | 说明 | 用途 |
 | --- | --- | --- |
-| `/omnirouters help <question>` | 提问 OmniRouters 使用问题 | 获取部署、配置、接口调用、分组、令牌等帮助 |
+| `/omnirouters reply <situation>` | 生成客服回复草稿 | 针对扣费、请求失败、401、协议兼容等场景生成客户可读回复 |
+| `/omnirouters help <question>` | 提问 OmniRouters 使用问题 | 获取接口调用、分组、令牌、用量和排障帮助 |
 
 ## 安装与配置
 
@@ -113,7 +117,9 @@ export OMNIROUTERS_USER_ID=1
 /omnirouters create-token my-app --group default
 /omnirouters switch-group 7 auto
 /omnirouters usage 202605220433553074851578268d9d6HOuv1cXR
+/omnirouters diagnose 202605220433553074851578268d9d6HOuv1cXR
 /omnirouters copy-token 7
+/omnirouters reply 客户说请求失败但没有 request_id
 /omnirouters help 如何查看某次请求的实际消耗？
 ```
 
@@ -124,6 +130,8 @@ node scripts/omnirouters.mjs models
 node scripts/omnirouters.mjs balance
 node scripts/omnirouters.mjs tokens --page-size 20
 node scripts/omnirouters.mjs usage <request_id>
+node scripts/omnirouters.mjs diagnose <request_id>
+node scripts/omnirouters.mjs reply "客户询问为什么扣费"
 ```
 
 添加 `--json` 可以输出经过脱敏处理的 JSON：
@@ -148,6 +156,35 @@ node scripts/omnirouters.mjs usage <request_id>
 
 返回结果中，`quota` 是该请求最终实际消耗的原始整数额度。文档或脚本里展示的 USD 换算仅用于辅助阅读；结算、审计和对账时应保留原始 `quota`。
 
+## 请求失败诊断
+
+如果客户反馈请求失败、扣费异常或不知道某次调用发生了什么，优先让客户提供响应头里的 `X-Oneapi-Request-Id`，然后执行：
+
+```bash
+node scripts/omnirouters.mjs diagnose <request_id>
+```
+
+`diagnose` 会查询该请求相关日志，并把信息分成三类：
+
+| 日志类型 | 说明 |
+| --- | --- |
+| consume log | 请求成功并产生实际消费 |
+| error log | 请求失败，通常没有成功消费记录 |
+| refund log | 系统已有额度返还记录 |
+
+输出会包含事实摘要、可能原因和客户回复草稿。回复客户时应区分“日志里已确认的事实”和“基于日志推断的可能原因”。
+
+## 支持资料
+
+Skill 内置了几份支持参考，AI 助手会在对应场景中读取：
+
+| 文件 | 适用场景 |
+| --- | --- |
+| `references/support-playbook.md` | 售后支持流程、客户回复原则、信息收集清单 |
+| `references/api-errors.md` | 401、403、429、400、5xx、模型不可用等常见错误解释 |
+| `references/model-compatibility.md` | OpenAI / Claude / Gemini 等协议格式与模型能力差异说明 |
+| `references/actions.md` | 脚本动作、接口路径和用量核对规则 |
+
 ## 运行环境要求
 
 OmniRouters Skill 使用 Node.js 脚本执行用户接口调用：
@@ -165,6 +202,8 @@ OmniRouters Skill 使用 Node.js 脚本执行用户接口调用：
 - `create-token` 创建完成后不读取、不打印真实密钥。
 - `copy-token` 只把真实密钥复制到系统剪贴板。
 - `usage` 保留原始 `quota`，避免账单核对时因换算产生误差。
+- `diagnose` 会把日志事实、可能原因和客户回复草稿分开输出。
+- `reply` 生成的回复会避免要求客户发送完整 API Key。
 - 如果调用失败，错误信息会对疑似密钥内容做脱敏处理。
 
 ## 了解更多
