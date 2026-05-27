@@ -94,7 +94,9 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/ai-apps/' },
               { text: 'AionUi', link: '/ai-apps/aionui' },
-              { text: 'CC Switch', link: '/ai-apps/cc-switch' }
+              { text: 'CC Switch', link: '/ai-apps/cc-switch' },
+              { text: 'Codex Configuration', link: '/ai-apps/codex' },
+              { text: 'Claude Code Configuration', link: '/ai-apps/claude-code' }
             ]
           },
           {
@@ -220,7 +222,9 @@ export default defineConfig({
             items: [
               { text: 'AI应用概览', link: '/zh/ai-apps/' },
               { text: 'AionUi', link: '/zh/ai-apps/aionui' },
-              { text: 'CC Switch', link: '/zh/ai-apps/cc-switch' }
+              { text: 'CC Switch', link: '/zh/ai-apps/cc-switch' },
+              { text: 'Codex 配置教程', link: '/zh/ai-apps/codex' },
+              { text: 'Claude Code 配置教程', link: '/zh/ai-apps/claude-code' }
             ]
           },
           {

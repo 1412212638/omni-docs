@@ -8,3 +8,7 @@ This section collects AI applications, desktop tools, and integration projects r
   A free and open-source desktop AI workspace that supports multiple agents and local-first workflows.
 - [CC Switch](/ai-apps/cc-switch)
   A cross-platform AI CLI manager for unifying provider configuration across Claude Code, Codex, and Gemini CLI.
+- [Codex Configuration Guide](/ai-apps/codex)
+  Configure Codex through `~/.codex/config.toml` to use the OmniRouters OpenAI Compatible API.
+- [Claude Code Configuration Guide](/ai-apps/claude-code)
+  Configure local `settings.json` and onboarding state so Claude Code routes through the OmniRouters gateway.
