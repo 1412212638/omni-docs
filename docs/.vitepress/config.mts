@@ -103,6 +103,7 @@ export default defineConfig({
             text: 'Skills',
             items: [
               { text: 'Skills', link: '/skills/' },
+              { text: 'OmniRouters', link: '/skills/omnirouters' },
               {
                 text: 'OmniRouters Generation',
                 link: '/skills/omnirouters-generation'
@@ -231,6 +232,7 @@ export default defineConfig({
             text: 'Skills',
             items: [
               { text: 'Skills', link: '/zh/skills/' },
+              { text: 'OmniRouters', link: '/zh/skills/omnirouters' },
               {
                 text: 'OmniRouters Generation',
                 link: '/zh/skills/omnirouters-generation'
