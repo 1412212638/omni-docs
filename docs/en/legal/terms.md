@@ -2,6 +2,8 @@
 
 Effective Date: March 25, 2026
 
+Last Updated: August 17, 2026
+
 Welcome to OmniRouters. These Terms of Service govern your access to and use of the OmniRouters website, console, APIs, documentation, software, tools, and related services. By accessing or using OmniRouters, you agree to be bound by these terms. If you do not agree, please stop using the services immediately.
 
 OmniRouters is operated by HONG KONG ZHIJIE INTELLIGENT TECHNOLOGY LIMITED, with its registered address at RM 5B 12/F TUNG LEE IND BLD 9 LAI YIP ST KWUN TONG HONG KONG.
@@ -30,8 +32,11 @@ You may not use OmniRouters in a way that violates applicable law, infringes thi
 - spamming, abusive automation, excessive calling, scraping, or any misuse that disrupts normal operations
 - reverse engineering, decompiling, disassembling, copying, or attempting to derive non-public parts of the service
 - using the service to support malware, fraud, phishing, abuse, illegal surveillance, or other harmful activity
+- generating, editing, storing, distributing, soliciting, or facilitating access to child sexual abuse material (CSAM), or sexualizing, grooming, exploiting, or harming any person under 18; this prohibition applies to real, synthetic, edited, deepfake, and wholly or partly AI-generated content
 
-We may investigate suspected violations and take enforcement actions, including restricting, suspending, or terminating access.
+We maintain zero tolerance for CSAM and related child sexual exploitation. We may investigate suspected violations of these Terms or the [Acceptable Use Policy](/legal/acceptable-use) using automated detection, human review, user reports, and other reasonable methods. Based on the nature, severity, impact, intent, and history of the conduct, we may block content or requests, restrict features or rates, revoke API keys, suspend or permanently terminate accounts, preserve relevant evidence, and report matters to competent authorities or recognized reporting organizations where required or permitted by applicable law. We may act immediately without prior warning in cases involving CSAM, imminent danger to a person, material fraud, malicious attacks, or repeated violations.
+
+Users may report suspected policy violations to `support@omnirouters.com` with the subject “Content Safety Report” or “CSAM Report.” Reporting requirements and review timelines are described in the [Acceptable Use Policy](/legal/acceptable-use).
 
 ## 4. APIs, Models, and Third-Party Services
 
