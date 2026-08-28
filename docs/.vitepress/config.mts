@@ -165,6 +165,7 @@ export default defineConfig({
                 text: 'Billing and Refund Policy',
                 link: '/legal/billing-refund'
               },
+              { text: 'Service Level Agreement (SLA)', link: '/legal/sla' },
               { text: 'Invoice Notice', link: '/legal/invoicing' },
               {
                 text: 'Special Terms for Mainland China Users',
@@ -297,6 +298,7 @@ export default defineConfig({
                 text: '计费与退款说明',
                 link: '/zh/legal/billing-refund'
               },
+              { text: '服务等级协议（SLA）', link: '/zh/legal/sla' },
               { text: '开票须知', link: '/zh/legal/invoicing' },
               {
                 text: '中国内地用户特别约定',
