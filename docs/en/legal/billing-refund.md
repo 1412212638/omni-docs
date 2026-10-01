@@ -47,9 +47,13 @@ For refundable unused prepaid balance, the refund amount will generally be reduc
 - foreign exchange charges
 - other necessary handling costs, if any
 
-Where the refund is not caused by OmniRouters, and unless otherwise required by applicable law, we will deduct a refund handling fee from the refundable amount. The fee is 3.9% of the individual refund amount plus US$2.35 per refund transaction. This handling fee does not apply where the refund is verified to result from OmniRouters' duplicate billing, incorrect billing, unauthorized payment handling, or other fault.
+Where the refund is not caused by OmniRouters, and unless otherwise required by applicable law, we will deduct a refund handling fee from the refundable amount. The fee is 5% of the individual refund amount plus US$2.50 per refund transaction. This handling fee does not apply where the refund is verified to result from OmniRouters' duplicate billing, incorrect billing, unauthorized payment handling, or other fault.
 
 Where the refund arises from OmniRouters' own error, such as duplicate billing, incorrect billing, or unauthorized payment handling, we may provide a full refund or a reasonable partial refund after verification.
+
+### 3.4 Subscription Refunds
+
+If you subscribe to an OmniRouters plan and the usage-based amount calculated from the tokens actually consumed as of the time you submit your refund request (the “Usage Charges”) is lower than the subscription fee you paid (the “Subscription Fee”), you may request a refund of the difference within 24 hours after the subscription becomes effective. The refundable difference is calculated as: Subscription Fee - Usage Charges. After 24 hours from the effective time of the subscription, no subscription fee or difference will be refunded.
 
 ## 4. How to Request a Refund
 
@@ -70,7 +74,7 @@ To prevent fraud or mistaken refunds, we may require identity verification or ad
 
 - after receiving a refund request, we may temporarily restrict or suspend some or all account functions to review account usage, balance, and related transaction data; this temporary measure does not by itself mean that we have determined you committed a violation
 - we decide whether to approve a refund after receiving complete materials and completing the necessary review
-- once approved, we will return the refund, after deducting any applicable refund handling fee and other legally deductible amounts, through the original payment route within 14 business days
+- once approved, we will return the refund, after deducting any applicable refund handling fee and other legally deductible amounts, through the original payment route within 14 business days; subscription refunds are subject to Section 3.4 of this policy
 - if the original payment route is unavailable, or a payment processor, bank, card network, or other relevant third party requires an alternative method, we will work with you on another lawful refund method; actual receipt time may be affected by third-party processing
 
 ## 6. Billing Disputes

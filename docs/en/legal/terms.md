@@ -61,10 +61,11 @@ Some OmniRouters services may be paid services. At present, the services primari
 Unless otherwise required by law or agreed in writing, the following refund rules apply:
 
 - fees already consumed, charges attributable to completed API calls, and any promotional, test, bonus, or gifted credits are generally non-refundable
-- you may request a refund of unused prepaid balance; where the refund is not caused by OmniRouters, and unless otherwise required by applicable law, the refund amount is also subject to a refund handling fee of 3.9% of the individual refund amount plus US$2.35 per refund transaction. This handling fee does not apply where the refund is verified to result from OmniRouters' duplicate billing, incorrect billing, unauthorized payment handling, or other fault
+- you may request a refund of unused prepaid balance; where the refund is not caused by OmniRouters, and unless otherwise required by applicable law, the refund amount is also subject to a refund handling fee of 5% of the individual refund amount plus US$2.50 per refund transaction. This handling fee does not apply where the refund is verified to result from OmniRouters' duplicate billing, incorrect billing, unauthorized payment handling, or other fault
 - if there is duplicate billing, incorrect billing, unauthorized payment, service activation failure, or inability to use the relevant service due to OmniRouters' fault, we may provide a full refund or a reasonable partial refund after verification
 - we may require identity verification, payment proof, and relevant account information to process refund requests; after receiving a request, we may temporarily restrict or suspend account functions to audit and verify related data, but this temporary measure does not by itself mean that we have determined you committed a violation
 - once approved, we will return the refund through the original payment route within 14 business days after deducting applicable fees; actual receipt time may be affected by banks, card networks, payment processors, or other relevant third parties
+- if you subscribe to an OmniRouters plan and the Usage Charges calculated from tokens actually consumed as of your refund request are lower than the Subscription Fee paid, you may request a refund of the difference within 24 hours after the subscription becomes effective; after 24 hours, no subscription fee or difference will be refunded. See the [Billing and Refund Policy](/legal/billing-refund) for details
 
 ## 7. Changes, Suspension, and Termination
 
