@@ -11,6 +11,8 @@ This page tracks notable updates to OmniRouters Docs so that team members and ex
 - Restructured the large language model protocol grouping based on the AstraFlow Model API Manual
 - Added the SystemOne structured decision entry
 - Every future documentation, API, product, policy, or billing update must also be recorded in both language versions of the changelog
+- Added documentation for OpenAI Responses operations, Anthropic token counting, and Gemini native protocol operations
+- Removed Gemini explicit cache, cache listing, cache expiry management, and embedding operations from the documented scope
 
 ## 2026-05-14
 

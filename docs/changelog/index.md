@@ -11,6 +11,8 @@
 - 参考 AstraFlow 模型 API 手册，重组大语言模型协议分类
 - 新增 SystemOne 结构化决策协议入口
 - 后续每次文档、API、产品、政策或计费内容更新，都必须同步记录在中英文更新记录中
+- 补充 OpenAI Responses 操作、Anthropic Token 统计和 Gemini 原生协议操作文档
+- 根据当前支持范围移除 Gemini 显式缓存、缓存列表、缓存有效期管理和 Embedding 操作说明
 
 ## 2026-05-14
 
