@@ -127,7 +127,8 @@ export default defineConfig({
                     text: 'OpenAI Protocol',
                     items: [
                       { text: 'Chat Completions', link: '/api/llm/openai-chat' },
-                      { text: 'Responses', link: '/api/llm/openai-responses' }
+                      { text: 'Responses', link: '/api/llm/openai-responses' },
+                      { text: 'Response Operations', link: '/api/llm/openai-operations' }
                     ]
                   },
                   {
@@ -138,6 +139,7 @@ export default defineConfig({
                     text: 'Gemini Protocol',
                     items: [{ text: 'Generate Content', link: '/api/llm/gemini-generate-content' }]
                   },
+                  { text: 'Native Protocol Operations', link: '/api/llm/native-protocol-operations' },
                   { text: 'Protocol Comparison', link: '/api/llm/protocol-comparison' }
                 ]
               },
@@ -266,7 +268,8 @@ export default defineConfig({
                     text: 'OpenAI 协议',
                     items: [
                       { text: 'Chat Completions', link: '/zh/api/llm/openai-chat' },
-                      { text: 'Responses', link: '/zh/api/llm/openai-responses' }
+                      { text: 'Responses', link: '/zh/api/llm/openai-responses' },
+                      { text: 'Responses 扩展操作', link: '/zh/api/llm/openai-operations' }
                     ]
                   },
                   {
@@ -277,6 +280,7 @@ export default defineConfig({
                     text: 'Gemini 协议',
                     items: [{ text: 'Generate Content', link: '/zh/api/llm/gemini-generate-content' }]
                   },
+                  { text: '原生协议扩展操作', link: '/zh/api/llm/native-protocol-operations' },
                   { text: '协议对比', link: '/zh/api/llm/protocol-comparison' }
                 ]
               },

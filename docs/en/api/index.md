@@ -15,8 +15,10 @@ If you are integrating chat, text generation, or reasoning workflows, start with
 - [LLM Text Generation overview](/api/llm/)
 - [OpenAI Chat Completions](/api/llm/openai-chat)
 - [OpenAI Responses](/api/llm/openai-responses)
+- [OpenAI Responses Operations](/api/llm/openai-operations)
 - [Claude Messages](/api/llm/claude-messages)
 - [Gemini Generate Content](/api/llm/gemini-generate-content)
+- [Native Protocol Operations](/api/llm/native-protocol-operations)
 - [Protocol Comparison](/api/llm/protocol-comparison)
 
 OmniRouters supports OpenAI-compatible requests across all enabled models. If you are unsure which protocol to use, start with OpenAI-compatible routes first.

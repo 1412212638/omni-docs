@@ -15,8 +15,10 @@ title: 模型 API 手册
 - [LLM 文本生成总览](/zh/api/llm/)
 - [OpenAI Chat Completions](/zh/api/llm/openai-chat)
 - [OpenAI Responses](/zh/api/llm/openai-responses)
+- [OpenAI Responses 扩展操作](/zh/api/llm/openai-operations)
 - [Claude Messages](/zh/api/llm/claude-messages)
 - [Gemini Generate Content](/zh/api/llm/gemini-generate-content)
+- [原生协议扩展操作](/zh/api/llm/native-protocol-operations)
 - [协议对比](/zh/api/llm/protocol-comparison)
 
 OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模型。如果你不确定该用哪条协议，优先从 OpenAI 兼容路由开始。
