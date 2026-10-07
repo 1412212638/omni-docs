@@ -1,18 +1,18 @@
 ---
-title: OpenAI Responses Operations
+title: OpenAI Responses 扩展操作
 ---
 
-# OpenAI Responses Operations
+# OpenAI Responses 扩展操作
 
-This page documents the Responses API operations exposed by OmniRouters. Use the same API key and base URL as other OmniRouters APIs.
+本页介绍 OmniRouters 提供的 Responses API 扩展操作。认证方式和 Base URL 与其他 OmniRouters API 相同。
 
-## Authentication
+## 认证
 
 ```text
 Authorization: Bearer <your-api-key>
 ```
 
-## Create a response
+## 创建响应
 
 `POST /v1/responses`
 
@@ -26,9 +26,9 @@ curl https://omnirouters.com/v1/responses \
   }'
 ```
 
-Common request fields include `model`, `input`, `instructions`, `tools`, `tool_choice`, `stream`, `temperature`, `top_p`, and `max_output_tokens`. The exact fields depend on the selected model.
+常见请求字段包括 `model`、`input`、`instructions`、`tools`、`tool_choice`、`stream`、`temperature`、`top_p` 和 `max_output_tokens`。具体字段以所选模型支持的能力为准。
 
-## Retrieve a response
+## 获取响应
 
 `GET /v1/responses/{response_id}`
 
@@ -37,7 +37,7 @@ curl https://omnirouters.com/v1/responses/resp_123 \
   -H "Authorization: Bearer $OMNIROUTERS_API_KEY"
 ```
 
-## Delete a response
+## 删除响应
 
 `DELETE /v1/responses/{response_id}`
 
@@ -46,7 +46,7 @@ curl -X DELETE https://omnirouters.com/v1/responses/resp_123 \
   -H "Authorization: Bearer $OMNIROUTERS_API_KEY"
 ```
 
-## Cancel a response
+## 取消响应
 
 `POST /v1/responses/{response_id}/cancel`
 
@@ -55,7 +55,7 @@ curl -X POST https://omnirouters.com/v1/responses/resp_123/cancel \
   -H "Authorization: Bearer $OMNIROUTERS_API_KEY"
 ```
 
-## Count input tokens
+## 统计输入 Token
 
 `POST /v1/responses/input_tokens`
 
@@ -69,7 +69,7 @@ curl https://omnirouters.com/v1/responses/input_tokens \
   }'
 ```
 
-## Compact a conversation
+## 压缩对话
 
 `POST /v1/responses/compact`
 
@@ -83,8 +83,8 @@ curl https://omnirouters.com/v1/responses/compact \
   }'
 ```
 
-## Response body
+## 返回参数
 
-Responses commonly include an `id`, `object`, `status`, `model`, `output`, and `usage`. A response may also include `error`, `incomplete_details`, or tool-call items. Always treat unknown fields as forward-compatible additions.
+响应通常包含 `id`、`object`、`status`、`model`、`output` 和 `usage`。根据请求状态，响应也可能包含 `error`、`incomplete_details` 或工具调用项。对于未列出的字段，应按向前兼容的扩展字段处理。
 
-> Availability of individual operations depends on the enabled upstream model and current OmniRouters routing configuration. The Chat Completions route remains the broadest compatibility option.
+> 各项操作是否可用取决于账号启用的上游模型和 OmniRouters 当前路由配置。若需要最广泛的兼容性，仍建议优先使用 Chat Completions 路由。

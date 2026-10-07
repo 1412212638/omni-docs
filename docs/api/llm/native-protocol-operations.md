@@ -1,12 +1,12 @@
 ---
-title: Native LLM Protocol Operations
+title: 原生大语言模型协议扩展操作
 ---
 
-# Native LLM Protocol Operations
+# 原生大语言模型协议扩展操作
 
-This page collects the additional native-protocol operations available in the Model API Manual.
+本页汇总模型 API 手册中提供的原生协议扩展操作。
 
-## Anthropic Messages token counting
+## Anthropic Messages Token 统计
 
 `POST /v1/messages/count_tokens`
 
@@ -23,11 +23,11 @@ curl https://omnirouters.com/v1/messages/count_tokens \
   }'
 ```
 
-The response contains the input token count. The standard Messages request is documented in [Claude Messages](/api/llm/claude-messages).
+响应中会返回输入 Token 数量。标准 Messages 请求请参阅 [Claude Messages](/zh/api/llm/claude-messages)。
 
-## Gemini content generation
+## Gemini 内容生成
 
-Use the Gemini-compatible routes when an application already sends `contents` and `generationConfig`:
+如果你的应用已经使用 `contents` 和 `generationConfig` 请求体，可以使用 Gemini 兼容路由：
 
 - `POST /v1beta/models/{model}:generateContent`
 - `POST /v1beta/models/{model}:streamGenerateContent`
@@ -43,10 +43,10 @@ curl "https://omnirouters.com/v1beta/models/your-enabled-gemini-model:generateCo
   }'
 ```
 
-See [Gemini Generate Content](/api/llm/gemini-generate-content) for the request and response object structure.
+请求体和响应对象结构请参阅 [Gemini Generate Content](/zh/api/llm/gemini-generate-content)。
 
-## Gemini media analysis
+## Gemini 媒体分析
 
 - `POST /v1beta/models/{model}:generateContent` can carry supported media parts for analysis.
 
-The exact `Part` shape and media restrictions follow the selected Gemini model. For cross-model text generation, use [OpenAI Chat Completions](/api/llm/openai-chat).
+具体 `Part` 结构和媒体限制以所选 Gemini 模型为准。如果需要跨模型进行文本生成，建议使用 [OpenAI Chat Completions](/zh/api/llm/openai-chat)。
