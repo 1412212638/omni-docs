@@ -18,6 +18,7 @@ That is the most stable default on OmniRouters because all enabled models can be
 | --- | --- | --- | --- | --- | --- |
 | OpenAI Chat Completions | `/v1/chat/completions` | Best default for most projects | `messages` array | [OpenAI Chat](https://developers.openai.com/api/reference/resources/chat) | Safest universal option across model families |
 | OpenAI Responses | `/v1/responses` | Newer structured workflows | OmniRouters currently documents a `messages`-based schema | [OpenAI Responses](https://developers.openai.com/api/reference/resources/responses/methods/create) | Check Apifox for exact field behavior |
+| SystemOne Structured Decisions | `/v1/systemone` | Structured classification, routing, and decisions | `state` + `questions` | OmniRouters-specific protocol | Returns one structured result for each question |
 | Claude Messages | `/v1/messages` | Anthropic SDK migration | Claude-style `messages`, `max_tokens`, `system` | [Anthropic Messages](https://platform.claude.com/docs/en/api/messages) | Uses bearer auth on OmniRouters, plus `anthropic-version` |
 | Gemini Generate Content | `/v1beta/models/{model}:generateContent` | Gemini SDK migration | `contents` and `parts` | [Gemini generateContent](https://ai.google.dev/api/generate-content) | Uses bearer auth on OmniRouters; multimodal uploads should follow OmniRouters constraints |
 

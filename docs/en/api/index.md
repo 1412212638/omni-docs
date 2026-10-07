@@ -1,14 +1,14 @@
 ---
-title: API Reference
+title: Model API Manual
 ---
 
-# API Reference
+# Model API Manual
 
-Use this page as the entry point for OmniRouters API documentation. OmniRouters provides unified access to multimodal AI capabilities such as chat, image, video, speech, music, embeddings, and rerank.
+Use this page as the entry point for the OmniRouters Model API Manual. APIs are organized into Large Language Models, Image Generation, Video Generation, Audio Generation, and Structured Decisions.
 
 The complete endpoint catalogue is maintained in Apifox. This site provides the onboarding path, integration notes, and links to the full reference.
 
-## LLM Text Generation
+## Large Language Models
 
 If you are integrating chat, text generation, or reasoning workflows, start with the dedicated LLM protocol pages:
 
@@ -21,12 +21,24 @@ If you are integrating chat, text generation, or reasoning workflows, start with
 
 OmniRouters supports OpenAI-compatible requests across all enabled models. If you are unsure which protocol to use, start with OpenAI-compatible routes first.
 
-## Video and Image Generation
+## Image Generation
+
+- [Omni-Image API](/api/omni-image)
+
+## Video Generation
 
 If you are integrating text-to-video, image-to-video, image generation, or reference-image workflows, start with these pages:
 
 - [Omni-Video API](/api/omni-video): compatible video creation routes, minimal text-to-video/image-to-video examples, and top-level request fields.
 - [Omni-Image API](/api/omni-image): standard image generation, minimal reference-to-image examples, and top-level request fields.
+
+## Audio Generation
+
+Audio generation documentation is being organized. For complete fields and endpoints, see the [Apifox API Reference](https://omnirouters.apifox.cn/) for now.
+
+## Structured Decisions
+
+- [SystemOne](/api/llm/systemone): structured decisions driven by question definitions and evaluation criteria.
 
 ## Full Endpoint Reference
 

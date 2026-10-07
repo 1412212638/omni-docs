@@ -18,6 +18,7 @@ title: 协议对比
 | --- | --- | --- | --- | --- | --- |
 | OpenAI Chat Completions | `/v1/chat/completions` | 大多数项目的默认起点 | `messages` 数组 | [OpenAI Chat](https://developers.openai.com/api/reference/resources/chat) | 跨模型最稳妥的默认选择 |
 | OpenAI Responses | `/v1/responses` | 更现代的结构化工作流 | 当前 OmniRouters 文档仍以 `messages` 为主 | [OpenAI Responses](https://developers.openai.com/api/reference/resources/responses/methods/create) | 字段级行为建议以 Apifox 为准 |
+| SystemOne Structured Decisions | `/v1/systemone` | 结构化分类、分流和决策 | `state` + `questions` | OmniRouters 专属协议 | 一次请求返回每个问题的结构化结果 |
 | Claude Messages | `/v1/messages` | Anthropic SDK 迁移 | Claude 风格的 `messages`、`max_tokens`、`system` | [Anthropic Messages](https://platform.claude.com/docs/en/api/messages) | 在 OmniRouters 上使用 bearer auth，并带 `anthropic-version` |
 | Gemini Generate Content | `/v1beta/models/{model}:generateContent` | Gemini SDK 迁移 | `contents` 与 `parts` | [Gemini generateContent](https://ai.google.dev/api/generate-content) | 在 OmniRouters 上使用 bearer auth，多模态上传需遵循平台限制 |
 

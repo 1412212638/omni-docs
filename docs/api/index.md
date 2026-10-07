@@ -1,14 +1,14 @@
 ---
-title: API 参考
+title: 模型 API 手册
 ---
 
-# API 参考
+# 模型 API 手册
 
-这里是 OmniRouters API 文档的总入口。OmniRouters 提供统一的多模态 AI 接入能力，包括对话、文本生成、图像、视频、语音、音乐、Embeddings、Rerank 等能力。
+这里是 OmniRouters 模型 API 手册的总入口。接口按大语言模型、图片生成、视频生成、音频生成和结构化决策五类能力组织。
 
 完整的接口目录目前维护在 Apifox。本网站主要负责提供接入路径、协议说明和使用文档入口。
 
-## LLM 文本生成
+## 大语言模型
 
 如果你的场景是聊天、文本生成或推理工作流，建议先从这组协议页开始：
 
@@ -21,12 +21,24 @@ title: API 参考
 
 OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模型。如果你不确定该用哪条协议，优先从 OpenAI 兼容路由开始。
 
-## 视频与图片生成
+## 图片生成
+
+- [Omni-Image API](/zh/api/omni-image)
+
+## 视频生成
 
 如果你的场景是文生视频、图生视频、生图或参考图生图，可以先看这两页：
 
 - [Omni-Video API](/zh/api/omni-video)：视频创建兼容路由、文生视频/图生视频最小可用示例、顶层请求参数。
 - [Omni-Image API](/zh/api/omni-image)：标准图片生成、参考图生图最小可用示例、顶层请求参数。
+
+## 音频生成
+
+音频生成接口正在整理，完整字段和端点请先查看 [Apifox API 参考](https://omnirouters.apifox.cn/)。
+
+## 结构化决策
+
+- [SystemOne](/zh/api/llm/systemone)：使用问题定义和结构化条件生成决策结果。
 
 ## 完整接口参考
 

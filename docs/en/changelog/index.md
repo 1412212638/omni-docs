@@ -2,6 +2,16 @@
 
 This page tracks notable updates to OmniRouters Docs so that team members and external users can quickly understand structural, legal, and documentation changes.
 
+## 2026-10-08
+
+### Model API Manual
+
+- Renamed the former API Reference entry to Model API Manual
+- Reorganized API navigation into Large Language Models, Image Generation, Video Generation, Audio Generation, and Structured Decisions
+- Restructured the large language model protocol grouping based on the AstraFlow Model API Manual
+- Added the SystemOne structured decision entry
+- Every future documentation, API, product, policy, or billing update must also be recorded in both language versions of the changelog
+
 ## 2026-05-14
 
 ### Legal and Compliance

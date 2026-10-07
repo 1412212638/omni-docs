@@ -80,7 +80,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/' },
-          { text: 'API Reference', link: '/api/' },
+          { text: 'Model API Manual', link: '/api/' },
           { text: 'AI Apps', link: '/ai-apps/' },
           { text: 'Skills', link: '/skills/' },
           { text: 'Support', link: '/guide/getting-started' },
@@ -117,20 +117,37 @@ export default defineConfig({
             ]
           },
           {
-            text: 'API Reference',
+            text: 'Model API Manual',
             items: [
-              { text: 'API Reference', link: '/api/' },
-              { text: 'Omni-Video API', link: '/api/omni-video' },
-              { text: 'Omni-Image API', link: '/api/omni-image' },
-              { text: 'LLM Text Generation', link: '/api/llm/' },
-              { text: 'OpenAI Chat Completions', link: '/api/llm/openai-chat' },
-              { text: 'OpenAI Responses', link: '/api/llm/openai-responses' },
-              { text: 'Claude Messages', link: '/api/llm/claude-messages' },
+              { text: 'Model API Manual', link: '/api/' },
               {
-                text: 'Gemini Generate Content',
-                link: '/api/llm/gemini-generate-content'
+                text: 'Large Language Models',
+                items: [
+                  {
+                    text: 'OpenAI Protocol',
+                    items: [
+                      { text: 'Chat Completions', link: '/api/llm/openai-chat' },
+                      { text: 'Responses', link: '/api/llm/openai-responses' }
+                    ]
+                  },
+                  {
+                    text: 'Anthropic Protocol',
+                    items: [{ text: 'Messages', link: '/api/llm/claude-messages' }]
+                  },
+                  {
+                    text: 'Gemini Protocol',
+                    items: [{ text: 'Generate Content', link: '/api/llm/gemini-generate-content' }]
+                  },
+                  { text: 'Protocol Comparison', link: '/api/llm/protocol-comparison' }
+                ]
               },
-              { text: 'Protocol Comparison', link: '/api/llm/protocol-comparison' },
+              { text: 'Image Generation', items: [{ text: 'Omni-Image API', link: '/api/omni-image' }] },
+              { text: 'Video Generation', items: [{ text: 'Omni-Video API', link: '/api/omni-video' }] },
+              { text: 'Audio Generation', items: [] },
+              {
+                text: 'Structured Decisions',
+                items: [{ text: 'SystemOne', link: '/api/llm/systemone' }]
+              },
               { text: 'Apifox Reference', link: 'https://omnirouters.apifox.cn/' }
             ]
           },
@@ -202,7 +219,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh/' },
-          { text: 'API参考', link: '/zh/api/' },
+          { text: '模型 API 手册', link: '/zh/api/' },
           { text: 'AI应用', link: '/zh/ai-apps/' },
           { text: 'Skills', link: '/zh/skills/' },
           { text: '技术支持', link: '/zh/guide/getting-started' },
@@ -239,20 +256,37 @@ export default defineConfig({
             ]
           },
           {
-            text: 'API参考',
+            text: '模型 API 手册',
             items: [
-              { text: 'API参考', link: '/zh/api/' },
-              { text: 'Omni-Video API', link: '/zh/api/omni-video' },
-              { text: 'Omni-Image API', link: '/zh/api/omni-image' },
-              { text: 'LLM 文本生成', link: '/zh/api/llm/' },
-              { text: 'OpenAI Chat Completions', link: '/zh/api/llm/openai-chat' },
-              { text: 'OpenAI Responses', link: '/zh/api/llm/openai-responses' },
-              { text: 'Claude Messages', link: '/zh/api/llm/claude-messages' },
+              { text: '模型 API 手册', link: '/zh/api/' },
               {
-                text: 'Gemini Generate Content',
-                link: '/zh/api/llm/gemini-generate-content'
+                text: '大语言模型',
+                items: [
+                  {
+                    text: 'OpenAI 协议',
+                    items: [
+                      { text: 'Chat Completions', link: '/zh/api/llm/openai-chat' },
+                      { text: 'Responses', link: '/zh/api/llm/openai-responses' }
+                    ]
+                  },
+                  {
+                    text: 'Anthropic 协议',
+                    items: [{ text: 'Messages', link: '/zh/api/llm/claude-messages' }]
+                  },
+                  {
+                    text: 'Gemini 协议',
+                    items: [{ text: 'Generate Content', link: '/zh/api/llm/gemini-generate-content' }]
+                  },
+                  { text: '协议对比', link: '/zh/api/llm/protocol-comparison' }
+                ]
               },
-              { text: '协议对比', link: '/zh/api/llm/protocol-comparison' },
+              { text: '图片生成', items: [{ text: 'Omni-Image API', link: '/zh/api/omni-image' }] },
+              { text: '视频生成', items: [{ text: 'Omni-Video API', link: '/zh/api/omni-video' }] },
+              { text: '音频生成', items: [] },
+              {
+                text: '结构化决策',
+                items: [{ text: 'SystemOne', link: '/zh/api/llm/systemone' }]
+              },
               { text: 'Apifox 接口参考', link: 'https://omnirouters.apifox.cn/' }
             ]
           },

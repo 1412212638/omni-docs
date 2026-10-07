@@ -27,6 +27,98 @@ tags:
   - name: Audio/Seed-TTS
   - name: Audio/Gemini-TTS
 paths:
+  /v1/systemone:
+    post:
+      summary: SystemOne Structured Decision
+      deprecated: false
+      description: >-
+        Runs a single non-streaming structured decision request. The response
+        contains one result field for each question key.
+      tags:
+        - Chat
+      parameters:
+        - name: Authorization
+          in: header
+          required: false
+          example: Bearer sk-xxxx
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - model
+                - state
+                - questions
+              properties:
+                model:
+                  type: string
+                  description: Enabled SystemOne model name.
+                  example: jev-1.13.0
+                state:
+                  description: Text or structured content to analyze.
+                  oneOf:
+                    - type: string
+                    - type: object
+                    - type: array
+                      items: {}
+                questions:
+                  type: object
+                  description: Named question definitions keyed by output field.
+                  additionalProperties:
+                    type: object
+                    required:
+                      - type
+                      - instructions
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - noul
+                          - choice
+                          - score
+                      instructions:
+                        type: string
+                      criteria:
+                        description: Required for choice and score questions.
+                        oneOf:
+                          - type: object
+                          - type: array
+                            items:
+                              type: string
+            example:
+              model: jev-1.13.0
+              state: I was charged twice for my annual plan this morning. Please refund one of the charges today.
+              questions:
+                wants_refund:
+                  type: noul
+                  instructions: Is the customer asking for money back?
+                queue:
+                  type: choice
+                  instructions: Which queue should handle this?
+                  criteria:
+                    billing: Billing department
+                    technical: Technical support
+                    sales: Sales team
+                urgency:
+                  type: score
+                  instructions: How urgent is this issue?
+                  criteria:
+                    - Can wait a week
+                    - Should be handled this week
+                    - Needs a reply today
+      responses:
+        '200':
+          description: Structured decision result.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+      security: []
   /v1/chat/completions:
     post:
       summary: OpenAI Chat

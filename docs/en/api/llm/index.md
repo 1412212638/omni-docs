@@ -27,6 +27,7 @@ Use the Claude or Gemini protocol pages when you are migrating an existing clien
 | --- | --- | --- | --- |
 | OpenAI Chat Completions | `POST /v1/chat/completions` | Broad compatibility, simple chat, fastest migration from existing OpenAI chat clients | [OpenAI Chat API reference](https://developers.openai.com/api/reference/resources/chat) |
 | OpenAI Responses | `POST /v1/responses` | Newer structured workflows, tool calling, reasoning-oriented integrations | [OpenAI Responses API reference](https://developers.openai.com/api/reference/resources/responses/methods/create) |
+| SystemOne Structured Decisions | `POST /v1/systemone` | Structured classification, routing, priority, and decisions | OmniRouters-specific protocol |
 | Claude Messages | `POST /v1/messages` | Anthropic / Claude SDK migration with a Claude-style payload | [Anthropic Messages API reference](https://platform.claude.com/docs/en/api/messages) |
 | Gemini Generate Content | `POST /v1beta/models/{model}:generateContent` | Google Gemini SDK migration with `contents` / `parts` request format | [Google Gemini generateContent reference](https://ai.google.dev/api/generate-content) |
 

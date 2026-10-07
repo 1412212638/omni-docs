@@ -27,6 +27,7 @@ OmniRouters 针对 LLM 文本生成支持多种请求协议，但有一条最重
 | --- | --- | --- | --- |
 | OpenAI Chat Completions | `POST /v1/chat/completions` | 通用兼容、简单聊天、现有 OpenAI chat 客户端迁移 | [OpenAI Chat API 文档](https://developers.openai.com/api/reference/resources/chat) |
 | OpenAI Responses | `POST /v1/responses` | 更现代的结构化工作流、工具调用、推理型接入 | [OpenAI Responses API 文档](https://developers.openai.com/api/reference/resources/responses/methods/create) |
+| SystemOne Structured Decisions | `POST /v1/systemone` | 结构化分类、分流、优先级和决策 | OmniRouters 专属协议 |
 | Claude Messages | `POST /v1/messages` | Anthropic / Claude SDK 迁移，尽量保留 Claude 风格请求体 | [Anthropic Messages API 文档](https://platform.claude.com/docs/en/api/messages) |
 | Gemini Generate Content | `POST /v1beta/models/{model}:generateContent` | Google Gemini SDK 迁移，保留 `contents` / `parts` 结构 | [Google Gemini generateContent 文档](https://ai.google.dev/api/generate-content) |
 
