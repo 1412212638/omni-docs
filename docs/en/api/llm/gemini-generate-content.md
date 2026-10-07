@@ -4,6 +4,8 @@ title: Gemini Generate Content
 
 # Gemini Generate Content
 
+> Last updated: October 7, 2026
+
 `/v1beta/models/{model}:generateContent` is the Gemini-style protocol route on OmniRouters.
 
 Use it when you already work with Gemini request bodies and want to preserve the `contents` / `parts` payload structure.
@@ -19,7 +21,7 @@ There are a few important OmniRouters-specific differences:
 
 1. Authentication uses OmniRouters bearer auth, not `x-goog-api-key`
 2. The OmniRouters route lives under `https://omnirouters.com/v1beta/...`
-3. The current OmniRouters OpenAPI description notes that media uploads should use `inlineData` base64 content rather than `fileData.fileUri`
+3. The current OmniRouters OpenAPI description requires media uploads to use `inlineData` base64 content; `fileData.fileUri` and the Gemini File API are not supported on this route.
 
 ```text
 Authorization: Bearer <your-api-key>

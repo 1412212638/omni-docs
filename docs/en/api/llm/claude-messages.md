@@ -4,6 +4,8 @@ title: Claude Messages
 
 # Claude Messages
 
+> Last updated: October 7, 2026
+
 `/v1/messages` is the Claude-style protocol route on OmniRouters.
 
 Use it when you already have Anthropic-style request bodies and want a migration path with less payload reshaping.
@@ -17,7 +19,7 @@ Use it when you already have Anthropic-style request bodies and want a migration
 
 There are two OmniRouters-specific differences to remember:
 
-1. OmniRouters recommends the unified `Authorization: Bearer <token>` header, and also accepts the Anthropic-native `x-api-key` header
+1. OmniRouters recommends the unified `Authorization: Bearer <token>` header and also accepts the Anthropic-native `x-api-key` header. Use one or the other.
 2. The request header should include `anthropic-version`
 
 ```text
@@ -32,7 +34,7 @@ x-api-key: <your-api-key>
 anthropic-version: 2023-06-01
 ```
 
-Use either `Authorization` or `x-api-key`; do not send both authentication headers in the same request.
+Use either `Authorization` or `x-api-key`; do not send both authentication headers in the same request. `x-api-key` is Anthropic's native SDK header, and OmniRouters accepts it as the gateway API key.
 
 Also remember that all models can still be called through the OpenAI-compatible protocol. Choose Claude Messages only when the Claude-style request format is the better fit for your integration.
 

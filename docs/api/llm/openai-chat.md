@@ -4,6 +4,8 @@ title: OpenAI Chat Completions
 
 # OpenAI Chat Completions
 
+> 最后更新：2026 年 10 月 7 日
+
 `/v1/chat/completions` 是 OmniRouters 上最简单、最通用的 LLM 文本生成协议入口。
 
 它特别适合下面这些场景：

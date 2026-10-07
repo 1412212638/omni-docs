@@ -4,6 +4,8 @@ title: OpenAI Responses
 
 # OpenAI Responses
 
+> Last updated: October 7, 2026
+
 `/v1/responses` is the newer OpenAI-style route for structured response workflows, tool invocation, and reasoning-oriented integrations.
 
 On OmniRouters, it is best used when you want a modern OpenAI-compatible entry point but still want to stay inside the OmniRouters model catalogue.
@@ -59,13 +61,13 @@ curl https://omnirouters.com/v1/responses \
 
 ## Request Body Parameters
 
-The current OmniRouters OpenAPI schema documents `/v1/responses` with a `messages`-based request body. Native OpenAI Responses integrations more commonly use fields such as `input`, `instructions`, and `max_output_tokens`. When calling OmniRouters, start with the `messages` structure documented here; if your SDK sends native Responses fields, validate compatibility with the target model.
+The native OpenAI Responses API uses `input` as its standard input field, while the current public OmniRouters OpenAPI schema still requires `messages`. When calling OmniRouters, start with the `messages` example below. Do not copy a native OpenAI example unchanged unless you have validated `input` compatibility with the target model. Native `instructions`, `max_output_tokens`, `text`, `reasoning`, and `output` events may also differ in the compatibility layer.
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `model` | string | Yes | OmniRouters model name, such as `gpt-4o`, `gpt-5.2`, or a model alias from the OmniRouters catalogue. |
 | `messages` | array | Yes | Main input structure in the current OmniRouters schema. Contains message objects described below. |
-| `input` | string or array | Compatibility field | Native OpenAI Responses input. Can be plain text, message items, or tool results. Usually do not send both `messages` and `input` for the same request. |
+| `input` | string or array | Native compatibility field | Native OpenAI Responses input. The current OmniRouters OpenAPI does not make it required; validate it with the target model before use. |
 | `instructions` | string | No | Native Responses system/developer-level instructions. With `messages`, a `system` message can express the same intent. |
 | `temperature` | number | No | Sampling temperature, commonly from `0` to `2`, often defaulting to `1`. |
 | `top_p` | number | No | Nucleus sampling parameter, often defaulting to `1`. Usually tune either `temperature` or `top_p`. |
@@ -85,7 +87,7 @@ The current OmniRouters OpenAPI schema documents `/v1/responses` with a `message
 | `tool_choice` | string or object | No | Controls tool selection. Common values are `none`, `auto`, and `required`, or an object selecting a specific function. |
 | `parallel_tool_calls` | boolean | Compatibility field | Whether to allow parallel tool calls. Common in native Responses requests. |
 | `previous_response_id` | string | Compatibility field | Native Responses state field for continuing from a previous response. Usually unnecessary for stateless `messages` requests. |
-| `metadata` | object | Compatibility field | Custom metadata for tracing or filtering. |
+| `metadata` | object | Native compatibility field | Native Responses business metadata; whether it is stored or passed through depends on the current implementation. |
 | `store` | boolean | Compatibility field | Whether to store the response. Platform behavior may vary. |
 | `reasoning` | object | Compatibility field | Reasoning-model configuration, such as effort or summary settings. Support varies by model. |
 | `truncation` | string | Compatibility field | Context truncation strategy. Common values: `disabled`, `auto`. |
@@ -147,7 +149,7 @@ The Responses route does not currently declare a fixed `extra_body` object in th
 | --- | --- | --- |
 | `response_format` | `{ "type": "text" }` or `{ "type": "json_object" }` | Output format control in the OmniRouters schema. JSON mode usually still requires explicit JSON instructions in the prompt. |
 | `text.format` | `{ "type": "text" }`, `{ "type": "json_schema", "schema": {...}, "strict": true }` | Native Responses structured output configuration. Availability depends on compatibility support. |
-| `tools[].function` | `{ "name": "...", "description": "...", "parameters": {...} }` | Function tool definition. `parameters` is a JSON Schema object. |
+| `tools[]` | `{ "type": "function", "name": "...", "description": "...", "parameters": {...} }` | Native Responses function-tool shape. The compatibility layer may require Chat-style nested `function`; follow the platform schema. |
 | `tool_choice` | `"auto"`, `"none"`, `"required"`, or a specific tool object | Controls whether the model may call tools, must call tools, or must call one selected tool. |
 | `reasoning` | `{ "effort": "...", "summary": "..." }` | Reasoning-model extension configuration. Exact enum values and behavior depend on the model. |
 | `metadata` | Any JSON object | Business metadata for tracing. It should not be relied on as model input. |

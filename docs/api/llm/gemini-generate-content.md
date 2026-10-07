@@ -4,6 +4,8 @@ title: Gemini Generate Content
 
 # Gemini Generate Content
 
+> 最后更新：2026 年 10 月 7 日
+
 `/v1beta/models/{model}:generateContent` 是 OmniRouters 上的 Gemini 风格协议入口。
 
 如果你已经在使用 Gemini 的 `contents` / `parts` 请求结构，并希望迁移时保留这种风格，就优先看这一页。
@@ -19,7 +21,7 @@ title: Gemini Generate Content
 
 1. 在 OmniRouters 上统一使用 Bearer Token 认证，而不是 `x-goog-api-key`
 2. 路由路径位于 `https://omnirouters.com/v1beta/...`
-3. 当前 OmniRouters OpenAPI 文档特别说明：多媒体上传建议使用 `inlineData` 的 base64 形式，而不是 `fileData.fileUri`
+3. 当前 OmniRouters OpenAPI 文档特别说明：多媒体上传使用 `inlineData` 的 base64 形式；本路由不支持 `fileData.fileUri` 或 Gemini File API。
 
 ```text
 Authorization: Bearer <your-api-key>

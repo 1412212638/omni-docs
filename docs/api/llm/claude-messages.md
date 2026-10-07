@@ -4,6 +4,8 @@ title: Claude Messages
 
 # Claude Messages
 
+> 最后更新：2026 年 10 月 7 日
+
 `/v1/messages` 是 OmniRouters 上的 Claude 风格协议入口。
 
 如果你已经在使用 Anthropic 风格请求体，希望迁移时少改 payload，这一页最适合你。
@@ -17,7 +19,7 @@ title: Claude Messages
 
 这里有两个需要特别注意的 OmniRouters 差异：
 
-1. OmniRouters 推荐使用统一的 `Authorization: Bearer <token>` 认证，同时也兼容 Anthropic 原生 `x-api-key`
+1. OmniRouters 推荐使用统一的 `Authorization: Bearer <token>` 认证，同时兼容 Anthropic 原生 `x-api-key`。两者二选一。
 2. 请求头中需要带上 `anthropic-version`
 
 ```text
@@ -32,7 +34,7 @@ x-api-key: <your-api-key>
 anthropic-version: 2023-06-01
 ```
 
-`Authorization` 和 `x-api-key` 二选一即可，不建议在同一个请求里同时传两个认证头。
+`Authorization` 和 `x-api-key` 二选一即可，不要在同一个请求里同时传两个认证头。`x-api-key` 是 Anthropic SDK 的原生认证头，OmniRouters 会将其作为网关 API Key 使用。
 
 另外，别忘了 OmniRouters 上所有模型都能通过 OpenAI 兼容协议调用。只有当 Claude 风格请求体更适合你现有集成时，才更推荐使用这条路由。
 

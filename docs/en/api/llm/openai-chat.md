@@ -4,6 +4,8 @@ title: OpenAI Chat Completions
 
 # OpenAI Chat Completions
 
+> Last updated: October 7, 2026
+
 `/v1/chat/completions` is the simplest and broadest LLM text-generation protocol on OmniRouters.
 
 It is the best default when you want:

@@ -4,6 +4,8 @@ title: OpenAI Responses
 
 # OpenAI Responses
 
+> 最后更新：2026 年 10 月 7 日
+
 `/v1/responses` 是 OmniRouters 上偏现代化的 OpenAI 风格协议入口，适合结构化输出、工具调用和推理型工作流。
 
 如果你想在 OmniRouters 的模型目录内继续使用 OpenAI 风格的接入思路，这条路由会很有价值。
@@ -19,7 +21,7 @@ title: OpenAI Responses
 - 在 OmniRouters 上，这条路由用于承载 Responses 风格工作流。
 - 但当前 OmniRouters 的 OpenAPI 文档中，这个端点仍然以 `messages` 为主请求结构进行说明，因此字段级行为应以 OmniRouters 的 Apifox/OpenAPI 为准。
 
-这点很重要：上游 OpenAI 官方文档可以帮助你理解 Responses 思路，但实际接 OmniRouters 时，还是要优先按照你们平台当前的 schema 来写请求。
+OpenAI 原生 Responses API 的标准输入字段是 `input`，而 OmniRouters 当前公开 OpenAPI 的必填字段仍是 `messages`。通过 OmniRouters 调用时应优先使用下方的 `messages` 示例；不要直接复制原生 OpenAI 示例，除非你已针对目标模型验证 `input` 兼容性。原生 Responses 的 `instructions`、`max_output_tokens`、`text`、`reasoning` 和 `output` 事件也可能与平台兼容层存在差异。
 
 ## 最小示例
 
@@ -65,7 +67,7 @@ curl https://omnirouters.com/v1/responses \
 | --- | --- | --- | --- |
 | `model` | string | 是 | 要调用的 OmniRouters 模型名，例如 `gpt-4o`、`gpt-5.2` 或平台模型目录中的别名。 |
 | `messages` | array | 是 | OmniRouters 当前 schema 中的主要输入结构。由多条消息组成，详见下方 `messages` 对象结构。 |
-| `input` | string 或 array | 兼容字段 | OpenAI 原生 Responses 输入字段。可以是纯文本、消息数组或工具结果数组。若使用 `messages`，通常不再同时传 `input`。 |
+| `input` | string 或 array | 原生兼容字段 | OpenAI 原生 Responses 输入字段。当前 OmniRouters OpenAPI 未将其列为必填字段，使用前请验证目标模型兼容性。 |
 | `instructions` | string | 否 | 原生 Responses 中的系统/开发者级指令。使用 `messages` 时，也可以通过 `system` 消息表达。 |
 | `temperature` | number | 否 | 采样温度，常见范围 `0` 到 `2`，默认通常为 `1`。 |
 | `top_p` | number | 否 | nucleus sampling 参数，默认通常为 `1`。建议和 `temperature` 二选一重点调整。 |
@@ -85,7 +87,7 @@ curl https://omnirouters.com/v1/responses \
 | `tool_choice` | string 或 object | 否 | 控制模型如何选择工具。常见值：`none`、`auto`、`required`，也可指定某个 function。 |
 | `parallel_tool_calls` | boolean | 兼容字段 | 是否允许并行工具调用。OpenAI 原生 Responses 常见字段。 |
 | `previous_response_id` | string | 兼容字段 | 原生 Responses 的多轮状态字段，用于引用上一轮 response。使用 stateless `messages` 时通常不需要。 |
-| `metadata` | object | 兼容字段 | 附加元数据，便于业务侧追踪或筛选。 |
+| `metadata` | object | 原生兼容字段 | 原生 Responses 的业务元数据；平台是否保存或透传取决于当前实现。 |
 | `store` | boolean | 兼容字段 | 是否存储响应。是否生效取决于平台实现。 |
 | `reasoning` | object | 兼容字段 | 推理模型相关配置，例如 reasoning effort 或 summary。不同模型支持差异较大。 |
 | `truncation` | string | 兼容字段 | 上下文超长时的截断策略。常见值：`disabled`、`auto`。 |
@@ -147,7 +149,7 @@ Responses 路由没有像 Chat Completions 那样在当前 schema 中固定声�
 | --- | --- | --- |
 | `response_format` | `{ "type": "text" }` 或 `{ "type": "json_object" }` | OmniRouters 当前 schema 中的输出格式控制。JSON 模式通常还需要在 prompt 中明确要求输出 JSON。 |
 | `text.format` | `{ "type": "text" }`、`{ "type": "json_schema", "schema": {...}, "strict": true }` | OpenAI 原生 Responses 的结构化输出配置。是否可用取决于平台兼容情况。 |
-| `tools[].function` | `{ "name": "...", "description": "...", "parameters": {...} }` | function tool 定义。`parameters` 是 JSON Schema。 |
+| `tools[]` | `{ "type": "function", "name": "...", "description": "...", "parameters": {...} }` | OpenAI 原生 Responses function tool 形状。兼容层可能要求 Chat 风格的 `function` 嵌套结构，请以平台 schema 为准。 |
 | `tool_choice` | `"auto"`、`"none"`、`"required"` 或指定工具对象 | 控制模型是否必须调用工具、自动选择工具，或强制调用某个工具。 |
 | `reasoning` | `{ "effort": "...", "summary": "..." }` | 推理模型扩展配置。具体枚举和行为以模型说明为准。 |
 | `metadata` | 任意 JSON object | 业务自定义元数据，不参与模型推理时可用于追踪请求。 |
