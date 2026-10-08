@@ -147,7 +147,38 @@ export default defineConfig({
                 text: 'Image Generation',
                 items: [
                   { text: 'Omni-Image API', link: '/api/omni-image' },
-                  { text: 'Image Generation Protocols', link: '/api/image-generation-protocols' }
+                  {
+                    text: 'OpenAI',
+                    items: [
+                      { text: 'GPT Image 1 Mini 生成', link: '/api/image/gpt-image-1-mini' },
+                      { text: 'GPT Image 1 Mini 编辑', link: '/api/image/gpt-image-1-mini-edit' },
+                      { text: 'GPT Image 1.5 生成', link: '/api/image/gpt-image-1-5' },
+                      { text: 'GPT Image 1.5 编辑', link: '/api/image/gpt-image-1-5-edit' },
+                      { text: 'GPT Image 1 生成', link: '/api/image/gpt-image-1' },
+                      { text: 'GPT Image 1 编辑', link: '/api/image/gpt-image-1-edit' },
+                      { text: 'GPT Image 2 生成', link: '/api/image/gpt-image-2' },
+                      { text: 'GPT Image 2 编辑', link: '/api/image/gpt-image-2-edit' },
+                      { text: 'GPT Image 2.5 Flare 生成', link: '/api/image/gpt-image-2-5-flare' },
+                      { text: 'GPT Image 2.5 Flare 编辑', link: '/api/image/gpt-image-2-5-flare-edit' },
+                      { text: 'GPT Image 2.5 Sunburst 生成', link: '/api/image/gpt-image-2-5-sunburst' },
+                      { text: 'GPT Image 2.5 Sunburst 编辑', link: '/api/image/gpt-image-2-5-sunburst-edit' }
+                    ]
+                  },
+                  {
+                    text: 'Google',
+                    items: [
+                      { text: 'Gemini 2.5 Flash Image', link: '/api/image/gemini-2-5-flash-image' },
+                      { text: 'Gemini 3 Pro Image', link: '/api/image/gemini-3-pro-image' },
+                      { text: 'Gemini 3.1 Flash Image', link: '/api/image/gemini-3-1-flash-image' }
+                    ]
+                  },
+                  {
+                    text: 'X.AI',
+                    items: [
+                      { text: 'Grok Imagine 生成', link: '/api/image/grok-imagine-image' },
+                      { text: 'Grok Imagine 编辑', link: '/api/image/grok-imagine-image-edit' }
+                    ]
+                  }
                 ]
               },
               { text: 'Video Generation', items: [{ text: 'Omni-Video API', link: '/api/omni-video' }] },
@@ -294,7 +325,38 @@ export default defineConfig({
                 text: '图片生成',
                 items: [
                   { text: 'Omni-Image API', link: '/zh/api/omni-image' },
-                  { text: '图片生成协议', link: '/zh/api/image-generation-protocols' }
+                  {
+                    text: 'OpenAI',
+                    items: [
+                      { text: 'GPT Image 1 Mini 生成', link: '/zh/api/image/gpt-image-1-mini' },
+                      { text: 'GPT Image 1 Mini 编辑', link: '/zh/api/image/gpt-image-1-mini-edit' },
+                      { text: 'GPT Image 1.5 生成', link: '/zh/api/image/gpt-image-1-5' },
+                      { text: 'GPT Image 1.5 编辑', link: '/zh/api/image/gpt-image-1-5-edit' },
+                      { text: 'GPT Image 1 生成', link: '/zh/api/image/gpt-image-1' },
+                      { text: 'GPT Image 1 编辑', link: '/zh/api/image/gpt-image-1-edit' },
+                      { text: 'GPT Image 2 生成', link: '/zh/api/image/gpt-image-2' },
+                      { text: 'GPT Image 2 编辑', link: '/zh/api/image/gpt-image-2-edit' },
+                      { text: 'GPT Image 2.5 Flare 生成', link: '/zh/api/image/gpt-image-2-5-flare' },
+                      { text: 'GPT Image 2.5 Flare 编辑', link: '/zh/api/image/gpt-image-2-5-flare-edit' },
+                      { text: 'GPT Image 2.5 Sunburst 生成', link: '/zh/api/image/gpt-image-2-5-sunburst' },
+                      { text: 'GPT Image 2.5 Sunburst 编辑', link: '/zh/api/image/gpt-image-2-5-sunburst-edit' }
+                    ]
+                  },
+                  {
+                    text: 'Google',
+                    items: [
+                      { text: 'Gemini 2.5 Flash Image', link: '/zh/api/image/gemini-2-5-flash-image' },
+                      { text: 'Gemini 3 Pro Image', link: '/zh/api/image/gemini-3-pro-image' },
+                      { text: 'Gemini 3.1 Flash Image', link: '/zh/api/image/gemini-3-1-flash-image' }
+                    ]
+                  },
+                  {
+                    text: 'X.AI',
+                    items: [
+                      { text: 'Grok Imagine 生成', link: '/zh/api/image/grok-imagine-image' },
+                      { text: 'Grok Imagine 编辑', link: '/zh/api/image/grok-imagine-image-edit' }
+                    ]
+                  }
                 ]
               },
               { text: '视频生成', items: [{ text: 'Omni-Video API', link: '/zh/api/omni-video' }] },
