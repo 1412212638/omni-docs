@@ -26,6 +26,7 @@ OmniRouters 支持使用 OpenAI 兼容协议调用账号中已启用的所有模
 ## 图片生成
 
 - [Omni-Image API](/zh/api/omni-image)
+- [图片生成协议](/zh/api/image-generation-protocols)
 
 ## 视频生成
 

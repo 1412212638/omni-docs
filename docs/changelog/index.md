@@ -13,6 +13,7 @@
 - 后续每次文档、API、产品、政策或计费内容更新，都必须同步记录在中英文更新记录中
 - 补充 OpenAI Responses 操作、Anthropic Token 统计和 Gemini 原生协议操作文档
 - 根据当前支持范围移除 Gemini 显式缓存、缓存列表、缓存有效期管理和 Embedding 操作说明
+- 新增 OpenAI、Google Gemini 和 X.AI 图片生成协议参考
 
 ## 2026-05-14
 

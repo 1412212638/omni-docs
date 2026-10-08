@@ -26,6 +26,7 @@ OmniRouters supports OpenAI-compatible requests across all enabled models. If yo
 ## Image Generation
 
 - [Omni-Image API](/api/omni-image)
+- [Image Generation Protocols](/api/image-generation-protocols)
 
 ## Video Generation
 

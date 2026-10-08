@@ -143,7 +143,13 @@ export default defineConfig({
                   { text: 'Protocol Comparison', link: '/api/llm/protocol-comparison' }
                 ]
               },
-              { text: 'Image Generation', items: [{ text: 'Omni-Image API', link: '/api/omni-image' }] },
+              {
+                text: 'Image Generation',
+                items: [
+                  { text: 'Omni-Image API', link: '/api/omni-image' },
+                  { text: 'Image Generation Protocols', link: '/api/image-generation-protocols' }
+                ]
+              },
               { text: 'Video Generation', items: [{ text: 'Omni-Video API', link: '/api/omni-video' }] },
               { text: 'Audio Generation', items: [] },
               {
@@ -284,7 +290,13 @@ export default defineConfig({
                   { text: '协议对比', link: '/zh/api/llm/protocol-comparison' }
                 ]
               },
-              { text: '图片生成', items: [{ text: 'Omni-Image API', link: '/zh/api/omni-image' }] },
+              {
+                text: '图片生成',
+                items: [
+                  { text: 'Omni-Image API', link: '/zh/api/omni-image' },
+                  { text: '图片生成协议', link: '/zh/api/image-generation-protocols' }
+                ]
+              },
               { text: '视频生成', items: [{ text: 'Omni-Video API', link: '/zh/api/omni-video' }] },
               { text: '音频生成', items: [] },
               {
