@@ -12,3 +12,5 @@ This section collects AI applications, desktop tools, and integration projects r
   Configure Codex through `~/.codex/config.toml` to use the OmniRouters OpenAI Compatible API.
 - [Claude Code Configuration Guide](/ai-apps/claude-code)
   Configure local `settings.json` and onboarding state so Claude Code routes through the OmniRouters gateway.
+- [DeepSeek Harness Configuration Guide](/ai-apps/dsh)
+  Add the OmniRouters custom model API to DSH and start a conversation with an available model.

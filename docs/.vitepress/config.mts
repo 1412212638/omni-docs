@@ -96,7 +96,8 @@ export default defineConfig({
               { text: 'AionUi', link: '/ai-apps/aionui' },
               { text: 'CC Switch', link: '/ai-apps/cc-switch' },
               { text: 'Codex Configuration', link: '/ai-apps/codex' },
-              { text: 'Claude Code Configuration', link: '/ai-apps/claude-code' }
+              { text: 'Claude Code Configuration', link: '/ai-apps/claude-code' },
+              { text: 'DeepSeek Harness Configuration', link: '/ai-apps/dsh' }
             ]
           },
           {
@@ -274,7 +275,8 @@ export default defineConfig({
               { text: 'AionUi', link: '/zh/ai-apps/aionui' },
               { text: 'CC Switch', link: '/zh/ai-apps/cc-switch' },
               { text: 'Codex 配置教程', link: '/zh/ai-apps/codex' },
-              { text: 'Claude Code 配置教程', link: '/zh/ai-apps/claude-code' }
+              { text: 'Claude Code 配置教程', link: '/zh/ai-apps/claude-code' },
+              { text: 'DeepSeek Harness 配置教程', link: '/zh/ai-apps/dsh' }
             ]
           },
           {

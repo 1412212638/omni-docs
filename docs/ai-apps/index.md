@@ -12,3 +12,5 @@
   通过 `~/.codex/config.toml` 配置 Codex 使用 OmniRouters OpenAI Compatible API。
 - [Claude Code 配置教程](/zh/ai-apps/claude-code)
   通过本地 `settings.json` 和 onboarding 配置，让 Claude Code 走 OmniRouters 网关。
+- [DeepSeek Harness 配置教程](/zh/ai-apps/dsh)
+  在 DSH 中添加 OmniRouters 自定义模型 API，并使用可用模型开始对话。
