@@ -16,3 +16,5 @@
   在 DSH 中添加 OmniRouters 自定义模型 API，并使用可用模型开始对话。
 - [TRAE 配置教程](/zh/ai-apps/trae)
   在 TRAE 中添加 OmniRouters 自定义模型，并使用 OpenAI Chat Completions 兼容协议。
+- [WorkBuddy 配置教程](/zh/ai-apps/workbuddy)
+  在腾讯 WorkBuddy 中添加 OmniRouters 自定义模型并测试连接。

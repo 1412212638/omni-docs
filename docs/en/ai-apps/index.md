@@ -16,3 +16,5 @@ This section collects AI applications, desktop tools, and integration projects r
   Add the OmniRouters custom model API to DSH and start a conversation with an available model.
 - [TRAE Configuration Guide](/ai-apps/trae)
   Add an OmniRouters custom model to TRAE through the OpenAI Chat Completions-compatible protocol.
+- [WorkBuddy Configuration Guide](/ai-apps/workbuddy)
+  Add an OmniRouters custom model to Tencent WorkBuddy and test the connection.

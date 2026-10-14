@@ -98,7 +98,8 @@ export default defineConfig({
               { text: 'Codex Configuration', link: '/ai-apps/codex' },
               { text: 'Claude Code Configuration', link: '/ai-apps/claude-code' },
               { text: 'DeepSeek Harness Configuration', link: '/ai-apps/dsh' },
-              { text: 'TRAE Configuration', link: '/ai-apps/trae' }
+              { text: 'TRAE Configuration', link: '/ai-apps/trae' },
+              { text: 'WorkBuddy Configuration', link: '/ai-apps/workbuddy' }
             ]
           },
           {
@@ -278,7 +279,8 @@ export default defineConfig({
               { text: 'Codex 配置教程', link: '/zh/ai-apps/codex' },
               { text: 'Claude Code 配置教程', link: '/zh/ai-apps/claude-code' },
               { text: 'DeepSeek Harness 配置教程', link: '/zh/ai-apps/dsh' },
-              { text: 'TRAE 配置教程', link: '/zh/ai-apps/trae' }
+              { text: 'TRAE 配置教程', link: '/zh/ai-apps/trae' },
+              { text: 'WorkBuddy 配置教程', link: '/zh/ai-apps/workbuddy' }
             ]
           },
           {
