@@ -14,3 +14,5 @@ This section collects AI applications, desktop tools, and integration projects r
   Configure local `settings.json` and onboarding state so Claude Code routes through the OmniRouters gateway.
 - [DeepSeek Harness Configuration Guide](/ai-apps/dsh)
   Add the OmniRouters custom model API to DSH and start a conversation with an available model.
+- [TRAE Configuration Guide](/ai-apps/trae)
+  Add an OmniRouters custom model to TRAE through the OpenAI Chat Completions-compatible protocol.

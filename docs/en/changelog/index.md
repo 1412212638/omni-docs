@@ -7,6 +7,7 @@ This page tracks notable updates to OmniRouters Docs so that team members and ex
 ### AI Apps
 
 - Added a bilingual DeepSeek Harness (DSH) configuration guide with screenshots for all five setup steps
+- Added a bilingual TRAE configuration guide with three screenshots for custom model API setup
 
 ## 2026-10-08
 

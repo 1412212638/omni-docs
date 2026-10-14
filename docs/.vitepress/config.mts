@@ -97,7 +97,8 @@ export default defineConfig({
               { text: 'CC Switch', link: '/ai-apps/cc-switch' },
               { text: 'Codex Configuration', link: '/ai-apps/codex' },
               { text: 'Claude Code Configuration', link: '/ai-apps/claude-code' },
-              { text: 'DeepSeek Harness Configuration', link: '/ai-apps/dsh' }
+              { text: 'DeepSeek Harness Configuration', link: '/ai-apps/dsh' },
+              { text: 'TRAE Configuration', link: '/ai-apps/trae' }
             ]
           },
           {
@@ -276,7 +277,8 @@ export default defineConfig({
               { text: 'CC Switch', link: '/zh/ai-apps/cc-switch' },
               { text: 'Codex 配置教程', link: '/zh/ai-apps/codex' },
               { text: 'Claude Code 配置教程', link: '/zh/ai-apps/claude-code' },
-              { text: 'DeepSeek Harness 配置教程', link: '/zh/ai-apps/dsh' }
+              { text: 'DeepSeek Harness 配置教程', link: '/zh/ai-apps/dsh' },
+              { text: 'TRAE 配置教程', link: '/zh/ai-apps/trae' }
             ]
           },
           {
